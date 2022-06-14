@@ -1,3 +1,149 @@
-[gd_scene format=2]
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://asserts/art/bg3.png" type="Texture" id=1]
+[ext_resource path="res://asserts/ttf/FiraCode-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Game.gd" type="Script" id=3]
+[ext_resource path="res://asserts/art/2dgirl.webp" type="Texture" id=4]
+[ext_resource path="res://asserts/themes/MainSceneButton.tres" type="Theme" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="Theme" id=7]
+
+[sub_resource type="Theme" id=8]
+
+[sub_resource type="LineShape2D" id=5]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "2DGirl",
+"speed": 5.0
+} ]
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Gui" type="Control" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="Background" type="TextureRect" parent="Gui"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Title" type="Label" parent="Gui"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -225.0
+margin_right = 225.0
+margin_bottom = 141.0
+theme = SubResource( 2 )
+custom_colors/font_color = Color( 0.94902, 0.611765, 0.0313726, 1 )
+text = "Buch der Schöpfung"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 6.5625
+max_lines_visible = 9
+
+[node name="Menu" type="VBoxContainer" parent="Gui"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -206.0
+margin_top = -174.0
+margin_right = 206.0
+margin_bottom = 174.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Gui/Menu"]
+margin_right = 412.0
+margin_bottom = 84.0
+theme = SubResource( 7 )
+custom_constants/margin_top = 20
+custom_constants/margin_bottom = 20
+
+[node name="StartButton" type="Button" parent="Gui/Menu/MarginContainer"]
+margin_top = 20.0
+margin_right = 412.0
+margin_bottom = 64.0
+theme = ExtResource( 5 )
+text = "Start"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Gui/Menu"]
+margin_top = 88.0
+margin_right = 412.0
+margin_bottom = 172.0
+custom_constants/margin_top = 20
+custom_constants/margin_bottom = 20
+
+[node name="ContinueButton" type="Button" parent="Gui/Menu/MarginContainer2"]
+margin_top = 20.0
+margin_right = 412.0
+margin_bottom = 64.0
+theme = ExtResource( 5 )
+text = "Continue"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Gui/Menu"]
+margin_top = 176.0
+margin_right = 412.0
+margin_bottom = 260.0
+custom_constants/margin_top = 20
+custom_constants/margin_bottom = 20
+
+[node name="SettingButton" type="Button" parent="Gui/Menu/MarginContainer3"]
+margin_top = 20.0
+margin_right = 412.0
+margin_bottom = 64.0
+theme = ExtResource( 5 )
+text = "Settings"
+
+[node name="MarginContainer4" type="MarginContainer" parent="Gui/Menu"]
+margin_top = 264.0
+margin_right = 412.0
+margin_bottom = 348.0
+custom_constants/margin_top = 20
+custom_constants/margin_bottom = 20
+
+[node name="ExitButton" type="Button" parent="Gui/Menu/MarginContainer4"]
+margin_top = 20.0
+margin_right = 412.0
+margin_bottom = 64.0
+theme = ExtResource( 5 )
+text = "Exit"
+
+[node name="ExitDialog" type="ConfirmationDialog" parent="Gui"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -230.0
+margin_top = -202.0
+margin_right = 241.0
+margin_bottom = 4.0
+theme = SubResource( 8 )
+window_title = "Sure to quit?"
+resizable = true
+
+[node name="FirstScene" type="Node2D" parent="."]
+visible = false
+
+[node name="2Dgirl" type="Area2D" parent="FirstScene"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstScene/2Dgirl"]
+shape = SubResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="FirstScene/2Dgirl"]
+position = Vector2( 340, 395 )
+scale = Vector2( 0.467664, 0.52517 )
+frames = SubResource( 6 )
+animation = "2DGirl"
