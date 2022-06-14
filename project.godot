@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Bd S"
+config/name="BdS"
 config/icon="res://icon.png"
 
 [physics]
