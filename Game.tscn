@@ -33,19 +33,19 @@ animations = [ {
 [node name="Game" type="Node"]
 script = ExtResource( 3 )
 
-[node name="GameInterface" type="Node" parent="."]
+[node name="Interface" type="Node" parent="."]
 
-[node name="MainMenu" type="Control" parent="GameInterface"]
+[node name="MainMenu" type="Control" parent="Interface"]
 margin_right = 1920.0
 margin_bottom = 1080.0
 
-[node name="Background" type="TextureRect" parent="GameInterface/MainMenu"]
+[node name="Background" type="TextureRect" parent="Interface/MainMenu"]
 margin_right = 1920.0
 margin_bottom = 1080.0
 texture = ExtResource( 1 )
 expand = true
 
-[node name="Title" type="Label" parent="GameInterface/MainMenu"]
+[node name="Title" type="Label" parent="Interface/MainMenu"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -225.0
@@ -57,10 +57,9 @@ text = "Buch der Schöpfung"
 align = 1
 valign = 1
 uppercase = true
-percent_visible = 6.5625
 max_lines_visible = 9
 
-[node name="Menu" type="VBoxContainer" parent="GameInterface/MainMenu"]
+[node name="Menu" type="VBoxContainer" parent="Interface/MainMenu"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -70,71 +69,71 @@ margin_top = -174.0
 margin_right = 206.0
 margin_bottom = 174.0
 
-[node name="StartContainer" type="MarginContainer" parent="GameInterface/MainMenu/Menu"]
+[node name="StartContainer" type="MarginContainer" parent="Interface/MainMenu/Menu"]
 margin_right = 412.0
 margin_bottom = 84.0
 theme = SubResource( 7 )
 custom_constants/margin_top = 20
 custom_constants/margin_bottom = 20
 
-[node name="StartButton" type="Button" parent="GameInterface/MainMenu/Menu/StartContainer"]
+[node name="StartButton" type="Button" parent="Interface/MainMenu/Menu/StartContainer"]
 margin_top = 20.0
 margin_right = 412.0
 margin_bottom = 64.0
 theme = ExtResource( 5 )
 text = "Start"
 
-[node name="ContinueContainer" type="MarginContainer" parent="GameInterface/MainMenu/Menu"]
+[node name="ContinueContainer" type="MarginContainer" parent="Interface/MainMenu/Menu"]
 margin_top = 88.0
 margin_right = 412.0
 margin_bottom = 172.0
 custom_constants/margin_top = 20
 custom_constants/margin_bottom = 20
 
-[node name="ContinueButton" type="Button" parent="GameInterface/MainMenu/Menu/ContinueContainer"]
+[node name="ContinueButton" type="Button" parent="Interface/MainMenu/Menu/ContinueContainer"]
 margin_top = 20.0
 margin_right = 412.0
 margin_bottom = 64.0
 theme = ExtResource( 5 )
 text = "Continue"
 
-[node name="SettingContainer" type="MarginContainer" parent="GameInterface/MainMenu/Menu"]
+[node name="SettingContainer" type="MarginContainer" parent="Interface/MainMenu/Menu"]
 margin_top = 176.0
 margin_right = 412.0
 margin_bottom = 260.0
 custom_constants/margin_top = 20
 custom_constants/margin_bottom = 20
 
-[node name="SettingButton" type="Button" parent="GameInterface/MainMenu/Menu/SettingContainer"]
+[node name="SettingButton" type="Button" parent="Interface/MainMenu/Menu/SettingContainer"]
 margin_top = 20.0
 margin_right = 412.0
 margin_bottom = 64.0
 theme = ExtResource( 5 )
 text = "Settings"
 
-[node name="ExitContainer" type="MarginContainer" parent="GameInterface/MainMenu/Menu"]
+[node name="ExitContainer" type="MarginContainer" parent="Interface/MainMenu/Menu"]
 margin_top = 264.0
 margin_right = 412.0
 margin_bottom = 348.0
 custom_constants/margin_top = 20
 custom_constants/margin_bottom = 20
 
-[node name="ExitButton" type="Button" parent="GameInterface/MainMenu/Menu/ExitContainer"]
+[node name="ExitButton" type="Button" parent="Interface/MainMenu/Menu/ExitContainer"]
 margin_top = 20.0
 margin_right = 412.0
 margin_bottom = 64.0
 theme = ExtResource( 5 )
 text = "Exit"
 
-[node name="ContinueMenu" type="Control" parent="GameInterface"]
+[node name="ContinueMenu" type="Control" parent="Interface"]
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="SettingMenu" type="Control" parent="GameInterface"]
+[node name="SettingMenu" type="Control" parent="Interface"]
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="ExitDialog" type="ConfirmationDialog" parent="GameInterface"]
+[node name="ExitDialog" type="ConfirmationDialog" parent="Interface"]
 margin_left = 754.0
 margin_top = 650.0
 margin_right = 1166.0
@@ -157,13 +156,13 @@ scale = Vector2( 0.467664, 0.52517 )
 frames = SubResource( 6 )
 animation = "2DGirl"
 
-[node name="GameContent" type="Node" parent="."]
+[node name="Content" type="Node" parent="."]
 
-[node name="GameSystem" type="Node" parent="GameContent"]
+[node name="System" type="Node" parent="Content"]
 script = ExtResource( 6 )
 
-[node name="GameData" type="Node" parent="GameContent/GameSystem"]
+[node name="Data" type="Node" parent="Content/System"]
 script = ExtResource( 7 )
 
-[node name="Date" type="Node" parent="GameContent/GameSystem/GameData"]
+[node name="Date" type="Node" parent="Content/System/Data"]
 script = ExtResource( 8 )

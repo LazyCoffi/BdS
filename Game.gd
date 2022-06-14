@@ -5,9 +5,9 @@ var continueMenu
 var settingMenu
 
 func _ready():
-	mainMenu = $GameInterface/MainMenu
-	continueMenu = $GameInterface/ContinueMenu
-	settingMenu = $GameInterface/SettingMenu
+	mainMenu = $Interface/MainMenu
+	continueMenu = $Interface/ContinueMenu
+	settingMenu = $Interface/SettingMenu
 	
 	setConnects()	
 	toMainMenu()
@@ -18,27 +18,27 @@ func _process(delta):
 #-connections-#
 
 func setStartButtonConnect():
-	var startButton = $GameInterface/MainMenu/Menu/StartContainer/StartButton
+	var startButton = $Interface/MainMenu/Menu/StartContainer/StartButton
 	if not startButton.is_connected("pressed", self, "toStartScene"):
 		startButton.connect("pressed", self, "toStartScene")
 		
 func setContinueButtonConnect():
-	var continueButton = $GameInterface/MainMenu/Menu/ContinueContainer/ContinueButtonButton
+	var continueButton = $Interface/MainMenu/Menu/ContinueContainer/ContinueButtonButton
 	if not continueButton.is_connected("pressed", self, "toContinueScene"):
 		continueButton.connect("pressed", self, "toContinueScene")
 
 func setSettingButtonConnect():
-	var settingButton = $GameInterface/MainMenu/Menu/SettingContainer/SettingButton
+	var settingButton = $Interface/MainMenu/Menu/SettingContainer/SettingButton
 	if not settingButton.is_connected("pressed", self, "toSettingScene"):
 		settingButton.connect("pressed", self, "toSettingScene")
 
 func setExitButtonConnect():
-	var exitButton = $GameInterface/MainMenu/Menu/ExitContainer/ExitButton
+	var exitButton = $Interface/MainMenu/Menu/ExitContainer/ExitButton
 	if not exitButton.is_connected("pressed", self, "gameExitDialog"):
 		exitButton.connect("pressed", self, "gameExitDialog")
 
 func setExitDialogConnect():
-	var exitDialog = $GameInterface/ExitDialog
+	var exitDialog = $Interface/ExitDialog
 	if not exitDialog.is_connected("confirmed", self, "gameExit"):
 		exitDialog.connect("confirmed", self, "gameExit")
 
@@ -62,7 +62,7 @@ func toSettingMenu():
 	settingMenu.show()
 
 func gameExitDialog():
-	$GameInterface/ExitDialog.popup()
+	$Interface/ExitDialog.popup()
 
 func gameExit():
 	get_tree().quit()
