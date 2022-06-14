@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://asserts/art/bg3.png" type="Texture" id=1]
 [ext_resource path="res://asserts/ttf/FiraCode-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Game.gd" type="Script" id=3]
 [ext_resource path="res://asserts/art/2dgirl.webp" type="Texture" id=4]
 [ext_resource path="res://asserts/themes/MainSceneButton.tres" type="Theme" id=5]
+[ext_resource path="res://GameSystem.gd" type="Script" id=6]
+[ext_resource path="res://GameData.gd" type="Script" id=7]
+[ext_resource path="res://Date.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -27,20 +30,22 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node"]
 script = ExtResource( 3 )
 
-[node name="Gui" type="Control" parent="."]
+[node name="GameInterface" type="Node" parent="."]
+
+[node name="MainMenu" type="Control" parent="GameInterface"]
 margin_right = 1920.0
 margin_bottom = 1080.0
 
-[node name="Background" type="TextureRect" parent="Gui"]
+[node name="Background" type="TextureRect" parent="GameInterface/MainMenu"]
 margin_right = 1920.0
 margin_bottom = 1080.0
 texture = ExtResource( 1 )
 expand = true
 
-[node name="Title" type="Label" parent="Gui"]
+[node name="Title" type="Label" parent="GameInterface/MainMenu"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -225.0
@@ -55,7 +60,7 @@ uppercase = true
 percent_visible = 6.5625
 max_lines_visible = 9
 
-[node name="Menu" type="VBoxContainer" parent="Gui"]
+[node name="Menu" type="VBoxContainer" parent="GameInterface/MainMenu"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -65,85 +70,100 @@ margin_top = -174.0
 margin_right = 206.0
 margin_bottom = 174.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Gui/Menu"]
+[node name="StartContainer" type="MarginContainer" parent="GameInterface/MainMenu/Menu"]
 margin_right = 412.0
 margin_bottom = 84.0
 theme = SubResource( 7 )
 custom_constants/margin_top = 20
 custom_constants/margin_bottom = 20
 
-[node name="StartButton" type="Button" parent="Gui/Menu/MarginContainer"]
+[node name="StartButton" type="Button" parent="GameInterface/MainMenu/Menu/StartContainer"]
 margin_top = 20.0
 margin_right = 412.0
 margin_bottom = 64.0
 theme = ExtResource( 5 )
 text = "Start"
 
-[node name="MarginContainer2" type="MarginContainer" parent="Gui/Menu"]
+[node name="ContinueContainer" type="MarginContainer" parent="GameInterface/MainMenu/Menu"]
 margin_top = 88.0
 margin_right = 412.0
 margin_bottom = 172.0
 custom_constants/margin_top = 20
 custom_constants/margin_bottom = 20
 
-[node name="ContinueButton" type="Button" parent="Gui/Menu/MarginContainer2"]
+[node name="ContinueButton" type="Button" parent="GameInterface/MainMenu/Menu/ContinueContainer"]
 margin_top = 20.0
 margin_right = 412.0
 margin_bottom = 64.0
 theme = ExtResource( 5 )
 text = "Continue"
 
-[node name="MarginContainer3" type="MarginContainer" parent="Gui/Menu"]
+[node name="SettingContainer" type="MarginContainer" parent="GameInterface/MainMenu/Menu"]
 margin_top = 176.0
 margin_right = 412.0
 margin_bottom = 260.0
 custom_constants/margin_top = 20
 custom_constants/margin_bottom = 20
 
-[node name="SettingButton" type="Button" parent="Gui/Menu/MarginContainer3"]
+[node name="SettingButton" type="Button" parent="GameInterface/MainMenu/Menu/SettingContainer"]
 margin_top = 20.0
 margin_right = 412.0
 margin_bottom = 64.0
 theme = ExtResource( 5 )
 text = "Settings"
 
-[node name="MarginContainer4" type="MarginContainer" parent="Gui/Menu"]
+[node name="ExitContainer" type="MarginContainer" parent="GameInterface/MainMenu/Menu"]
 margin_top = 264.0
 margin_right = 412.0
 margin_bottom = 348.0
 custom_constants/margin_top = 20
 custom_constants/margin_bottom = 20
 
-[node name="ExitButton" type="Button" parent="Gui/Menu/MarginContainer4"]
+[node name="ExitButton" type="Button" parent="GameInterface/MainMenu/Menu/ExitContainer"]
 margin_top = 20.0
 margin_right = 412.0
 margin_bottom = 64.0
 theme = ExtResource( 5 )
 text = "Exit"
 
-[node name="ExitDialog" type="ConfirmationDialog" parent="Gui"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -230.0
-margin_top = -202.0
-margin_right = 241.0
-margin_bottom = 4.0
+[node name="ContinueMenu" type="Control" parent="GameInterface"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="SettingMenu" type="Control" parent="GameInterface"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ExitDialog" type="ConfirmationDialog" parent="GameInterface"]
+margin_left = 754.0
+margin_top = 650.0
+margin_right = 1166.0
+margin_bottom = 720.0
 theme = SubResource( 8 )
 window_title = "Sure to quit?"
 resizable = true
 
-[node name="FirstScene" type="Node2D" parent="."]
+[node name="TestScene" type="Node2D" parent="."]
 visible = false
 
-[node name="2Dgirl" type="Area2D" parent="FirstScene"]
+[node name="2Dgirl" type="Area2D" parent="TestScene"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstScene/2Dgirl"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestScene/2Dgirl"]
 shape = SubResource( 5 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="FirstScene/2Dgirl"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="TestScene/2Dgirl"]
 position = Vector2( 340, 395 )
 scale = Vector2( 0.467664, 0.52517 )
 frames = SubResource( 6 )
 animation = "2DGirl"
+
+[node name="GameContent" type="Node" parent="."]
+
+[node name="GameSystem" type="Node" parent="GameContent"]
+script = ExtResource( 6 )
+
+[node name="GameData" type="Node" parent="GameContent/GameSystem"]
+script = ExtResource( 7 )
+
+[node name="Date" type="Node" parent="GameContent/GameSystem/GameData"]
+script = ExtResource( 8 )

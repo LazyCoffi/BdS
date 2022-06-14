@@ -1,51 +1,73 @@
-extends Node2D
+extends Node
 
-var running_node = 0
-var scene_gui
-var scene_firstScene
+var mainMenu
+var continueMenu
+var settingMenu
 
 func _ready():
-	hide_all_nodes()
+	mainMenu = $GameInterface/MainMenu
+	continueMenu = $GameInterface/ContinueMenu
+	settingMenu = $GameInterface/SettingMenu
 	
-	scene_gui = $Gui
-	scene_firstScene = $FirstScene
-	
-	set_connects()
-	
-	scene_gui.show()
+	setConnects()	
+	toMainMenu()
 
 func _process(delta):
 	pass
 
 #-connections-#
 
-func set_startButton_connect():
-	$Gui/Menu/MarginContainer/StartButton.connect("pressed", self, "toFirstScene")
+func setStartButtonConnect():
+	var startButton = $GameInterface/MainMenu/Menu/StartContainer/StartButton
+	if not startButton.is_connected("pressed", self, "toStartScene"):
+		startButton.connect("pressed", self, "toStartScene")
+		
+func setContinueButtonConnect():
+	var continueButton = $GameInterface/MainMenu/Menu/ContinueContainer/ContinueButtonButton
+	if not continueButton.is_connected("pressed", self, "toContinueScene"):
+		continueButton.connect("pressed", self, "toContinueScene")
 
-func set_exitButton_connect():
-	$Gui/Menu/MarginContainer4/ExitButton.connect("pressed", self, "game_exit_dialog")
+func setSettingButtonConnect():
+	var settingButton = $GameInterface/MainMenu/Menu/SettingContainer/SettingButton
+	if not settingButton.is_connected("pressed", self, "toSettingScene"):
+		settingButton.connect("pressed", self, "toSettingScene")
 
-func set_exitDialog_connect():
-	$Gui/ExitDialog.connect("confirmed", self, "game_exit")
+func setExitButtonConnect():
+	var exitButton = $GameInterface/MainMenu/Menu/ExitContainer/ExitButton
+	if not exitButton.is_connected("pressed", self, "gameExitDialog"):
+		exitButton.connect("pressed", self, "gameExitDialog")
 
-func set_connects():
-	set_startButton_connect()
-	set_exitButton_connect()
-	set_exitDialog_connect()
+func setExitDialogConnect():
+	var exitDialog = $GameInterface/ExitDialog
+	if not exitDialog.is_connected("confirmed", self, "gameExit"):
+		exitDialog.connect("confirmed", self, "gameExit")
+
+func setConnects():
+	setStartButtonConnect()
+	setExitButtonConnect()
+	setExitDialogConnect()
 	
 #-functions-#
 	
-func toFirstScene():
-	hide_all_nodes()
-	$FirstScene.show()
+func toMainMenu():
+	hideAllNodes()
+	mainMenu.show()
 
-func game_exit_dialog():
-	$Gui/ExitDialog.popup()
+func toContinueMenu():
+	hideAllNodes()
+	continueMenu.show()
 
-func game_exit():
+func toSettingMenu():
+	hideAllNodes()
+	settingMenu.show()
+
+func gameExitDialog():
+	$GameInterface/ExitDialog.popup()
+
+func gameExit():
 	get_tree().quit()
 	
-func hide_all_nodes():
-	var nodes = self.get_children()
-	for node in nodes:
-		node.hide()	
+func hideAllNodes():
+	mainMenu.hide()
+	continueMenu.hide()
+	settingMenu.hide()
