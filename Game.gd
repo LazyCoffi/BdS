@@ -4,28 +4,20 @@ var mainMenu
 var continueMenu
 var settingMenu
 
-var node
-
 func _ready():
 	mainMenu = $Interface/MainMenu
 	continueMenu = $Interface/ContinueMenu
 	settingMenu = $Interface/SettingMenu
-	
-	node = $Content/System/Data/Words
-	
+		
 	setConnects()	
 	toMainMenu()
 	
 	## temp test area
 	test()	
-
-func _process(delta):
-	pass
 	
 func test():
-	node.call("insertBlock", "hell")
-	node.call("insertBlock", "o")
-	var blocks = node.call("getWords")
+	var node = $Content/System/Data/Words
+	var blocks = node.call("getDictTreeByWord", "wood")
 	for block in blocks:
 		print(block)
 
