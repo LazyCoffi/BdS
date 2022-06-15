@@ -29,3 +29,12 @@ func timePastByDay(n):		# 时间流逝n天
 	while n > 0:
 		nextDay()
 		n -= 1
+
+func getYear():
+	return year
+
+func getMouth():
+	return mouth
+
+func getDay():
+	return day

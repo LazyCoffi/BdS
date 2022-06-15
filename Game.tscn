@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://asserts/art/bg3.png" type="Texture" id=1]
 [ext_resource path="res://asserts/ttf/FiraCode-Bold.ttf" type="DynamicFontData" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://GameSystem.gd" type="Script" id=6]
 [ext_resource path="res://GameData.gd" type="Script" id=7]
 [ext_resource path="res://Date.gd" type="Script" id=8]
+[ext_resource path="res://TestScene.gd" type="Script" id=9]
+[ext_resource path="res://Words.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -144,6 +146,7 @@ resizable = true
 
 [node name="TestScene" type="Node2D" parent="."]
 visible = false
+script = ExtResource( 9 )
 
 [node name="2Dgirl" type="Area2D" parent="TestScene"]
 
@@ -166,3 +169,6 @@ script = ExtResource( 7 )
 
 [node name="Date" type="Node" parent="Content/System/Data"]
 script = ExtResource( 8 )
+
+[node name="Words" type="Node" parent="Content/System/Data"]
+script = ExtResource( 10 )
