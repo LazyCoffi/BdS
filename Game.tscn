@@ -186,3 +186,5 @@ script = ExtResource( 12 )
 
 [node name="Event" type="Node" parent="Content/System/Workflow"]
 script = ExtResource( 7 )
+
+[node name="EventFunc" type="Node" parent="Content/System/Workflow"]

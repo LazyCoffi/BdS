@@ -6,9 +6,21 @@ extends Node
 var date
 var words
 
+func initNodes():
+	$Interact/Collect.date = date
+	$Interact/Collect.words = words
+	
+	$Workflow/Event.date = date
+
+func initConnects():
+	var event = $Workflow/Event
+	date.connect("nextDaySignal", event, "prepareEvents")
+
 func _ready():
 	date = $Data/Date
 	words = $Data/Words
 	
-	$Interact/Collect.date = date
-	$Interact/Collect.words = words
+	initNodes()
+	initConnects()
+
+	

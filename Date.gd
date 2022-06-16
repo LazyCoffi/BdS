@@ -5,6 +5,8 @@ var year				# 游戏当前年份
 var mouth 			# 游戏当前月份
 var day				# 游戏当前日期
 
+signal nextDaySignal
+
 func _ready():
 	totalDays = 1;
 	mouth = 1;
@@ -21,6 +23,8 @@ func nextDay(): 			# 下一天
 		day = 1
 	else:
 		day += 1
+	
+	emit_signal("nextDaySignal")
 
 func timePastByDay(n):		# 时间流逝n天
 	if n <= 0:
