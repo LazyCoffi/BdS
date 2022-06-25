@@ -42,3 +42,8 @@ func getMouth():
 
 func getDay():
 	return day
+
+func setDate(_year, _mouth, _day):
+	year = _year
+	mouth = _mouth
+	day = _day

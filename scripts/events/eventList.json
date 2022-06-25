@@ -1,0 +1,36 @@
+[
+	{
+		"eventName" : "第一个事件",
+		"type" : "static",
+		"prob" : 0,
+		"occurDay" : 1,
+		"occurMouth" : 1,
+		"occurYear" : 1789,
+		"funcList" : 
+		{
+			"checkFuncName" : "trueTest",
+			"checkFuncParams" : [],
+			"successFuncName" : "messageEvent",
+			"successFuncParams" : ["welcome"],
+			"failFuncName" : "",
+			"failFuncParams" : []
+		}
+	},
+	{
+		"eventName" : "第二个事件",
+		"type" : "static",
+		"prob" : 0,
+		"occurDay" : 1,
+		"occurMouth" : 1,
+		"occurYear" : 1789,
+		"funcList" : 
+		{
+			"checkFuncName" : "trueTest",
+			"checkFuncParams" : [],
+			"successFuncName" : "messageEvent",
+			"successFuncParams" : ["welcomeAgain"],
+			"failFuncName" : "",
+			"failFuncParams" : []
+		}
+	},
+]

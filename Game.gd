@@ -4,13 +4,14 @@ var mainMenu
 var continueMenu
 var settingMenu
 
+signal startSignal
+
 func _ready():
 	mainMenu = $Interface/MainMenu
 	continueMenu = $Interface/ContinueMenu
 	settingMenu = $Interface/SettingMenu
 		
 	setConnects()	
-	toMainMenu()
 	
 	## temp test area
 	test()	
@@ -53,11 +54,13 @@ func setConnects():
 	setExitButtonConnect()
 	setExitDialogConnect()
 	
+	connect("startSignal", $Content, "startGame")
+	
 #-functions-#
 	
-func toMainMenu():
+func toStartScene():
+	emit_signal("startSignal")
 	hideAllNodes()
-	mainMenu.show()
 
 func toContinueMenu():
 	hideAllNodes()
@@ -72,7 +75,7 @@ func gameExitDialog():
 
 func gameExit():
 	get_tree().quit()
-	
+
 func hideAllNodes():
 	mainMenu.hide()
 	continueMenu.hide()

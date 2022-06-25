@@ -16,9 +16,22 @@ func insertBlock(block):
 	else:
 		words[block] = 1
 		
+func insertMultiBlocks(block, n):
+	while n > 0:
+		insertBlock(block)
+		n -= 1
+		
 func deleteBlock(block):
-	words[block] -= 1
+	if not words.has(block) or words[block] <= 0:
+		return
 	
+	words[block] -= 1
+
+func deleteMultiBlocks(block, n):
+	while n > 0:
+		deleteBlock(block)
+		n -= 1
+
 func addWord(word):
 	# TODO: 重要词汇获得提示
 	dict[word] = 1
@@ -49,6 +62,11 @@ func getWords():
 	for key in words.keys():
 		curWords.append([key, words[key]])
 
+func getBlockNum(block):
+	if not words.has(block):
+		return 0
+	return words[block]
+
 func getAllDict():
 	return dict.keys()
 		
@@ -60,12 +78,24 @@ func getCurDict():
 
 func getDictTreeByWord(word):
 	return dictTree[word]
-			
+	
+func hasWord(word):
+	if not dict.has(word) or dict[word] == 0:
+		return false
+	return true
+
 func getImportantDict():
 	var importDict = []
 	for key in words.keys():
-		if words[key] == 2:
+		if importantDict.has(key):
 			importDict.append(key)
+
+	return importDict
+
+func isImportantWord(word):
+	if importantDict.has(word):
+		return true
+	return false
 
 func initDict():
 	var file = File.new()
@@ -137,10 +167,3 @@ func generateNewDict(n):			# 使用n个词块添加一个条目
 		return randomUnlockNormalDict()
 	else:
 		return randomUnlockImportantDict()
-	
-	
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
