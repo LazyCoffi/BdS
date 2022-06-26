@@ -1,19 +1,72 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://asserts/art/window.png" type="Texture" id=1]
 [ext_resource path="res://asserts/art/Paper.png" type="Texture" id=2]
-[ext_resource path="res://asserts/art/Button.png" type="Texture" id=3]
+[ext_resource path="res://asserts/themes/标题字体.tres" type="Theme" id=3]
 [ext_resource path="res://DialogScene.gd" type="Script" id=4]
+[ext_resource path="res://asserts/art/smallButton.png" type="Texture" id=5]
+[ext_resource path="res://asserts/art/pressedSmallButton.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 528, -800 ), Vector2( 528, 272 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -432, -810 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 528, -600 ), Vector2( 528, 272 ) ]
+}
 
 [node name="Dialog" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = -432.0
-margin_top = -270.0
-margin_right = 432.0
-margin_bottom = 270.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 528.0
+margin_top = -800.0
+margin_right = 1392.0
+margin_bottom = -260.0
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="DialogIcon" type="TextureRect" parent="TextureRect"]
 margin_left = 16.0
@@ -23,23 +76,30 @@ margin_bottom = 429.0
 texture = ExtResource( 2 )
 
 [node name="DialogTitle" type="Label" parent="TextureRect"]
-margin_left = 552.0
+margin_left = 488.0
 margin_top = 78.0
-margin_right = 608.0
-margin_bottom = 92.0
+margin_right = 680.0
+margin_bottom = 118.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0.666667, 0.494118, 0.317647, 1 )
+align = 1
+valign = 1
 
 [node name="DialogText" type="RichTextLabel" parent="TextureRect"]
 margin_left = 400.0
 margin_top = 158.0
 margin_right = 768.0
 margin_bottom = 374.0
+theme = ExtResource( 3 )
+custom_colors/default_color = Color( 0.407843, 0.301961, 0.270588, 1 )
 
 [node name="Button" type="TextureButton" parent="TextureRect"]
 margin_left = 512.0
-margin_top = 398.0
+margin_top = 414.0
 margin_right = 648.0
-margin_bottom = 526.0
-texture_normal = ExtResource( 3 )
+margin_bottom = 486.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
 expand = true
 
 [node name="ButtonText" type="Label" parent="TextureRect/Button"]
@@ -48,6 +108,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -36.0
-margin_top = -16.0
+margin_top = -20.0
 margin_right = 36.0
-margin_bottom = 7.0
+margin_bottom = 21.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0.364706, 0.25098, 0.215686, 1 )
+text = "确认"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/hide = SubResource( 3 )
+anims/show = SubResource( 2 )

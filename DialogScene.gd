@@ -12,6 +12,7 @@ func showDialog(title, message):
 	$TextureRect/DialogTitle.text = title
 	$TextureRect/DialogText.text = message
 	show()
+	$AnimationPlayer.play("show")
 
 func nextDialog():
 	emit_signal("nextEventSignal")

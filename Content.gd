@@ -20,6 +20,7 @@ func initConnects():
 	$Scene/Dialog.connect("nextEventSignal", event, "popEvent")
 	event.connect("messageSignal", dialog, "showDialog")
 	event.connect("eventEndSignal", dialog, "closeDialog")
+	$OpeningCG.connect("cgEndSignal", self, "startGame")
 	
 
 func _ready():
@@ -31,10 +32,15 @@ func _ready():
 	initNodes()
 	initConnects()
 
+func playCG():
+	$OpeningCG.call("startCG")
+
 func startGame():
 	date.call("setDate", 1789, 1, 1)
 	event.call("prepareEvents")
 	event.call("popEvent")
+	$Scene/MainScene.call("showScene")
 	
-	# TODO:
-	$Scene/FirstScene.call("showScene")
+func nextDay():
+	event.call("prepareEvents")
+	event.call("popEvent")

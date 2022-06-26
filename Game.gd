@@ -25,22 +25,22 @@ func test():
 #-connections-#
 
 func setStartButtonConnect():
-	var startButton = $Interface/MainMenu/Menu/StartContainer/StartButton
+	var startButton = $Interface/MainMenu/StartButton
 	if not startButton.is_connected("pressed", self, "toStartScene"):
 		startButton.connect("pressed", self, "toStartScene")
 		
 func setContinueButtonConnect():
-	var continueButton = $Interface/MainMenu/Menu/ContinueContainer/ContinueButtonButton
+	var continueButton = $Interface/MainMenu/ContinueButtonButton
 	if not continueButton.is_connected("pressed", self, "toContinueScene"):
 		continueButton.connect("pressed", self, "toContinueScene")
 
 func setSettingButtonConnect():
-	var settingButton = $Interface/MainMenu/Menu/SettingContainer/SettingButton
+	var settingButton = $Interface/MainMenu/SettingButton
 	if not settingButton.is_connected("pressed", self, "toSettingScene"):
 		settingButton.connect("pressed", self, "toSettingScene")
 
 func setExitButtonConnect():
-	var exitButton = $Interface/MainMenu/Menu/ExitContainer/ExitButton
+	var exitButton = $Interface/MainMenu/ExitButton
 	if not exitButton.is_connected("pressed", self, "gameExitDialog"):
 		exitButton.connect("pressed", self, "gameExitDialog")
 
@@ -54,7 +54,7 @@ func setConnects():
 	setExitButtonConnect()
 	setExitDialogConnect()
 	
-	connect("startSignal", $Content, "startGame")
+	connect("startSignal", $Content, "playCG")
 	
 #-functions-#
 	
