@@ -1,12 +1,18 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://asserts/art/backgroundPics/5.png" type="Texture" id=1]
 [ext_resource path="res://asserts/art/backgroundPics/1.png" type="Texture" id=2]
-[ext_resource path="res://TestScene.gd" type="Script" id=3]
+[ext_resource path="res://MainScene.gd" type="Script" id=3]
 [ext_resource path="res://asserts/art/backgroundPics/6.png" type="Texture" id=4]
 [ext_resource path="res://asserts/art/backgroundPics/4.png" type="Texture" id=5]
 [ext_resource path="res://asserts/art/backgroundPics/3.png" type="Texture" id=6]
 [ext_resource path="res://asserts/art/backgroundPics/2.png" type="Texture" id=7]
+[ext_resource path="res://asserts/art/arrow1.png" type="Texture" id=8]
+[ext_resource path="res://asserts/art/hoverArrow1.png" type="Texture" id=9]
+[ext_resource path="res://asserts/themes/正文字体.tres" type="Theme" id=10]
+[ext_resource path="res://asserts/art/hoverBox.png" type="Texture" id=11]
+[ext_resource path="res://asserts/art/Arrow2.png" type="Texture" id=12]
+[ext_resource path="res://asserts/art/hoverArrow2.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
@@ -26,3 +32,62 @@ animation = "Background"
 frame = 4
 playing = true
 centered = false
+
+[node name="CollectArrow" type="TextureButton" parent="."]
+margin_left = 712.0
+margin_top = 768.0
+margin_right = 880.0
+margin_bottom = 840.0
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+expand = true
+
+[node name="CollectHoverBox" type="TextureRect" parent="."]
+margin_left = 888.0
+margin_top = 728.0
+margin_right = 992.0
+margin_bottom = 792.0
+texture = ExtResource( 11 )
+expand = true
+
+[node name="CollectText" type="Label" parent="CollectHoverBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -28.0
+margin_right = 35.0
+margin_bottom = 28.0
+theme = ExtResource( 10 )
+custom_colors/font_color = Color( 0.831373, 0.631373, 0.372549, 1 )
+text = "收集"
+
+[node name="BookArrow" type="TextureButton" parent="."]
+margin_left = 1056.0
+margin_top = 840.0
+margin_right = 1248.0
+margin_bottom = 1032.0
+texture_normal = ExtResource( 12 )
+texture_hover = ExtResource( 13 )
+
+[node name="BookHoverBox" type="TextureRect" parent="."]
+margin_left = 1024.0
+margin_top = 824.0
+margin_right = 1192.0
+margin_bottom = 888.0
+texture = ExtResource( 11 )
+expand = true
+
+[node name="BookText" type="Label" parent="BookHoverBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -70.0
+margin_top = -27.0
+margin_right = 70.0
+margin_bottom = 27.0
+theme = ExtResource( 10 )
+custom_colors/font_color = Color( 0.831373, 0.631373, 0.372549, 1 )
+text = "创造之书"

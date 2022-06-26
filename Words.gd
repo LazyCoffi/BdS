@@ -15,7 +15,11 @@ func insertBlock(block):
 		words[block] += 1
 	else:
 		words[block] = 1
-		
+
+func insertFromList(list):
+	for block in list:
+		insertBlock(block)
+
 func insertMultiBlocks(block, n):
 	while n > 0:
 		insertBlock(block)
@@ -26,6 +30,10 @@ func deleteBlock(block):
 		return
 	
 	words[block] -= 1
+
+func deleteFromList(list):
+	for block in list:
+		deleteBlock(block)
 
 func deleteMultiBlocks(block, n):
 	while n > 0:

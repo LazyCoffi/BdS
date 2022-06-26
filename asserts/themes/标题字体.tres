@@ -3,7 +3,7 @@
 [ext_resource path="res://asserts/ttf/SourceHanSansSC-Bold.otf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=1]
-size = 26
+size = 50
 outline_color = Color( 0.666667, 0.505882, 0.317647, 1 )
 extra_spacing_bottom = 2
 font_data = ExtResource( 1 )

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://asserts/themes/正文字体.tres" type="Theme" id=1]
+[ext_resource path="res://WorkBench.gd" type="Script" id=2]
+[ext_resource path="res://asserts/art/backspaceButton.png" type="Texture" id=3]
+[ext_resource path="res://asserts/art/confirmButton.png" type="Texture" id=4]
+[ext_resource path="res://asserts/art/totalBlack.png" type="Texture" id=5]
+
+[node name="CreateBench" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="ConfirmButton" type="TextureButton" parent="."]
+margin_left = 488.0
+margin_top = 168.0
+margin_right = 576.0
+margin_bottom = 232.0
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="BackspaceButton" type="TextureButton" parent="."]
+margin_left = 584.0
+margin_top = 168.0
+margin_right = 680.0
+margin_bottom = 232.0
+texture_normal = ExtResource( 3 )
+expand = true
+
+[node name="CurrentWord" type="Label" parent="."]
+margin_left = 80.0
+margin_top = 168.0
+margin_right = 472.0
+margin_bottom = 232.0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.47451, 0.333333, 0.282353, 1 )
+text = "hello"
+align = 1
+
+[node name="Line" type="TextureRect" parent="."]
+margin_left = 80.0
+margin_top = 232.0
+margin_right = 480.0
+margin_bottom = 240.0
+texture = ExtResource( 5 )
+expand = true
