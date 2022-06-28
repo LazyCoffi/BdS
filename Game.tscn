@@ -7,8 +7,8 @@
 [ext_resource path="res://CollectScene.tscn" type="PackedScene" id=5]
 [ext_resource path="res://MainScene.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Event.gd" type="Script" id=7]
+[ext_resource path="res://MarketScene.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Content.gd" type="Script" id=9]
-[ext_resource path="res://Market.gd" type="Script" id=12]
 [ext_resource path="res://Book.tscn" type="PackedScene" id=13]
 [ext_resource path="res://DialogScene.tscn" type="PackedScene" id=23]
 
@@ -53,14 +53,13 @@ script = ExtResource( 9 )
 
 [node name="CollectScene" parent="Content/Scene" instance=ExtResource( 5 )]
 
+[node name="MarketScene" parent="Content/Scene" instance=ExtResource( 8 )]
+
 [node name="Dialog" parent="Content/Scene" instance=ExtResource( 23 )]
 
 [node name="System" type="Node" parent="Content"]
 
 [node name="Interact" type="Node" parent="Content/System"]
-
-[node name="Market" type="Node" parent="Content/System/Interact"]
-script = ExtResource( 12 )
 
 [node name="Workflow" type="Node" parent="Content/System"]
 

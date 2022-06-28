@@ -39,7 +39,6 @@ func fillList(list):
 		idx += 1
 
 func selected(index):
-	print(index)
 	if index % 4 == 2:
 		$ItemList.unselect(index)
 		emit_signal("textSelectedSignal", $ItemList.call("get_item_text", index - 2))

@@ -65,7 +65,8 @@ func getBlockNum(block):
 func getBlocks():
 	var curWords = []
 	for key in words.keys():
-		curWords.append([key, words[key]])
+		if words[key] > 0:
+			curWords.append([key, words[key]])
 	return curWords
 
 func getAllDict():

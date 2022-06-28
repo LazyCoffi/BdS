@@ -28,4 +28,17 @@ func subRandomMoney(a, b):
 func randn(a, b):
 	return randi() % b + a
 
+func sellBlock(block):
+	addMoney(priceDict[block])
 
+func initMarketList():
+	priceDict = parseScript("market/priceList.json")
+	
+func parseScript(scriptPath):
+	var file = File.new()
+	var path = "res://scripts/" + scriptPath
+	if not file.file_exists(path):
+		print(scriptPath + "文件不存在!")
+		return
+	file.open(path, File.READ)
+	return parse_json(file.get_as_text())

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://asserts/art/backgroundPics/5.png" type="Texture" id=1]
 [ext_resource path="res://asserts/art/backgroundPics/1.png" type="Texture" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://asserts/art/hoverBox.png" type="Texture" id=11]
 [ext_resource path="res://asserts/art/Arrow2.png" type="Texture" id=12]
 [ext_resource path="res://asserts/art/hoverArrow2.png" type="Texture" id=13]
+[ext_resource path="res://asserts/art/hoverMarketArrow.png" type="Texture" id=14]
+[ext_resource path="res://asserts/art/marketArrow.png" type="Texture" id=15]
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
@@ -93,5 +95,37 @@ margin_bottom = 27.0
 theme = ExtResource( 10 )
 custom_colors/font_color = Color( 0.831373, 0.631373, 0.372549, 1 )
 text = "创造之书"
+align = 1
+valign = 1
+
+[node name="MarketArrow" type="TextureButton" parent="."]
+margin_left = 776.0
+margin_top = 968.0
+margin_right = 904.0
+margin_bottom = 1064.0
+texture_normal = ExtResource( 15 )
+texture_hover = ExtResource( 14 )
+expand = true
+
+[node name="MarketHoverBox" type="TextureRect" parent="."]
+margin_left = 920.0
+margin_top = 968.0
+margin_right = 1088.0
+margin_bottom = 1032.0
+texture = ExtResource( 11 )
+expand = true
+
+[node name="MarketText" type="Label" parent="MarketHoverBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -70.0
+margin_top = -27.0
+margin_right = 70.0
+margin_bottom = 27.0
+theme = ExtResource( 10 )
+custom_colors/font_color = Color( 0.831373, 0.631373, 0.372549, 1 )
+text = "小镇集市"
 align = 1
 valign = 1
