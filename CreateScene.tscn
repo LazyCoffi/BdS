@@ -29,17 +29,17 @@ script = ExtResource( 8 )
 script = ExtResource( 2 )
 
 [node name="ConfirmButton" type="TextureButton" parent="CreateBench"]
-margin_left = 488.0
+margin_left = 688.0
 margin_top = 168.0
-margin_right = 576.0
+margin_right = 776.0
 margin_bottom = 232.0
 texture_normal = ExtResource( 5 )
 expand = true
 
 [node name="BackspaceButton" type="TextureButton" parent="CreateBench"]
-margin_left = 584.0
+margin_left = 792.0
 margin_top = 168.0
-margin_right = 680.0
+margin_right = 888.0
 margin_bottom = 232.0
 texture_normal = ExtResource( 3 )
 expand = true
@@ -47,7 +47,7 @@ expand = true
 [node name="CurrentWord" type="Label" parent="CreateBench"]
 margin_left = 80.0
 margin_top = 168.0
-margin_right = 472.0
+margin_right = 664.0
 margin_bottom = 232.0
 theme = ExtResource( 9 )
 custom_colors/font_color = Color( 0.47451, 0.333333, 0.282353, 1 )
@@ -55,9 +55,9 @@ align = 1
 valign = 1
 
 [node name="Line" type="TextureRect" parent="CreateBench"]
-margin_left = 80.0
+margin_left = 136.0
 margin_top = 232.0
-margin_right = 480.0
+margin_right = 664.0
 margin_bottom = 240.0
 texture = ExtResource( 4 )
 expand = true
@@ -68,7 +68,7 @@ script = ExtResource( 1 )
 [node name="ItemList" type="ItemList" parent="CreateList"]
 margin_left = 129.0
 margin_top = 328.0
-margin_right = 705.0
+margin_right = 896.0
 margin_bottom = 960.0
 theme = ExtResource( 6 )
 custom_colors/guide_color = Color( 0.47451, 0.333333, 0.282353, 1 )
@@ -80,13 +80,14 @@ custom_styles/bg_focus = SubResource( 3 )
 custom_styles/cursor_unfocused = SubResource( 4 )
 custom_styles/selected = SubResource( 5 )
 custom_styles/bg = SubResource( 6 )
+max_text_lines = 2
 max_columns = 3
 same_column_width = true
 
 [node name="Title" type="Label" parent="."]
-margin_left = 320.0
+margin_left = 416.0
 margin_top = 80.0
-margin_right = 520.0
+margin_right = 616.0
 margin_bottom = 155.0
 theme = ExtResource( 7 )
 custom_colors/font_color = Color( 0.47451, 0.333333, 0.282353, 1 )

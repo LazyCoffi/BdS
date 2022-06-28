@@ -9,7 +9,18 @@ func _ready():
 
 func fillList(list):
 	$ItemList.clear()
-	var idx = 0
+	
+	
+	$ItemList.add_item("待选词块")
+	$ItemList.set_item_selectable(0, false)
+	$ItemList.add_item("数量")
+	$ItemList.set_item_selectable(1, false)
+	$ItemList.add_item("--")
+	$ItemList.set_item_selectable(2, false)
+	$ItemList.add_item("--")
+	$ItemList.set_item_selectable(3, false)
+	
+	var idx = 4
 	for listNode in list:
 		$ItemList.add_item(listNode[0])
 		$ItemList.set_item_selectable(idx, false)

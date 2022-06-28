@@ -3,12 +3,14 @@ extends Node
 var words = {}				# 存储现有词块数目
 var dict = {}				# 玩家可用字典
 var importantDict = {}		# 重要单词
+var resourceDict = {}
 var dictTree = {}
 
 func _ready():
 	initDict()
 	initImportantDict()
-	initDictTree()
+	initResourceDict()
+	#initDictTree()
 	
 	# Test
 	
@@ -17,7 +19,8 @@ func _ready():
 	insertBlock("hello")
 	insertBlock("wow")
 	insertBlock("wow")
-	addWord("hellowow")
+	insertBlock("wo")
+	addWord("hellowowwo")
 
 func insertBlock(block):
 	if words.has(block):
@@ -33,6 +36,10 @@ func insertMultiBlocks(block, n):
 	while n > 0:
 		insertBlock(block)
 		n -= 1
+
+func addWord(word):
+	# TODO: 重要词汇获得提示
+	dict[word] = 1
 		
 func deleteBlock(block):
 	if not words.has(block) or words[block] <= 0:
@@ -49,30 +56,6 @@ func deleteMultiBlocks(block, n):
 		deleteBlock(block)
 		n -= 1
 
-func addWord(word):
-	# TODO: 重要词汇获得提示
-	dict[word] = 1
-
-func randn(l, r):			# 返回[l, r]随机数
-	randomize()
-	return l + randi() % (r - l + 1)
-
-func cutWord(word, n):
-	n = n - 1
-	var blocks = []
-	var siz = len(word)
-	var l = 0
-	var r = siz - n
-	while n > 0:
-		var mid = randn(l, r - 1)
-		blocks.append(word.substr(l, mid - l + 1))
-		n -= 1
-		r = siz - n
-		l = mid + 1
-	
-	blocks.append(word.substr(l, siz - l + 1))
-	
-	return blocks
 
 func getBlockNum(block):
 	if not words.has(block):
@@ -107,6 +90,18 @@ func getImportantDict():
 
 	return importDict
 
+func getResourceList():
+	var resourceList = []
+	for key in resourceDict.keys():
+		resourceList.append([key, resourceDict[key]])
+		
+	return resourceList
+
+func addResource(resource, resourceNum):
+	if not resourceDict.has(resource):
+		resourceDict[resource] = resourceNum
+
+
 func hasWord(word):
 	if not dict.has(word) or dict[word] == 0:
 		return false
@@ -117,36 +112,50 @@ func isImportantWord(word):
 		return true
 	return false
 
+
 func initDict():
-	var file = File.new()
-	if not file.file_exists("res://scripts/dicts/dict.json"):
-		print("dict文件不存在!")
-		return
-	file.open("res://scripts/dicts/dict.json", File.READ)
-	
-	var json = parse_json(file.get_as_text())
+	var json = parseScript("dicts/dict.json")
 	for word in json:
 		dict[word] = 0
 
 func initImportantDict():
-	var file = File.new()
-	if not file.file_exists("res://scripts/dicts/importantDict.json"):
-		print("importantDict文件不存在!")
-		return
-	file.open("res://scripts/dicts/importantDict.json", File.READ)
-	
-	var json = parse_json(file.get_as_text())
+	var json = parseScript("dicts/importantDict.json")
 	for word in json:
 		importantDict[word] = 0
 
-func initDictTree():
-	var file = File.new()
-	if not file.file_exists("res://scripts/dicts/dictTree.json"):
-		print("dictTree文件不存在!")
-		return
-	file.open("res://scripts/dicts/dictTree.json", File.READ)
+func initResourceDict():
+	resourceDict = parseScript("collect/resourceList.json")
+
+
+func randn(l, r):			# 返回[l, r]随机数
+	randomize()
+	return l + randi() % (r - l + 1)
+
+func cutWord(word, n):
+	n = n - 1
+	var blocks = []
+	var siz = len(word)
+	var l = 0
+	var r = siz - n
+	while n > 0:
+		var mid = randn(l, r - 1)
+		blocks.append(word.substr(l, mid - l + 1))
+		n -= 1
+		r = siz - n
+		l = mid + 1
 	
-	dictTree = parse_json(file.get_as_text())
+	blocks.append(word.substr(l, siz - l + 1))
+	
+	return blocks
+
+func parseScript(scriptPath):
+	var file = File.new()
+	var path = "res://scripts/" + scriptPath
+	if not file.file_exists(path):
+		print(scriptPath + "文件不存在!")
+		return
+	file.open(path, File.READ)
+	return parse_json(file.get_as_text())
 
 func cutWordsOp(word, n):
 	if n >= len(word):

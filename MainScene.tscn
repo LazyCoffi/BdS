@@ -29,7 +29,7 @@ script = ExtResource( 3 )
 scale = Vector2( 1.37429, 1.16024 )
 frames = SubResource( 9 )
 animation = "Background"
-frame = 3
+frame = 5
 playing = true
 centered = false
 

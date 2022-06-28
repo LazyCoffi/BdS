@@ -15,6 +15,8 @@ func showScene():
 	show()
 
 func hideScene():
+	$CollectHoverBox.call("hide")
+	$BookHoverBox.call("hide")
 	hide()
 	
 func _process(delta):

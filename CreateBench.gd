@@ -32,11 +32,14 @@ func create():
 	
 	if words.call("hasWord", curWord):
 		words.call("insertBlock", curWord)
+		var message = "成功合成[" + curWord + "]!" 
+		emit_signal("messageSignal", "合成成功", message)
 	else:
 		words.call("insertFromList", curWordList)
+		var message = "合成失败,不存在对应词条" 
+		emit_signal("messageSignal", "合成失败", message)
 	
-	var message = "成功合成[" + curWord + "]" 
-	emit_signal("messageSignal", "合成成功!", message)
+	
 	
 	curWord = ""
 	curWordList.clear()

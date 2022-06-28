@@ -23,8 +23,12 @@ func initConnects():
 	$Scene/MainScene/BookArrow.connect("pressed", self, "showBookScene")
 	$Scene/BookScene/ExitArrow.connect("pressed", self, "hideBookScene")
 	
+	$Scene/MainScene/CollectArrow.connect("pressed", self, "showCollectScene")
+	$Scene/CollectScene/ExitArrow.connect("pressed", self, "hideCollectScene")
+	
 	$Scene/BookScene/Book/CreateScene/CreateBench.connect("messageSignal", $Scene/Dialog, "showDialog")
 	$Scene/BookScene/Book/SplitScene/SplitBench.connect("messageSignal", $Scene/Dialog, "showDialog")
+	$Scene/CollectScene/CollectList.connect("messageSignal", $Scene/Dialog, "showDialog")
 
 func eventConnect():
 	date.connect("nextDaySignal", event, "prepareEvents")
@@ -41,6 +45,14 @@ func showBookScene():
 
 func hideBookScene():
 	$Scene/BookScene.call("hideScene")
+	$Scene/MainScene.call("showScene")
+
+func showCollectScene():
+	$Scene/MainScene.call("hideScene")
+	$Scene/CollectScene.call("showScene")
+
+func hideCollectScene():
+	$Scene/CollectScene.call("hideScene")
 	$Scene/MainScene.call("showScene")
 
 func startGame():

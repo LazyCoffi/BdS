@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://asserts/art/Book.png" type="Texture" id=1]
+[ext_resource path="res://asserts/art/collectBackground.png" type="Texture" id=2]
+[ext_resource path="res://asserts/themes/标题字体.tres" type="Theme" id=3]
+[ext_resource path="res://asserts/themes/正文字体.tres" type="Theme" id=4]
+[ext_resource path="res://CollectList.gd" type="Script" id=5]
+[ext_resource path="res://CollectScene.gd" type="Script" id=6]
+[ext_resource path="res://asserts/art/hoverBox.png" type="Texture" id=7]
+[ext_resource path="res://asserts/art/downArrow.png" type="Texture" id=8]
+[ext_resource path="res://CollectExitHoverBox.gd" type="Script" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[node name="CollectScene" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Book" type="TextureRect" parent="."]
+margin_right = 824.0
+margin_bottom = 1080.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="MountainBackground" type="TextureRect" parent="."]
+margin_left = 824.0
+margin_top = 8.0
+margin_right = 1920.0
+margin_bottom = 1072.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Title" type="Label" parent="."]
+margin_left = 320.0
+margin_top = 96.0
+margin_right = 520.0
+margin_bottom = 171.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0.47451, 0.333333, 0.282353, 1 )
+text = "收集材料"
+align = 1
+valign = 1
+
+[node name="ExitArrow" type="TextureButton" parent="."]
+margin_left = 928.0
+margin_top = 936.0
+margin_right = 1048.0
+margin_bottom = 1024.0
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="CollectList" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="ItemList" type="ItemList" parent="CollectList"]
+margin_left = 129.0
+margin_top = 208.0
+margin_right = 705.0
+margin_bottom = 960.0
+theme = ExtResource( 4 )
+custom_colors/guide_color = Color( 0.47451, 0.333333, 0.282353, 1 )
+custom_colors/font_color = Color( 0.831373, 0.631373, 0.372549, 1 )
+custom_constants/hseparation = 30
+custom_styles/cursor = SubResource( 1 )
+custom_styles/selected_focus = SubResource( 2 )
+custom_styles/bg_focus = SubResource( 3 )
+custom_styles/cursor_unfocused = SubResource( 4 )
+custom_styles/selected = SubResource( 5 )
+custom_styles/bg = SubResource( 6 )
+max_text_lines = 2
+max_columns = 3
+same_column_width = true
+
+[node name="ExitHoverBox" type="TextureRect" parent="."]
+margin_left = 928.0
+margin_top = 864.0
+margin_right = 1048.0
+margin_bottom = 912.0
+texture = ExtResource( 7 )
+expand = true
+script = ExtResource( 9 )
+
+[node name="ExitHoverText" type="Label" parent="ExitHoverBox"]
+margin_right = 120.0
+margin_bottom = 48.0
+theme = ExtResource( 4 )
+custom_colors/font_color = Color( 0.47451, 0.333333, 0.282353, 1 )
+text = "回家休息"
+align = 1
+valign = 1

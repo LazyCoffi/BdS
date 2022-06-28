@@ -20,7 +20,7 @@
 script = ExtResource( 6 )
 
 [node name="OilLamp" type="TextureRect" parent="."]
-margin_left = 832.0
+margin_left = 1032.0
 margin_right = 1968.0
 margin_bottom = 1080.0
 texture = ExtResource( 1 )
@@ -28,7 +28,7 @@ expand = true
 
 [node name="Book" type="TextureRect" parent="."]
 margin_left = 8.0
-margin_right = 832.0
+margin_right = 1024.0
 margin_bottom = 1080.0
 texture = ExtResource( 2 )
 expand = true
@@ -40,33 +40,33 @@ expand = true
 [node name="DictScene" parent="Book" instance=ExtResource( 15 )]
 
 [node name="CreateBookmark" type="TextureButton" parent="."]
-margin_left = 768.0
+margin_left = 960.0
 margin_top = 112.0
-margin_right = 832.0
+margin_right = 1024.0
 margin_bottom = 192.0
 texture_normal = ExtResource( 7 )
 expand = true
 
 [node name="SplitBookmark" type="TextureButton" parent="."]
-margin_left = 768.0
+margin_left = 960.0
 margin_top = 232.0
-margin_right = 832.0
+margin_right = 1024.0
 margin_bottom = 312.0
 texture_normal = ExtResource( 8 )
 expand = true
 
 [node name="DictBookmark" type="TextureButton" parent="."]
-margin_left = 768.0
+margin_left = 960.0
 margin_top = 352.0
-margin_right = 832.0
+margin_right = 1024.0
 margin_bottom = 432.0
 texture_normal = ExtResource( 4 )
 expand = true
 
 [node name="CreateBookHoverBox" type="TextureRect" parent="."]
-margin_left = 848.0
+margin_left = 1056.0
 margin_top = 128.0
-margin_right = 968.0
+margin_right = 1176.0
 margin_bottom = 176.0
 texture = ExtResource( 9 )
 expand = true
@@ -82,9 +82,9 @@ align = 1
 valign = 1
 
 [node name="SplitBookHoverBox" type="TextureRect" parent="."]
-margin_left = 848.0
+margin_left = 1056.0
 margin_top = 248.0
-margin_right = 968.0
+margin_right = 1176.0
 margin_bottom = 296.0
 texture = ExtResource( 9 )
 expand = true
@@ -100,9 +100,9 @@ align = 1
 valign = 1
 
 [node name="DictBookHoverBox" type="TextureRect" parent="."]
-margin_left = 848.0
+margin_left = 1056.0
 margin_top = 368.0
-margin_right = 968.0
+margin_right = 1176.0
 margin_bottom = 416.0
 texture = ExtResource( 9 )
 expand = true
@@ -118,10 +118,10 @@ align = 1
 valign = 1
 
 [node name="ExitHoverBox" type="TextureRect" parent="."]
-margin_left = 928.0
-margin_top = 864.0
-margin_right = 1048.0
-margin_bottom = 912.0
+margin_left = 1088.0
+margin_top = 872.0
+margin_right = 1208.0
+margin_bottom = 920.0
 texture = ExtResource( 9 )
 expand = true
 script = ExtResource( 11 )
@@ -136,9 +136,9 @@ align = 1
 valign = 1
 
 [node name="ExitArrow" type="TextureButton" parent="."]
-margin_left = 928.0
+margin_left = 1088.0
 margin_top = 936.0
-margin_right = 1048.0
+margin_right = 1208.0
 margin_bottom = 1024.0
 texture_normal = ExtResource( 14 )
 expand = true
