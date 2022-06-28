@@ -12,15 +12,6 @@ func _ready():
 	settingMenu = $Interface/SettingMenu
 		
 	setConnects()	
-	
-	## temp test area
-	test()	
-	
-func test():
-	var node = $Content/System/Data/Words
-	var blocks = node.call("getDictTreeByWord", "wood")
-	for block in blocks:
-		print(block)
 
 #-connections-#
 

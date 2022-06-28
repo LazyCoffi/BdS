@@ -9,6 +9,15 @@ func _ready():
 	initDict()
 	initImportantDict()
 	initDictTree()
+	
+	# Test
+	
+	insertBlock("hello")
+	insertBlock("hello")
+	insertBlock("hello")
+	insertBlock("wow")
+	insertBlock("wow")
+	addWord("hellowow")
 
 func insertBlock(block):
 	if words.has(block):
@@ -64,16 +73,17 @@ func cutWord(word, n):
 	blocks.append(word.substr(l, siz - l + 1))
 	
 	return blocks
-		
-func getWords():
-	var curWords = []
-	for key in words.keys():
-		curWords.append([key, words[key]])
 
 func getBlockNum(block):
 	if not words.has(block):
 		return 0
 	return words[block]
+
+func getBlocks():
+	var curWords = []
+	for key in words.keys():
+		curWords.append([key, words[key]])
+	return curWords
 
 func getAllDict():
 	return dict.keys()
@@ -83,22 +93,24 @@ func getCurDict():
 	for key in words.keys():
 		if words[key] > 0:
 			curDict.append(key)
+	
+	return curDict
 
 func getDictTreeByWord(word):
 	return dictTree[word]
-	
+
+func getImportantDict():
+	var importDict = []
+	for key in dict.keys():
+		if dict[key] > 0 and importantDict.has(key):
+			importDict.append(key)
+
+	return importDict
+
 func hasWord(word):
 	if not dict.has(word) or dict[word] == 0:
 		return false
 	return true
-
-func getImportantDict():
-	var importDict = []
-	for key in words.keys():
-		if importantDict.has(key):
-			importDict.append(key)
-
-	return importDict
 
 func isImportantWord(word):
 	if importantDict.has(word):

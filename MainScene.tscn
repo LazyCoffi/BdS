@@ -29,7 +29,7 @@ script = ExtResource( 3 )
 scale = Vector2( 1.37429, 1.16024 )
 frames = SubResource( 9 )
 animation = "Background"
-frame = 4
+frame = 3
 playing = true
 centered = false
 
@@ -45,7 +45,7 @@ expand = true
 [node name="CollectHoverBox" type="TextureRect" parent="."]
 margin_left = 888.0
 margin_top = 728.0
-margin_right = 992.0
+margin_right = 1008.0
 margin_bottom = 792.0
 texture = ExtResource( 11 )
 expand = true
@@ -62,6 +62,8 @@ margin_bottom = 28.0
 theme = ExtResource( 10 )
 custom_colors/font_color = Color( 0.831373, 0.631373, 0.372549, 1 )
 text = "收集"
+align = 1
+valign = 1
 
 [node name="BookArrow" type="TextureButton" parent="."]
 margin_left = 1056.0
@@ -91,3 +93,5 @@ margin_bottom = 27.0
 theme = ExtResource( 10 )
 custom_colors/font_color = Color( 0.831373, 0.631373, 0.372549, 1 )
 text = "创造之书"
+align = 1
+valign = 1

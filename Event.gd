@@ -20,6 +20,8 @@ signal messageSignal			# 发送消息事件
 signal eventEndSignal
 
 func _ready():
+	date = $"/root/Data/Date"
+	words = $"/root/Data/Words"
 	initEvents()
 
 func randn(l, r):				# 返回[l, r]随机数

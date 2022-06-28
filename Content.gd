@@ -8,32 +8,40 @@ var words
 var event
 var dialog
 
-func initNodes():
-	$System/Interact/Collect.date = date
-	$System/Interact/Collect.words = words
-	$System/Workflow/Event.date = date
-	$System/Workflow/Event.words = words
+func _ready():
+	date = $"/root/Data/Date"
+	words = $"/root/Data/Words"
+	event = $System/Workflow/Event
+	dialog = $Scene/Dialog
+	
+	initConnects()
 
 func initConnects():
+	eventConnect()
+	$OpeningCG.connect("cgEndSignal", self, "startGame")
 	
+	$Scene/MainScene/BookArrow.connect("pressed", self, "showBookScene")
+	$Scene/BookScene/ExitArrow.connect("pressed", self, "hideBookScene")
+	
+	$Scene/BookScene/Book/CreateScene/CreateBench.connect("messageSignal", $Scene/Dialog, "showDialog")
+	$Scene/BookScene/Book/SplitScene/SplitBench.connect("messageSignal", $Scene/Dialog, "showDialog")
+
+func eventConnect():
 	date.connect("nextDaySignal", event, "prepareEvents")
 	$Scene/Dialog.connect("nextEventSignal", event, "popEvent")
 	event.connect("messageSignal", dialog, "showDialog")
 	event.connect("eventEndSignal", dialog, "closeDialog")
-	$OpeningCG.connect("cgEndSignal", self, "startGame")
-	
-
-func _ready():
-	date = $System/Data/Date
-	words = $System/Data/Words
-	event = $System/Workflow/Event
-	dialog = $Scene/Dialog
-	
-	initNodes()
-	initConnects()
 
 func playCG():
 	$OpeningCG.call("startCG")
+
+func showBookScene():
+	$Scene/MainScene.call("hideScene")
+	$Scene/BookScene.call("showScene")
+
+func hideBookScene():
+	$Scene/BookScene.call("hideScene")
+	$Scene/MainScene.call("showScene")
 
 func startGame():
 	date.call("setDate", 1789, 1, 1)

@@ -13,7 +13,9 @@ func _ready():
 
 func showScene():
 	show()
+
+func hideScene():
+	hide()
 	
 func _process(delta):
 	pass
-

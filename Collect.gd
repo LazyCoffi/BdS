@@ -11,6 +11,8 @@ var collectList = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	date = $"/root/Data/Date"
+	words = $"/root/Data/Words"
 	initCollectList()
 
 func initCollectList():

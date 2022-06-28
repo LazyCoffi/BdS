@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://asserts/art/window.png" type="Texture" id=1]
 [ext_resource path="res://asserts/art/Paper.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://DialogScene.gd" type="Script" id=4]
 [ext_resource path="res://asserts/art/smallButton.png" type="Texture" id=5]
 [ext_resource path="res://asserts/art/pressedSmallButton.png" type="Texture" id=6]
+[ext_resource path="res://asserts/themes/正文字体.tres" type="Theme" id=7]
 
 [sub_resource type="Animation" id=1]
 tracks/0/type = "value"
@@ -76,10 +77,10 @@ margin_bottom = 429.0
 texture = ExtResource( 2 )
 
 [node name="DialogTitle" type="Label" parent="TextureRect"]
-margin_left = 488.0
-margin_top = 78.0
-margin_right = 680.0
-margin_bottom = 118.0
+margin_left = 464.0
+margin_top = 48.0
+margin_right = 656.0
+margin_bottom = 123.0
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.666667, 0.494118, 0.317647, 1 )
 align = 1
@@ -90,7 +91,7 @@ margin_left = 400.0
 margin_top = 158.0
 margin_right = 768.0
 margin_bottom = 374.0
-theme = ExtResource( 3 )
+theme = ExtResource( 7 )
 custom_colors/default_color = Color( 0.407843, 0.301961, 0.270588, 1 )
 
 [node name="Button" type="TextureButton" parent="TextureRect"]
@@ -107,11 +108,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -36.0
-margin_top = -20.0
-margin_right = 36.0
-margin_bottom = 21.0
-theme = ExtResource( 3 )
+margin_left = -50.0
+margin_top = -37.5
+margin_right = 50.0
+margin_bottom = 37.5
+theme = ExtResource( 7 )
 custom_colors/font_color = Color( 0.364706, 0.25098, 0.215686, 1 )
 text = "确认"
 align = 1
