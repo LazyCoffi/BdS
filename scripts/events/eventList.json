@@ -4,7 +4,7 @@
 		"type" : "static",
 		"prob" : 0,
 		"occurDay" : 1,
-		"occurMouth" : 1,
+		"occurMonth" : 1,
 		"occurYear" : 1789,
 		"funcList" : 
 		{
@@ -21,7 +21,7 @@
 		"type" : "static",
 		"prob" : 0,
 		"occurDay" : 1,
-		"occurMouth" : 1,
+		"occurMonth" : 1,
 		"occurYear" : 1789,
 		"funcList" : 
 		{

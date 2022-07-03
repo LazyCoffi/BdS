@@ -6,6 +6,7 @@ var listState
 var priceDict = {}
 
 signal messageSignal
+signal setTriggerSignal
 
 func _ready():
 	money = $"/root/Data/Money"
@@ -20,6 +21,7 @@ func sellBlock(block):
 	var value = priceDict[block]
 	var message = "已出售 " + block + " ,获得 " + str(value) + " 硬币"
 	emit_signal("messageSignal", "出售物品", message)
+	emit_signal("setTriggerSignal")
 	money.call("addMoney", value)
 	words.call("deleteBlock", block)
 	
@@ -36,6 +38,7 @@ func buyBlock(block):
 		money.call("subMoney", value)
 		var message = "用 " + str(value) + " 硬币购买了一个 " + block
 		emit_signal("messageSignal", "购买物品", message)
+		emit_signal("setTriggerSignal")
 	
 	refresh()
 

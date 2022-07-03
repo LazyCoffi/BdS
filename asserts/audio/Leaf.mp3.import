@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Leaf.mp3-23a75c2ec0dcb4013e037adb9a5ea6da.mp3str"
+
+[deps]
+
+source_file="res://asserts/audio/Leaf.mp3"
+dest_files=[ "res://.import/Leaf.mp3-23a75c2ec0dcb4013e037adb9a5ea6da.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

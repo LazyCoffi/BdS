@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Bell.mp3-212c2c8cd2dbbf66a3335a5fecd797c1.mp3str"
+
+[deps]
+
+source_file="res://asserts/audio/Bell.mp3"
+dest_files=[ "res://.import/Bell.mp3-212c2c8cd2dbbf66a3335a5fecd797c1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

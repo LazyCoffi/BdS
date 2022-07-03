@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Postmeridie.mp3-5c6d70dd2505d93cc812f185e627ba66.mp3str"
+
+[deps]
+
+source_file="res://asserts/audio/Postmeridie.mp3"
+dest_files=[ "res://.import/Postmeridie.mp3-5c6d70dd2505d93cc812f185e627ba66.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,14 @@
+{
+	"MainMenu" : "Desiderium.mp3",
+	"MarketScene" : "Postmeridie.mp3",
+	"CollectScene" : "WingsOfRelief.mp3",
+	"MainScene" : "Clementia.mp3",
+	"BookScene" : "NothingSpecialButSoSpecial.mp3",
+	"CgScene" : "Leaf.mp3",
+	"ButtonClick" : "ButtonClick.mp3",
+	"Cat" : "Cat.mp3",
+	"Door" : "Door.mp3",
+	"DoorClose" : "DoorClose.mp3",
+	"Walk" : "WalkShort.mp3",
+	"Bell" : "Bell.mp3"
+}

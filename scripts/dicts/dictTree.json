@@ -1,4 +1,5 @@
 {
-	"wood": ["stick", "board"],
-	"stone": ["ore", "sand"]
+	"Root" : ["wood", "stone"],
+	"wood" : ["stick", "board", "sword"],
+	"stone" : ["ore", "sand"]
 }

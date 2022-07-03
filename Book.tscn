@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://asserts/art/OilLamp.png" type="Texture" id=1]
 [ext_resource path="res://asserts/art/Book.png" type="Texture" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://DictBookHoverBox.gd" type="Script" id=13]
 [ext_resource path="res://asserts/art/downArrow.png" type="Texture" id=14]
 [ext_resource path="res://DictScene.tscn" type="PackedScene" id=15]
+[ext_resource path="res://TreeScene.tscn" type="PackedScene" id=16]
+[ext_resource path="res://asserts/art/redBookmark.png" type="Texture" id=17]
+[ext_resource path="res://TreeBookHoverBox.gd" type="Script" id=18]
 
 [node name="BookScene" type="Node2D"]
 script = ExtResource( 6 )
@@ -39,6 +42,8 @@ expand = true
 
 [node name="DictScene" parent="Book" instance=ExtResource( 15 )]
 
+[node name="TreeScene" parent="Book" instance=ExtResource( 16 )]
+
 [node name="CreateBookmark" type="TextureButton" parent="."]
 margin_left = 960.0
 margin_top = 112.0
@@ -61,6 +66,14 @@ margin_top = 352.0
 margin_right = 1024.0
 margin_bottom = 432.0
 texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="TreeBookmark" type="TextureButton" parent="."]
+margin_left = 960.0
+margin_top = 472.0
+margin_right = 1024.0
+margin_bottom = 552.0
+texture_normal = ExtResource( 17 )
 expand = true
 
 [node name="CreateBookHoverBox" type="TextureRect" parent="."]
@@ -114,6 +127,24 @@ margin_bottom = 48.0
 theme = ExtResource( 10 )
 custom_colors/font_color = Color( 0.47451, 0.333333, 0.282353, 1 )
 text = "词典列表"
+align = 1
+valign = 1
+
+[node name="TreeBookHoverBox" type="TextureRect" parent="."]
+margin_left = 1056.0
+margin_top = 488.0
+margin_right = 1176.0
+margin_bottom = 536.0
+texture = ExtResource( 9 )
+expand = true
+script = ExtResource( 18 )
+
+[node name="TreeBookHoverText" type="Label" parent="TreeBookHoverBox"]
+margin_right = 120.0
+margin_bottom = 48.0
+theme = ExtResource( 10 )
+custom_colors/font_color = Color( 0.47451, 0.333333, 0.282353, 1 )
+text = "解锁单词"
 align = 1
 valign = 1
 

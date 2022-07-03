@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Clementia.mp3-ed2c643971dc2121f13c84444f2b7b73.mp3str"
+
+[deps]
+
+source_file="res://asserts/audio/Clementia.mp3"
+dest_files=[ "res://.import/Clementia.mp3-ed2c643971dc2121f13c84444f2b7b73.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

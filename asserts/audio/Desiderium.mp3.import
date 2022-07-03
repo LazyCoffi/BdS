@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Desiderium.mp3-42fcd62ca5278a9a3e7cfc1b6ce35f5b.mp3str"
+
+[deps]
+
+source_file="res://asserts/audio/Desiderium.mp3"
+dest_files=[ "res://.import/Desiderium.mp3-42fcd62ca5278a9a3e7cfc1b6ce35f5b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

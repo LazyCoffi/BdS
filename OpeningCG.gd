@@ -9,6 +9,7 @@ var colorDict = {
 
 signal nextLineSignal
 signal cgEndSignal
+signal transitionSignal
 
 func _ready():
 	hide()
@@ -17,6 +18,8 @@ func _ready():
 
 func startCG():
 	show()
+	MusicPlayer.play("CgScene")
+	emit_signal("transitionSignal")
 	nextLine()
 	$Background/BackgroundAnimation.play("moving")
 

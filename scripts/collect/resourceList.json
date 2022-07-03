@@ -1,8 +1,10 @@
 {
-	"stone" : 1,
-	"wood" : 2,
-	"water" : 3,
-	"honey" : 1,
-	"leaf" : 3,
-	"hare" : 1
+	"stone" : ["item", 1, 0],
+	"wood" : ["item", 2, 0],
+	"water" : ["item", 3, 0],
+	"honey" : ["item", 0, 1],
+	"leaf" : ["item", 3, 0],
+	"hare" : ["item", 0, 1],
+	"少量金钱" : ["coin", 30, 50],
+	"大量金钱" : ["coin", 10, 100]
 }

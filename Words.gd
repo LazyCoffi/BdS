@@ -5,28 +5,48 @@ var dict = {}				# 玩家可用字典
 var importantDict = {}		# 重要单词
 var resourceDict = {}
 var dictTree = {}
+var isUnlocked = {}
+
+signal messageSignal
 
 func _ready():
 	initDict()
 	initImportantDict()
 	initResourceDict()
-	#initDictTree()
+	initDictTree()
 	
 	# Test
+	insertBlock("ood")
+	insertBlock("w")
+	insertBlock("word")
+	insertBlock("s")
+
+func loadData(data):
+	words = data["words"]
+	dict = data["dict"]
+	importantDict = data["importantDict"]
+	resourceDict = data["resourceDict"]
+	dictTree = data["dictTree"]
+
+func saveData():
+	var data = {}
+	data["words"] = words
+	data["dict"] = dict
+	data["importantDict"] = importantDict
+	data["resourceDict"] = resourceDict
+	data["dictTree"] = dictTree
 	
-	insertBlock("hello")
-	insertBlock("hello")
-	insertBlock("hello")
-	insertBlock("wow")
-	insertBlock("wow")
-	insertBlock("wo")
-	addWord("hellowowwo")
+	return data
 
 func insertBlock(block):
 	if words.has(block):
 		words[block] += 1
 	else:
 		words[block] = 1
+	
+	if dictTree.has(block) and not isUnlocked.has(block):
+		isUnlocked[block] = 0
+		unlockDictTree(block)
 
 func insertFromList(list):
 	for block in list:
@@ -38,7 +58,13 @@ func insertMultiBlocks(block, n):
 		n -= 1
 
 func addWord(word):
-	# TODO: 重要词汇获得提示
+	if not dict.has(word):
+		return
+	
+	if dict[word] == 0 and importantDict.has(word):
+		var message = "获得重要单词 " + word + " !"
+		emit_signal("messageSignal", "解锁重要单词", message)
+	
 	dict[word] = 1
 		
 func deleteBlock(block):
@@ -56,6 +82,18 @@ func deleteMultiBlocks(block, n):
 		deleteBlock(block)
 		n -= 1
 
+func unlockDictTree(word):
+	var unlockList = dictTree[word]
+	var message = "通过获得 " + word + " 解锁以下单词["
+	for unlockWord in unlockList:
+		if unlockWord == unlockList.back():
+			message += unlockWord
+		else:
+			message += unlockWord + ", "
+		addWord(unlockWord)
+
+	message += "]"
+	emit_signal("messageSignal", "解锁单词", message)
 
 func getBlockNum(block):
 	if not words.has(block):
@@ -75,7 +113,7 @@ func getAllDict():
 func getCurDict():
 	var curDict = []
 	for key in words.keys():
-		if words[key] > 0:
+		if dict.has(key) and dict[key] == 1:
 			curDict.append(key)
 	
 	return curDict
@@ -91,12 +129,14 @@ func getImportantDict():
 
 	return importDict
 
-func getResourceList():
-	var resourceList = []
-	for key in resourceDict.keys():
-		resourceList.append([key, resourceDict[key]])
-		
-	return resourceList
+func getTreeDict():
+	return dictTree
+
+func getUnlockDict():
+	return isUnlocked
+
+func getResourceDict():
+	return resourceDict
 
 func addResource(resource, resourceNum):
 	if not resourceDict.has(resource):
@@ -126,11 +166,16 @@ func initImportantDict():
 
 func initResourceDict():
 	resourceDict = parseScript("collect/resourceList.json")
+	
+func initDictTree():
+	dictTree = parseScript("dicts/dictTree.json")
+	isUnlocked["Root"] = 0
+	unlockDictTree("Root")
 
 
-func randn(l, r):			# 返回[l, r]随机数
+func randn(a, b):			# 返回[l, r]随机数
 	randomize()
-	return l + randi() % (r - l + 1)
+	return randi() % (b - a + 1) + a
 
 func cutWord(word, n):
 	n = n - 1
@@ -156,14 +201,9 @@ func parseScript(scriptPath):
 		print(scriptPath + "文件不存在!")
 		return
 	file.open(path, File.READ)
-	return parse_json(file.get_as_text())
-
-func cutWordsOp(word, n):
-	if n >= len(word):
-		# TODO: n不能大于等于len(word)
-		return []
-	
-	return cutWord(word, n / 2)
+	var jsonStr = file.get_as_text()
+	file.close()
+	return parse_json(jsonStr)
 
 func randomUnlockNormalDict():
 	var wordArr = []

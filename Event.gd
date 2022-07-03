@@ -39,11 +39,11 @@ func initEvents():
 
 func compDate(event):
 	var day = date.call("getDay")
-	var mouth = date.call("getMouth")
+	var mouth = date.call("getMonth")
 	var year = date.call("getYear")
 	
 	return day == event["occurDay"] and \
-		   mouth == event["occurMouth"] and \
+		   mouth == event["occurMonth"] and \
 		   year == event["occurYear"]
 
 func prepareEvents():
@@ -55,6 +55,17 @@ func prepareEvents():
 		else:
 			if compDate(event):
 				curEventQueue.push_back(event)
+
+func pushMessageEvent(title, message):
+	var event = {}
+	event["eventName"] = title
+	var funcList = {}
+	funcList["checkFuncName"] = "trueTest"
+	funcList["checkFuncParams"] = []
+	funcList["successFuncName"] = "messageEvent"
+	funcList["successFuncParams"] = [message]
+	event["funcList"] = funcList
+	curEventQueue.push_back(event)
 
 func isEventQueueEmpty():
 	return curEventQueue.empty()

@@ -5,7 +5,17 @@ var priceDict = {}
 
 func _ready():
 	money = 0
-	pass # Replace with function body.
+
+func loadData(data):
+	money = data["money"]
+	priceDict = data["priceDict"]
+
+func saveData():
+	var data = {}
+	data["money"] = money
+	data["priceDict"] = priceDict
+	
+	return data
 
 func setMoney(value):
 	money = value
@@ -26,7 +36,8 @@ func subRandomMoney(a, b):
 	subMoney(randn(a, b))
 	
 func randn(a, b):
-	return randi() % b + a
+	randomize()
+	return randi() % int(b - a + 1) + int(a)
 
 func sellBlock(block):
 	addMoney(priceDict[block])
@@ -41,4 +52,6 @@ func parseScript(scriptPath):
 		print(scriptPath + "文件不存在!")
 		return
 	file.open(path, File.READ)
-	return parse_json(file.get_as_text())
+	var jsonStr = file.get_as_text()
+	file.close()
+	return parse_json(jsonStr)	

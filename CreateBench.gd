@@ -2,6 +2,7 @@ extends Node2D
 
 signal refreshListSignal
 signal messageSignal
+signal setTriggerSignal
 
 var words
 var curWord = ""
@@ -34,12 +35,11 @@ func create():
 		words.call("insertBlock", curWord)
 		var message = "成功合成[" + curWord + "]!" 
 		emit_signal("messageSignal", "合成成功", message)
+		emit_signal("setTriggerSignal")
 	else:
 		words.call("insertFromList", curWordList)
 		var message = "合成失败,不存在对应词条" 
 		emit_signal("messageSignal", "合成失败", message)
-	
-	
 	
 	curWord = ""
 	curWordList.clear()

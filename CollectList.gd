@@ -1,19 +1,26 @@
 extends Node2D
 
 signal messageSignal
+signal setTriggerSignal
 
 var words
 var hasCollected
+var resourceDict
 
 func _ready():
 	words = $"/root/Data/Words"
+	resourceDict = $"/root/Data/Words".call("getResourceDict")
 
 func initList():
 	fillList()
 	hasCollected = false
 
+func randn(a, b):
+	randomize()
+	return randi() % int(b - a + 1) + int(a)
+
 func fillList():
-	var resourceList = words.call("getResourceList")
+	$ItemList.clear()
 	
 	$ItemList.add_item("资源词块")
 	$ItemList.set_item_selectable(0, false)
@@ -23,12 +30,19 @@ func fillList():
 	$ItemList.set_item_selectable(2, false)
 	
 	var index = 3
-	for listNode in resourceList:
-		$ItemList.add_item(listNode[0])
+	for key in resourceDict.keys():
+		var listNode = resourceDict[key]
+		$ItemList.add_item(key)
 		$ItemList.set_item_selectable(index, false)
 		index += 1
 		
-		$ItemList.add_item(str(listNode[1]))
+		var rangeStr;
+		if listNode[2] == 0:
+			rangeStr = str(listNode[1])
+		else:
+			rangeStr = str(listNode[1]) + "~" + str(listNode[2])
+		
+		$ItemList.add_item(rangeStr)
 		$ItemList.set_item_selectable(index, false)
 		index += 1
 		
@@ -46,8 +60,21 @@ func selected(index):
 			emit_signal("messageSignal", "收集资源", message)
 		else:
 			var block = $ItemList.get_item_text(index - 2)
-			var blockNum = $ItemList.get_item_text(index - 1)
-			words.insertMultiBlocks(block, blockNum.to_int())
-			var message = "已收集 " + blockNum + " 个" + block + " 词块"
+			var valueList = resourceDict[block]
+			var num
+			if valueList[2] == 0:
+				num = int(valueList[1])
+			else:
+				num = randn(valueList[1], valueList[2])
+			
+			var message
+			if valueList[0] == "coin":
+				$"/root/Data/Money".call("addMoney", num)
+				message = "已收集 " + str(num) + " 个硬币"
+			elif valueList[0] == "item":
+				$"/root/Data/Words".call("insertMultiBlocks", block, num)
+				message = "已收集 " + str(num) + " 个" + block + " 词块"
+			
 			emit_signal("messageSignal", "收集资源", message)
+			emit_signal("setTriggerSignal")
 			hasCollected = true

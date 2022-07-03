@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://asserts/art/window.png" type="Texture" id=1]
 [ext_resource path="res://asserts/art/Paper.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://asserts/art/smallButton.png" type="Texture" id=5]
 [ext_resource path="res://asserts/art/pressedSmallButton.png" type="Texture" id=6]
 [ext_resource path="res://asserts/themes/正文字体.tres" type="Theme" id=7]
+[ext_resource path="res://asserts/art/Mask.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 tracks/0/type = "value"
@@ -54,6 +55,12 @@ tracks/0/keys = {
 
 [node name="Dialog" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="Mask" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 8 )
+expand = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.5

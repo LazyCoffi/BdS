@@ -2,6 +2,7 @@ extends Node2D
 
 signal refreshListSignal
 signal messageSignal
+signal setTriggerSignal
 
 var words
 var value
@@ -67,6 +68,7 @@ func cutWord():
 			message += block
 	message += "]"
 	emit_signal("messageSignal", "分解成功!", message)
+	emit_signal("setTriggerSignal")
 	
 	words.call("insertFromList", blockList)
 	

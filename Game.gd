@@ -7,59 +7,30 @@ var settingMenu
 signal startSignal
 
 func _ready():
-	mainMenu = $Interface/MainMenu
-	continueMenu = $Interface/ContinueMenu
-	settingMenu = $Interface/SettingMenu
-		
-	setConnects()	
-
-#-connections-#
-
-func setStartButtonConnect():
-	var startButton = $Interface/MainMenu/StartButton
-	if not startButton.is_connected("pressed", self, "toStartScene"):
-		startButton.connect("pressed", self, "toStartScene")
-		
-func setContinueButtonConnect():
-	var continueButton = $Interface/MainMenu/ContinueButtonButton
-	if not continueButton.is_connected("pressed", self, "toContinueScene"):
-		continueButton.connect("pressed", self, "toContinueScene")
-
-func setSettingButtonConnect():
-	var settingButton = $Interface/MainMenu/SettingButton
-	if not settingButton.is_connected("pressed", self, "toSettingScene"):
-		settingButton.connect("pressed", self, "toSettingScene")
-
-func setExitButtonConnect():
-	var exitButton = $Interface/MainMenu/ExitButton
-	if not exitButton.is_connected("pressed", self, "gameExitDialog"):
-		exitButton.connect("pressed", self, "gameExitDialog")
-
-func setExitDialogConnect():
-	var exitDialog = $Interface/ExitDialog
-	if not exitDialog.is_connected("confirmed", self, "gameExit"):
-		exitDialog.connect("confirmed", self, "gameExit")
-
-func setConnects():
-	setStartButtonConnect()
-	setExitButtonConnect()
-	setExitDialogConnect()
-	
-	connect("startSignal", $Content, "playCG")
+	toMainMenu()
+	$Interface/MainMenu/StartButton.connect("pressed", self, "startGame")
+	$Interface/MainMenu/SaveButton.connect("pressed", self, "toSaveMenu")
+	$Interface/MainMenu/ExitButton.connect("pressed", self, "gameExit")
+	$Interface/SaveMenu/ExitArrow.connect("pressed", self, "toMainMenu")
+	$Interface/SaveMenu/SaveList.connect("loadGameSignal", self, "loadGame")
 	
 #-functions-#
 	
-func toStartScene():
-	emit_signal("startSignal")
+func startGame():
 	hideAllNodes()
+	$Content.call("playCG")
 
-func toContinueMenu():
+func loadGame(saveName):
 	hideAllNodes()
-	continueMenu.show()
+	$Content.call("loadGame", saveName)
 
-func toSettingMenu():
+func toMainMenu():
 	hideAllNodes()
-	settingMenu.show()
+	$Interface/MainMenu.call("showScene")
+
+func toSaveMenu():
+	hideAllNodes()
+	$Interface/SaveMenu.call("showScene")
 
 func gameExitDialog():
 	$Interface/ExitDialog.popup()
@@ -68,6 +39,5 @@ func gameExit():
 	get_tree().quit()
 
 func hideAllNodes():
-	mainMenu.hide()
-	continueMenu.hide()
-	settingMenu.hide()
+	$Interface/MainMenu.call("hideScene")
+	$Interface/SaveMenu.call("hideScene")

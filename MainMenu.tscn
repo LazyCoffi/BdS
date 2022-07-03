@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://asserts/themes/MainSceneButton.tres" type="Theme" id=1]
 [ext_resource path="res://asserts/art/MainTitle.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://asserts/art/road.png" type="Texture" id=5]
 [ext_resource path="res://asserts/themes/标题字体.tres" type="Theme" id=6]
 [ext_resource path="res://asserts/art/TitleButton.png" type="Texture" id=7]
+[ext_resource path="res://MainMenu.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -18,6 +19,7 @@ default_font = SubResource( 1 )
 [node name="MainMenu" type="Control"]
 margin_right = 1920.0
 margin_bottom = 1080.0
+script = ExtResource( 8 )
 
 [node name="Background" type="TextureRect" parent="."]
 margin_right = 1920.0
@@ -65,7 +67,7 @@ text = "开始新游戏"
 align = 1
 valign = 1
 
-[node name="ContinueButton" type="TextureButton" parent="."]
+[node name="SaveButton" type="TextureButton" parent="."]
 margin_left = 1264.0
 margin_top = 488.0
 margin_right = 1676.0
@@ -74,7 +76,7 @@ theme = ExtResource( 1 )
 texture_normal = ExtResource( 7 )
 expand = true
 
-[node name="ContinueButtonText" type="Label" parent="ContinueButton"]
+[node name="SaveButtonText" type="Label" parent="SaveButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

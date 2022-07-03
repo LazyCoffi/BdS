@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ButtonClick.mp3-eba684c5dba7b993a3eff39b6ccec343.mp3str"
+
+[deps]
+
+source_file="res://asserts/audio/ButtonClick.mp3"
+dest_files=[ "res://.import/ButtonClick.mp3-eba684c5dba7b993a3eff39b6ccec343.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
