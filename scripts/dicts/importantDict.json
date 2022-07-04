@@ -1,4 +1,7 @@
 [
 	"sword",
-	"computer"
+	"cpu",
+	"graphicscard",
+	"harddisk",
+	"heatsink"
 ]

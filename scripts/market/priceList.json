@@ -1,5 +1,20 @@
 {
 	"water" : 1,
 	"wood" : 1,
-	"stone" : 2
+	"stone" : 2,
+	"silk": 40,
+	"ox": 84,
+	"boots": 10,
+	"oillamp": 40,
+	"oil": 20,
+	"jacket": 50,
+	"scarf": 20
+	"toothbrush": 1,
+	"comb": 7,
+	"fishingnet": 2,
+	"trap": 7,
+	"cooker": 4,
+	"chicken": 5,
+	"duck": 6,
+	"goat": 44
 }
