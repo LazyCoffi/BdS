@@ -48,7 +48,7 @@
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "randomTest",
-			"checkFuncParams": [75],
+			"checkFuncParams": [85],
 			"successFuncName": "checkVictory",
 			"successFuncParams": [],
 			"failFuncName": "gameoverEvent",
@@ -71,26 +71,64 @@
 			"successFuncName": "",
 			"successFuncParams": [],
 			"failFuncName": "messageEvent",
-			"failFuncParams": ["你找机会确定消息是否可靠！"]
+			"failFuncParams": ["你打算找机会确定消息是否可靠！"]
 		}
 	},
 	{
 		"eventName": "消息的详细情报",
 		"preEvent":"商人的小道消息",
-		"successMessage": "消息是真的，花费3000硬币商人可以把人装进货仓带走",
-		"failMessage": "消息是假的。",
+		"successMessage": "消息是真的，花费3000硬币商人可以把人装进货仓带走。",
+		"failMessage": "消息是假的，你看见有人被骗，心灰意冷，最后被领主杀死。你把这消息告知给镇上的人，有位富人感激你给了你100硬币",
 		"type": "static",
 		"prob": 100,
-		"occurDay": 5,
-		"occurMonth": 7,
+		"occurDay": 18,
+		"occurMonth": 6,
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "randomTest",
 			"checkFuncParams": [75],
 			"successFuncName": "addVictoryEvent",
 			"successFuncParams": ["商人的帮助"],
-			"failFuncName": "messageEvent",
+			"failFuncName": "addMoneyEvent",
 			"failFuncParams": ["你看见有人被骗，心灰意冷，最后被领主杀死。"]
+		}
+	},
+	{
+		"eventName": "来自隔壁镇恩人的求救信",
+		"preEvent":"",
+		"successMessage": "恩人被绑架了，因为你提前收拾好可能要用物品的缘故，你正好带够50硬币，花完钱解救了恩人",
+		"failMessage": "恩人被绑架了，你决定去解救恩人\n找到隔壁镇了，因为匆匆上路的你并没有多少钱，绑匪气急败坏将你杀了",
+		"type": "random",
+		"prob": 10,
+		"occurDay": 18,
+		"occurMonth": 6,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "moneyTest",
+			"checkFuncParams": [50],
+			"successFuncName": "subMoneyEvent",
+			"successFuncParams": [50],
+			"failFuncName": "gameoverEvent",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "恩人的感谢信",
+		"preEvent":"来自隔壁镇恩人的求救信",
+		"successMessage": "恩人十分感激你的解救，不光将赎金还你还给了你100硬币以作答谢",
+		"failMessage": "恩人十分感激你的解救，将赎金的钱给了你",
+		"type": "static",
+		"prob": 90,
+		"occurDay": 20,
+		"occurMonth": 8,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "eventHappenedTest",
+			"checkFuncParams": ["海的那一边"],
+			"successFuncName": "addMoneyEvent",
+			"successFuncParams": [150],
+			"failFuncName": "addMoneyEvent",
+			"failFuncParams": [50]
 		}
 	},
 	{
@@ -113,51 +151,31 @@
 		}
 	},
 	{
-		"eventName": "昨日记忆1",
-		"preEvent":"",
-		"successMessage": "这天，一直不知道有什么用的水晶突然发出奇怪的声音，你手忙脚乱地摆弄了下，一个熟悉陌生的声音传来，通过交流很快你就知道这是之前救过的奇装异服怪人，你也知道了他是时空什么局的测试员，他教授于你一些奇怪的知识并给了你一个芯片。",
-		"failMessage": "",
+		"eventName": "水晶盒子响了",
+		"preEvent":"昨日记忆",
+		"successMessage": "这天，一直不知道有什么用的水晶突然发出奇怪的声音，你手忙脚乱地摆弄了下，一个熟悉陌生的声音传来，通过交流很快你就知道这是之前救过的奇装异服怪人，你也知道了他是时空什么局的测试员，他请你帮助完成测试并且教授于你一些奇怪的知识",
+		"failMessage": "这天，一直不知道有什么用的水晶突然发出奇怪的声音，你手忙脚乱地摆弄了下，一个熟悉陌生的声音传来，通过交流很快你就知道这是之前救过的奇装异服怪人,他感激你的帮助送了你一些小礼物。",
 		"type": "static",
 		"prob": 70,
 		"occurDay": 19,
 		"occurMonth": 4,
 		"occurYear": 1789,
 		"funcList": {
-			"checkFuncName": "trueTest",
-			"checkFuncParams": [],
-			"successFuncName": "addBlockEvent",
-			"successFuncParams": ["chip",1],
-			"failFuncName": "",
-			"failFuncParams": [""]
-		}
-	},
-	
-	{
-		"eventName": "红黑树？？",
-		"preEvent":"",
-		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
-		"failMessage": "虚空缓缓出现一个大黑洞！",
-		"type": "static",
-		"prob": 63,
-		"occurDay": 5,
-		"occurMonth": 1,
-		"occurYear": 1789,
-		"funcList": {
 			"checkFuncName": "randomTest",
-			"checkFuncParams": [75],
-			"successFuncName": "addBlockListEvent",
-			"successFuncParams": [{"dick":1,"sword":1,"i":1}],
-			"failFuncName": "messageEvent",
-			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+			"checkFuncParams": [50],
+			"successFuncName": "addVictoryEvent",
+			"successFuncParams": ["科技的魅力"],
+			"failFuncName": "addBlockListEvent",
+			"failFuncParams": [{"or":3, "one":2,"ron":2,"ls":2}]
 		}
 	},
 	{
 		"eventName": "大侠梦",
 		"preEvent":"",
-		"successMessage": "昨天晚间，做梦当了劫富济贫的大侠，梦游取走富人的金币*5",
-		"failMessage": "昨天晚间，做梦当了劫富济贫的大侠，梦游取走富人的金币*5",
-		"type": "static",
-		"prob": 90,
+		"successMessage": "昨天晚间，做梦当了劫富济贫的大侠，梦游取走富人的硬币*15",
+		"failMessage": "昨天晚间，做梦当了劫富济贫的大侠，梦游取走富人很多硬币",
+		"type": "random",
+		"prob": 20,
 		"occurDay": 2,
 		"occurMonth": 2,
 		"occurYear": 1789,
@@ -165,7 +183,7 @@
 			"checkFuncName": "randomTest",
 			"checkFuncParams": [90],
 			"successFuncName": "addMoneyEvent",
-			"successFuncParams": [5],
+			"successFuncParams": [15],
 			"failFuncName": "messageEvent",
 			"failFuncParams": ["终究还是黄粱一梦，醒来兜里还是那么几个金币。"]
 		}
@@ -173,10 +191,10 @@
 	{
 		"eventName": "该死的盗贼",
 		"preEvent":"",
-		"successMessage": "昨天晚上家里来了一个盗贼，偷走你的金币*5",
+		"successMessage": "昨天晚上家里来了一个盗贼，偷走你的硬币*5",
 		"failMessage": "",
-		"type": "static",
-		"prob": 90,
+		"type": "random",
+		"prob": 8,
 		"occurDay": 3,
 		"occurMonth": 1,
 		"occurYear": 1789,
@@ -195,7 +213,7 @@
 		"successMessage": "\t昨天夜里晚风微凉，你刚躺下就入梦了——梦里一位来自东方的神秘教师上了一堂生动形象的丝绸之路课。清晨醒来之后发现创造之书解锁了silk",
 		"failMessage": "一向不擅长学习的你，睡得更香了！",
 		"type": "static",
-		"prob": 63,
+		"prob": 70,
 		"occurDay": 11,
 		"occurMonth": 2,
 		"occurYear": 1789,
@@ -215,14 +233,14 @@
 		"failMessage": "虚空缓缓出现一个大黑洞！",
 		"type": "static",
 		"prob": 63,
-		"occurDay": 22,
+		"occurDay": 5,
 		"occurMonth": 1,
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "randomTest",
 			"checkFuncParams": [75],
-			"successFuncName": "addBlockEvent",
-			"successFuncParams": ["s", 1],
+			"successFuncName": "addBlockListEvent",
+			"successFuncParams": [{"iron":1,"sword":1,"i":1}],
 			"failFuncName": "messageEvent",
 			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
 		}
@@ -230,7 +248,26 @@
 	{
 		"eventName": "红黑树？？",
 		"preEvent":"",
-		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"successMessage": "收到异世界之人(不会红黑树但想有女朋友)的礼物",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "static",
+		"prob": 45,
+		"occurDay": 22,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [40],
+			"successFuncName": "addMoneyEvent",
+			"successFuncParams": [100],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	},
+	{
+		"eventName": "红黑树？？",
+		"preEvent":"",
+		"successMessage": "收到异世界之人(学习红黑树也没有女朋友)发来的一个包裹",
 		"failMessage": "虚空缓缓出现一个大黑洞！",
 		"type": "static",
 		"prob": 63,
@@ -240,8 +277,8 @@
 		"funcList": {
 			"checkFuncName": "randomTest",
 			"checkFuncParams": [75],
-			"successFuncName": "addBlockEvent",
-			"successFuncParams": ["s", 1],
+			"successFuncName": "addBlockListEvent",
+			"successFuncParams": [{"power":1,"iron":1,"a":1}],
 			"failFuncName": "messageEvent",
 			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
 		}
