@@ -48,10 +48,10 @@
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "randomTest",
-			"checkFuncParams": [85],
+			"checkFuncParams": [99],
 			"successFuncName": "checkVictory",
 			"successFuncParams": [],
-			"failFuncName": "gameEndEvent",
+			"failFuncName": "gameoverEvent",
 			"failFuncParams": []
 		}
 	},
@@ -96,11 +96,49 @@
 	{
 		"eventName": "来自隔壁镇恩人的求救信",
 		"preEvent":"",
-		"successMessage": "恩人被绑架了，因为你提前收拾好可能要用物品的缘故，你正好带够50硬币，花完钱解救了恩人",
-		"failMessage": "恩人被绑架了，你决定去解救恩人\n找到隔壁镇了，因为匆匆上路的你并没有多少钱，绑匪气急败坏将你杀了",
-		"type": "random",
-		"prob": 10,
-		"occurDay": 18,
+		"successMessage": "恩人被绑架了，绑匪要求月底带50个硬币去赎人。",
+		"failMessage": "",
+		"type": "static",
+		"prob": 90,
+		"occurDay": 22,
+		"occurMonth": 6,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["你暗下决心，准备赚多点钱以应突发事件。"],
+			"failFuncName": "",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "月底将近",
+		"preEvent":"来自隔壁镇恩人的求救信",
+		"successMessage": "事到临头，一个自私念头产生：",
+		"failMessage": "事到临头，一个自私念头产生，不不不还是得去救恩人，嗯~，对，得救。\n\t心念通达战胜邪念的你决定去赌场碰碰运气。\n运气绝佳，获利25硬币。",
+		"type": "static",
+		"prob": 30,
+		"occurDay": 28,
+		"occurMonth": 6,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [85],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["要不还是算了，多一事不如少一事，忘了他吧！"],
+			"failFuncName": "addMoneyEvent",
+			"failFuncParams": [25]
+		}
+	},
+	{
+		"eventName": "解救日",
+		"preEvent":"来自隔壁镇恩人的求救信",
+		"successMessage": "你花费50硬币成功解救了恩人",
+		"failMessage": "因为你并没有50硬币，绑匪气急败坏将你杀了",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 30,
 		"occurMonth": 6,
 		"occurYear": 1789,
 		"funcList": {
@@ -108,19 +146,20 @@
 			"checkFuncParams": [50],
 			"successFuncName": "subMoneyEvent",
 			"successFuncParams": [50],
-			"failFuncName": "gameEndEvent",
-			"failFuncParams": [""]
+			"failFuncName": "gameoverEvent",
+			"failFuncParams": []
 		}
 	},
+
 	{
 		"eventName": "恩人的感谢信",
 		"preEvent":"来自隔壁镇恩人的求救信",
 		"successMessage": "恩人十分感激你的解救，不光将赎金还你还给了你100硬币以作答谢",
 		"failMessage": "恩人十分感激你的解救，将赎金的钱给了你",
 		"type": "static",
-		"prob": 90,
+		"prob": 95,
 		"occurDay": 20,
-		"occurMonth": 8,
+		"occurMonth": 7,
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "eventHappenedTest",
@@ -173,7 +212,7 @@
 		"eventName": "大侠梦",
 		"preEvent":"",
 		"successMessage": "昨天晚间，做梦当了劫富济贫的大侠，梦游取走富人的硬币*15",
-		"failMessage": "昨天晚间，做梦当了劫富济贫的大侠，梦游取走富人很多硬币",
+		"failMessage": "昨天晚间，做梦当了劫富济贫的大侠，梦里取走富人很多硬币",
 		"type": "random",
 		"prob": 20,
 		"occurDay": 2,
@@ -281,6 +320,234 @@
 			"successFuncParams": [{"power":1,"iron":1,"a":1}],
 			"failFuncName": "messageEvent",
 			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	},
+	{
+		"eventName": "领主的压迫",
+		"preEvent":"",
+		"successMessage": "月底你需要上交：",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["wood * 10"],
+			"failFuncName": "",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "领主的压迫",
+		"preEvent":"",
+		"successMessage": "月底你需要上交：",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 1,
+		"occurMonth": 2,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["honey * 3"],
+			"failFuncName": "",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "领主的压迫",
+		"preEvent":"",
+		"successMessage": "月底你需要上交：",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 1,
+		"occurMonth": 3,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["glass * 3"],
+			"failFuncName": "",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "领主的压迫",
+		"preEvent":"",
+		"successMessage": "月底你需要上交：",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 1,
+		"occurMonth": 4,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["silk * 3"],
+			"failFuncName": "",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "领主的压迫",
+		"preEvent":"",
+		"successMessage": "月底你需要上交：",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 1,
+		"occurMonth": 5,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["crayfish * 5"],
+			"failFuncName": "",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "领主的压迫",
+		"preEvent":"",
+		"successMessage": "月底你需要上交：",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 1,
+		"occurMonth": 6,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["Ambilight * 2"],
+			"failFuncName": "",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "领主的压迫",
+		"preEvent":"",
+		"successMessage": "月底你需要上交：",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 1,
+		"occurMonth": 7,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["tigerwhip * 3"],
+			"failFuncName": "",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "领主的压迫",
+		"preEvent":"",
+		"successMessage": "月底你需要上交：",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 1,
+		"occurMonth": 8,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["jacket * 10"],
+			"failFuncName": "",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "领主的压迫",
+		"preEvent":"",
+		"successMessage": "月底你需要上交：",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 1,
+		"occurMonth": 9,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["ox * 3"],
+			"failFuncName": "",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "领主的压迫",
+		"preEvent":"",
+		"successMessage": "月底你需要上交：",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 1,
+		"occurMonth": 10,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["waterweed * 15"],
+			"failFuncName": "",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "领主的压迫",
+		"preEvent":"",
+		"successMessage": "月底你需要上交：",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 1,
+		"occurMonth": 11,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["Ginkgolide * 10"],
+			"failFuncName": "",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "领主的压迫",
+		"preEvent":"",
+		"successMessage": "月底你需要上交：",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 1,
+		"occurMonth": 12,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["FerricAmmoniumCitrate * 2"],
+			"failFuncName": "",
+			"failFuncParams": []
 		}
 	}
 ]
