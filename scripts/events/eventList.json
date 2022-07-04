@@ -1,40 +1,289 @@
-[
-	{
-		"eventName" : "第一个事件",
-		"successMessage" : "成功!",
-		"failMessage" : "失败",
-		"type" : "static",
-		"prob" : 0,
-		"occurDay" : 1,
-		"occurMonth" : 1,
-		"occurYear" : 1789,
-		"funcList" : 
-		{
-			"checkFuncName" : "trueTest",
-			"checkFuncParams" : [],
-			"successFuncName" : "messageEvent",
-			"successFuncParams" : ["欢迎来到异世界——创造之书的诞生地，朗特伊尔大陆\n\t作为布瑞特·艾冷斯镇的居民，你无疑是悲惨的。镇上的贪婪领主每月都会征收稀奇的物品。普通居民的生活是受限制的，你只可以选择收集资源或者是去交易市场逛一逛(*^▽^*)"],
-			"failFuncName" : "",
-			"failFuncParams" : []
+[{
+		"eventName": "异世界须知",
+		"successMessage": "",
+		"failMessage": "失败",
+		"type": "static",
+		"prob": 0,
+		"occurDay": 1,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["欢迎来到异世界——创造之书的诞生地，朗特伊尔大陆\n\t作为布瑞特·艾冷斯镇的居民，你无疑是悲惨的。镇上的贪婪领主每月都会征收稀奇的物品。普通居民的生活是受限制的，你只可以选择收集资源或者是去交易市场逛一逛(*^▽^*)"],
+			"failFuncName": "",
+			"failFuncParams": []
 		}
 	},
 	{
-		"eventName" : "第二个事件",
-		"successMessage" : "成功!",
-		"failMessage" : "失败",
-		"type" : "static",
-		"prob" : 0,
-		"occurDay" : 1,
-		"occurMonth" : 1,
-		"occurYear" : 1789,
-		"funcList" : 
-		{
-			"checkFuncName" : "trueTest",
-			"checkFuncParams" : [],
-			"successFuncName" : "messageEvent",
-			"successFuncParams" : ["welcomeAgain"],
-			"failFuncName" : "",
-			"failFuncParams" : []
+		"eventName": "红黑树？？",
+		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "random",
+		"prob": 63,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["s", 1],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
 		}
-	},
+	}，
+	{
+		"eventName": "红黑树？？",
+		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "random",
+		"prob": 63,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["s", 1],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	}，
+	{
+		"eventName": "红黑树？？",
+		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "random",
+		"prob": 63,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["s", 1],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	}，
+	{
+		"eventName": "红黑树？？",
+		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "random",
+		"prob": 63,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["s", 1],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	}，
+	{
+		"eventName": "红黑树？？",
+		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "random",
+		"prob": 63,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["s", 1],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	}，
+	{
+		"eventName": "红黑树？？",
+		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "random",
+		"prob": 63,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["s", 1],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	}，
+	{
+		"eventName": "红黑树？？",
+		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "random",
+		"prob": 63,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["s", 1],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	}，
+	{
+		"eventName": "红黑树？？",
+		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "random",
+		"prob": 63,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["s", 1],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	}，
+	{
+		"eventName": "红黑树？？",
+		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "random",
+		"prob": 63,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["s", 1],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	}，
+	{
+		"eventName": "红黑树？？",
+		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "random",
+		"prob": 63,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["s", 1],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	}，
+	{
+		"eventName": "红黑树？？",
+		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "random",
+		"prob": 63,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["s", 1],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	}，
+	{
+		"eventName": "红黑树？？",
+		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "random",
+		"prob": 63,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["s", 1],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	}，
+	{
+		"eventName": "红黑树？？",
+		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "random",
+		"prob": 63,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["s", 1],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	}，
+	{
+		"eventName": "红黑树？？",
+		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "random",
+		"prob": 63,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["s", 1],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	}，
+	{
+		"eventName": "红黑树？？",
+		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"failMessage": "虚空缓缓出现一个大黑洞！",
+		"type": "random",
+		"prob": 63,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["s", 1],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
+		}
+	}
 ]
