@@ -61,7 +61,7 @@ func eventConnect():
 	Event.connect("eventEndSignal", dialog, "closeDialog")
 	Event.connect("eventEndSignal", self, "unlockTimer")
 	
-	$System/EventTimer.connect("timeout", self, "tryPop")
+	$EventTimer.connect("timeout", self, "tryPop")
 
 func tryPop():
 	if timerLock == 1:
@@ -121,7 +121,7 @@ func startGame():
 	date.call("setDate", 1789, 1, 1)
 	Event.initEvents()
 	Event.prepareEvents()
-	$System/EventTimer.start(0.5)
+	$EventTimer.start(0.5)
 	saveName = $"/root/Data".call("newSave")
 	$"/root/Data".call("saveData", saveName)
 	$Scene/MainScene.call("showScene")
@@ -129,7 +129,7 @@ func startGame():
 func loadGame(saveName_):
 	Event.initEvents()
 	Event.prepareEvents()
-	$System/EventTimer.start(1)
+	$EventTimer.start(0.5)
 	saveName = saveName_
 	$"/root/Data".call("loadData", saveName)
 	$Scene/MainScene.call("showScene")
