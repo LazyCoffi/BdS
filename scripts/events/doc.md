@@ -15,6 +15,7 @@
   - checkFuncName:用于判断的函数名,若判断成功则执行 成功执行函数, 否则执行 失败执行函数
     - trueTest:恒为真函数,一定返回true
     - blockTest:给定参数[block, requireNum],若玩家拥有requireNum个block,则返回true,否则返回false
+    - randomTest:给定参数[prob],prob范围为[0,100],即prob%概率返回真
   -  checkFuncParams:传给checkFunc的参数,以列表形式传入
   - successFuncName:成功执行函数名,判断成功则被执行
     - messageEvent:给定参数[message],弹窗弹出标题为eventName,内容为message的弹窗

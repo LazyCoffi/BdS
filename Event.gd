@@ -9,13 +9,13 @@ var words
 
 var curEventQueue = []
 var eventList = []
+var curVictoryEvents = {}
+var victoryEventDict = {}
 
-# TODO: 完善事件体系
-# TODO: 定义各类信号
 signal addBlockSignal			# 添加词块信号 (词块, 数量)
 signal removeBlockSignal		# 删除词块信号 (词块, 数量)
 signal addDictSignal			# 添加条目信号 (词块)
-signal gameoverSignal			# 游戏结束信号
+signal gameEndSignal			# 游戏结束信号
 signal messageSignal			# 发送消息事件
 signal eventEndSignal
 
@@ -35,6 +35,17 @@ func initEvents():
 	file.open("res://scripts/events/eventList.json", File.READ)
 	
 	eventList = parse_json(file.get_as_text())
+	
+	file.close()
+	
+	if not file.file_exists("res://scripts/events/victoryEvents.json"):
+		print("victoryEvents文件不存在!")
+		return
+	file.open("res://scripts/events/victoryEvents.json", File.READ)
+	
+	victoryEventDict = parse_json(file.get_as_text())
+	
+	file.close()
 
 func compDate(event):
 	var day = date.call("getDay")
@@ -99,6 +110,26 @@ func blockTest(params):
 	else:
 		return false
 
+func randomTest(params):
+	var prob = params.pop_front()
+	if randn(0, 100) <= prob:
+		return true
+	else:
+		return false
+
+func checkVictorys(params):
+	for vKey in curVictoryEvents.keys():
+		var victoryEvent = curVictoryEvents[vKey]
+		var flag = 1
+		for key in victoryEvent.keys():
+			if words.call("getBlockNum", key) < victoryEvent[key]:
+				flag = 0
+				break
+		if flag == 1:
+			emit_signal("gameWinSignal", vKey)
+			break
+
+
 func messageEvent(eventName, params, preMessage):
 	var message = params.pop_front()
 	emit_signal("messageSignal", eventName, preMessage + message)
@@ -137,10 +168,15 @@ func addDictWordEvent(eventName, params, preMessage):
 			message = "获得重要单词" + word
 	
 	emit_signal("messageSignal", eventName, message)
+	
+func addVictoryEvent(eventName, params, preMessage):
+	var word = params.pop_front()
+	curVictoryEvents[word] = victoryEventDict[word]
+	var message = "胜利条件 " + word + " 已添加!"
+	emit_signal("messageSignal", eventName, preMessage + message)
 
 func gameoverEvent(eventName, params, preMessage):
-	var gameoverMessage = params.pop_front()
-	emit_signal("gameoverSignal", eventName, preMessage + gameoverMessage)
+	emit_signal("gameEndSignal", "loseGame")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
