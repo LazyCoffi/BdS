@@ -1,14 +1,40 @@
 [
 	{
 		"color" : "chocolate",
-		"text" : "你好啊"
+		"text" : "爷爷，快过来！"
+	},
+	{
+		"color" : "chocolate",
+		"text" : "今晚要给我讲一个什么样的故事呢？"
+	},
+	{
+		"color" : "chocolate",
+		"text" : "对了！能再给我讲一次创造之书的故事吗？"
 	},
 	{
 		"color" : "orange",
-		"text" : "你也好"
+		"text" : "哈哈哈！听过了还想再听一次是吗。"
 	},
 	{
-		"color" : "olive",
-		"text" : "再见"
-	}
+		"color" : "chocolate",
+		"text" : "嗯...是呀！"
+	},
+	{
+		"color" : "orange",
+		"text" : "那你可听好了哦。传说啊，千年前，对面的朗特伊尔大陆布瑞特·艾冷斯镇有个残暴的贪婪领主。\n领主每过一个月向领地居民强制征收奇怪的物品。"
+	},
+
+	{
+		"color" : "orange",
+		"text" : "其中一位受到压迫已久居民，有一天他捡到一本神奇的字典——《创造之书》"
+	},
+	{
+		"color" : "chocolate",
+		"text" : "这是一本怎样神奇的书呢？"
+	},
+	{
+		"color" : "orange",
+		"text" : "这是......"
+	},
+
 ]

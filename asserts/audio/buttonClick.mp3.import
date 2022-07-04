@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/buttonClick.mp3-e0dec354785496485800875f6afa83dd.mp3str"
+path="res://.import/ButtonClick.mp3-eba684c5dba7b993a3eff39b6ccec343.mp3str"
 
 [deps]
 
-source_file="res://asserts/audio/buttonClick.mp3"
-dest_files=[ "res://.import/buttonClick.mp3-e0dec354785496485800875f6afa83dd.mp3str" ]
+source_file="res://asserts/audio/ButtonClick.mp3"
+dest_files=[ "res://.import/ButtonClick.mp3-eba684c5dba7b993a3eff39b6ccec343.mp3str" ]
 
 [params]
 

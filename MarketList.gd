@@ -3,6 +3,7 @@ extends Node2D
 var money
 var words
 var listState
+var curList = []
 var priceDict = {}
 
 signal messageSignal
@@ -65,7 +66,11 @@ func fillSellList():
 	
 	var list = words.call("getBlocks")
 	
-	for listNode in list:
+	if $"/root/Data/Date".call("getTotalDays") % 7 == 0:
+		list.shuffle()
+		curList = list.slice(0, 10)
+	
+	for listNode in curList:
 		var block = listNode[0]
 		if not priceDict.has(block):
 			continue

@@ -6,10 +6,10 @@
 [ext_resource path="res://OpeningCG.tscn" type="PackedScene" id=4]
 [ext_resource path="res://CollectScene.tscn" type="PackedScene" id=5]
 [ext_resource path="res://MainScene.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Event.gd" type="Script" id=7]
 [ext_resource path="res://MarketScene.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Content.gd" type="Script" id=9]
 [ext_resource path="res://SaveMenu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://DialogMenu.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Book.tscn" type="PackedScene" id=13]
 [ext_resource path="res://DialogScene.tscn" type="PackedScene" id=23]
 
@@ -56,11 +56,8 @@ script = ExtResource( 9 )
 
 [node name="TransitionScene" parent="Content/Scene" instance=ExtResource( 2 )]
 
+[node name="DialogMenu" parent="Content/Scene" instance=ExtResource( 11 )]
+
 [node name="System" type="Node" parent="Content"]
 
 [node name="EventTimer" type="Timer" parent="Content/System"]
-
-[node name="Workflow" type="Node" parent="Content/System"]
-
-[node name="Event" type="Node" parent="Content/System/Workflow"]
-script = ExtResource( 7 )

@@ -59,6 +59,9 @@ func getMonth():
 func getDay():
 	return day
 
+func getTotalDays():
+	return totalDays
+
 func setMissionDate(year_, month_, day_):
 	missionDate["year"] = year_
 	missionDate["month"] = month_

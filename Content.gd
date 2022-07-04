@@ -10,10 +10,12 @@ var dialog
 var saveName
 var timerLock
 
+signal returnMenuSignal
+signal gameExitSignal
+
 func _ready():
 	date = $"/root/Data/Date"
 	words = $"/root/Data/Words"
-	event = $System/Workflow/Event
 	dialog = $Scene/Dialog
 	
 	initConnects()
@@ -37,21 +39,27 @@ func initConnects():
 	$OpeningCG.connect("transitionSignal", $Scene/TransitionScene, "play")
 	$Scene/MainScene.connect("transitionSignal", $Scene/TransitionScene, "play")
 	
+	$Scene/MainScene/MenuButton.connect("pressed", $Scene/DialogMenu, "showScene")
+	$Scene/DialogMenu/ButtonRect/MenuButton.connect("pressed", self, "returnMainMenu")
+	$Scene/DialogMenu/ButtonRect/ExitButton.connect("pressed", self, "exitGame")
+	
 	$Scene/BookScene.connect("nextDaySignal", self, "nextDay")
 	$Scene/CollectScene.connect("nextDaySignal", self, "nextDay")
 	$Scene/MarketScene.connect("nextDaySignal", self, "nextDay")
 
 func eventConnect():
-	$Scene/BookScene/Book/CreateScene/CreateBench.connect("messageSignal", $System/Workflow/Event, "pushMessageEvent")
-	$Scene/BookScene/Book/SplitScene/SplitBench.connect("messageSignal", $System/Workflow/Event, "pushMessageEvent")
-	$Scene/CollectScene/CollectList.connect("messageSignal", $System/Workflow/Event, "pushMessageEvent")
-	$Scene/MarketScene/MarketList.connect("messageSignal", $System/Workflow/Event, "pushMessageEvent")
-	$"/root/Data/Words".connect("messageSignal", $System/Workflow/Event, "pushMessageEvent")
+	$Scene/BookScene/Book/CreateScene/CreateBench.connect("messageSignal", Event, "pushMessageEvent")
+	$Scene/BookScene/Book/SplitScene/SplitBench.connect("messageSignal", Event, "pushMessageEvent")
+	$Scene/CollectScene/CollectList.connect("messageSignal", Event, "pushMessageEvent")
+	$Scene/MarketScene/MarketList.connect("messageSignal", Event, "pushMessageEvent")
+	$"/root/Data/Words".connect("messageSignal", Event, "pushMessageEvent")
 	
-	$Scene/Dialog.connect("nextEventSignal", event, "popEvent")
-	event.connect("messageSignal", dialog, "showDialog")
-	event.connect("eventEndSignal", dialog, "closeDialog")
-	event.connect("eventEndSignal", self, "unlockTimer")
+	Event.connect("gameEndSignal", self, "gameEnd")
+	
+	$Scene/Dialog.connect("nextEventSignal", Event, "popEvent")
+	Event.connect("messageSignal", dialog, "showDialog")
+	Event.connect("eventEndSignal", dialog, "closeDialog")
+	Event.connect("eventEndSignal", self, "unlockTimer")
 	
 	$System/EventTimer.connect("timeout", self, "tryPop")
 
@@ -59,15 +67,31 @@ func tryPop():
 	if timerLock == 1:
 		return
 	
-	if not event.call("isEventQueueEmpty"):
+	if not Event.isEventQueueEmpty():
 		timerLock = 1
-		event.call("popEvent")
+		Event.popEvent()
 
 func unlockTimer():
 	timerLock = 0
 
 func playCG():
 	$OpeningCG.call("startCG")
+
+func returnMainMenu():
+	$Scene/MainScene.call("hideScene")
+	$Scene/CollectScene.call("hideScene")
+	$Scene/MarketScene.call("hideScene")
+	$Scene/BookScene.call("hideScene")
+	$Scene/Dialog.call("closeDialog")
+	$Scene/TransitionScene.call("hideScene", "")
+	$Scene/DialogMenu.call("hideScene")
+	emit_signal("returnMenuSignal")
+
+func exitGame():
+	emit_signal("gameExitSignal")
+
+func gameEnd(eventName):
+	pass
 
 func showBookScene():
 	$Scene/MainScene.call("hideScene")
@@ -95,14 +119,16 @@ func hideMarketScene():
 
 func startGame():
 	date.call("setDate", 1789, 1, 1)
-	event.call("prepareEvents")
+	Event.initEvents()
+	Event.prepareEvents()
 	$System/EventTimer.start(0.5)
 	saveName = $"/root/Data".call("newSave")
 	$"/root/Data".call("saveData", saveName)
 	$Scene/MainScene.call("showScene")
 
 func loadGame(saveName_):
-	event.call("prepareEvents")
+	Event.initEvents()
+	Event.prepareEvents()
 	$System/EventTimer.start(1)
 	saveName = saveName_
 	$"/root/Data".call("loadData", saveName)
@@ -112,4 +138,4 @@ func nextDay():
 	$"/root/Data".call("saveData", saveName)
 	$"/root/Data/Date".call("nextDay")
 	MusicPlayer.soundPlay("Bell")
-	event.call("prepareEvents")
+	Event.prepareEvents()

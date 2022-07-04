@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Window.png-258e5d3b18dd393a96832a19e8e69330.stex"
+path="res://.import/DialogMenuButtonPressed.webp-a4c34e38eef9e0f8e6cabe50df21bc5e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asserts/art/Window.png"
-dest_files=[ "res://.import/Window.png-258e5d3b18dd393a96832a19e8e69330.stex" ]
+source_file="res://asserts/art/DialogMenuButtonPressed.webp"
+dest_files=[ "res://.import/DialogMenuButtonPressed.webp-a4c34e38eef9e0f8e6cabe50df21bc5e.stex" ]
 
 [params]
 

@@ -1,10 +1,15 @@
 {
-	"stone" : ["item", 1, 0],
-	"wood" : ["item", 2, 0],
-	"water" : ["item", 3, 0],
-	"honey" : ["item", 0, 1],
-	"leaf" : ["item", 3, 0],
-	"hare" : ["item", 0, 1],
-	"少量金钱" : ["coin", 30, 50],
-	"大量金钱" : ["coin", 10, 100]
+	"stone": ["item", 1, 0],
+	"wood": ["item", 2, 0],
+	"water": ["item", 3, 0],
+	"honey": ["item", 0, 1],
+	"leaf": ["item", 3, 0],
+	"hare": ["item", 0, 1],
+	"fish": ["item", 0, 3],
+	"mud": ["item", 3, 0],
+	"hair": ["item", 1, 3],
+	"stick": ["item", 2, 0],
+	"务农打工": ["coin", 4, 6],
+	"去赌场碰碰运气": ["coin", -2, 10],
+	"去赌场大干一场": ["coin", -18, 30]
 }

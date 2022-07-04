@@ -13,6 +13,8 @@ func _ready():
 	$Interface/MainMenu/ExitButton.connect("pressed", self, "gameExit")
 	$Interface/SaveMenu/ExitArrow.connect("pressed", self, "toMainMenu")
 	$Interface/SaveMenu/SaveList.connect("loadGameSignal", self, "loadGame")
+	$Content.connect("returnMenuSignal", self, "toMainMenu")
+	$Content.connect("gameExitSignal", self, "gameExit")
 	
 #-functions-#
 	
