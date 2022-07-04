@@ -134,6 +134,17 @@ func moneyTest(params):
 	var value = params.pop_front()
 	return money.call("getMoney") >= value
 
+func eventHappenedTest(params):
+	var curEventName = params.pop_front()
+	return eventHappened.has(curEventName)
+
+func eventHappenedListTest(params):
+	var curEventList = params.pop_front()
+	for curEventName in curEventList:
+		if not eventHappened.has(curEventName):
+			return false
+	return true
+
 func getVictoryStr():
 	var finalStr = ""
 	for vKey in curVictoryEvents:
@@ -146,6 +157,7 @@ func getVictoryStr():
 		finalStr += "]\n"
 	
 	return finalStr
+
 
 func checkVictorys(params):
 	for vKey in curVictoryEvents.keys():
