@@ -53,21 +53,23 @@ func initEvents():
 
 func compDate(event):
 	var day = date.call("getDay")
-	var mouth = date.call("getMonth")
+	var month = date.call("getMonth")
 	var year = date.call("getYear")
 	
 	return day == event["occurDay"] and \
-		   mouth == event["occurMonth"] and \
+		   month == event["occurMonth"] and \
 		   year == event["occurYear"]
 
 func prepareEvents():
 	for event in eventList:
-		if event["type"] == "random":
+		if event["type"] == "static":
+			if compDate(event):
+				var p = event["prob"]
+				if randn(0,100) <= p:
+					curEventQueue.push_back(event)
+		elif event["type"] == "random":
 			var p = event["prob"]
 			if randn(0,100) < p:
-				curEventQueue.push_back(event)
-		else:
-			if compDate(event):
 				curEventQueue.push_back(event)
 
 func pushMessageEvent(title, message):
