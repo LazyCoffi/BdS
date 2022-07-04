@@ -164,7 +164,11 @@ func checkVictorys(params):
 		var victoryEvent = curVictoryEvents[vKey]
 		var flag = 1
 		for key in victoryEvent.keys():
-			if words.call("getBlockNum", key) < victoryEvent[key]:
+			if key == "coin":
+				if money.call("getMoney") < victoryEvent[key]:
+					flag = 0
+					break
+			elif words.call("getBlockNum", key) < victoryEvent[key]:
 				flag = 0
 				break
 		if flag == 1:
