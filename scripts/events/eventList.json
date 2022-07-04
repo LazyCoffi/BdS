@@ -11,7 +11,7 @@
 			"checkFuncName" : "trueTest",
 			"checkFuncParams" : [],
 			"successFuncName" : "messageEvent",
-			"successFuncParams" : ["welcome"],
+			"successFuncParams" : ["欢迎来到异世界——创造之书的诞生地，朗特伊尔大陆\n\t作为布瑞特·艾冷斯镇的居民，你无疑是悲惨的。镇上的贪婪领主每月都会征收稀奇的物品。普通居民的生活是受限制的，你只可以选择收集资源或者是去交易市场逛一逛(*^▽^*)"],
 			"failFuncName" : "",
 			"failFuncParams" : []
 		}
