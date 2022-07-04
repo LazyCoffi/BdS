@@ -110,6 +110,13 @@ func blockTest(params):
 	else:
 		return false
 
+func randomTest(params):
+	var prob = params.pop_front()
+	if randn(0, 100) <= prob:
+		return true
+	else:
+		return false
+
 func checkVictorys(params):
 	for vKey in curVictoryEvents.keys():
 		var victoryEvent = curVictoryEvents[vKey]
