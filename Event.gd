@@ -50,8 +50,6 @@ func initEvents():
 	
 	curVictoryEvents["武装胜利"] = victoryEventDict["武装胜利"]
 	curVictoryEvents["武装胜利2"] = victoryEventDict["武装胜利2"]
-	
-	
 
 func compDate(event):
 	var day = date.call("getDay")
