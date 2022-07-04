@@ -6,6 +6,7 @@ var importantDict = {}		# 重要单词
 var resourceDict = {}
 var dictTree = {}
 var isUnlocked = {}
+var missionWord
 
 signal messageSignal
 
@@ -15,11 +16,19 @@ func _ready():
 	initResourceDict()
 	initDictTree()
 	
+	missionWord = ""
+	
 	# Test
 	insertBlock("ood")
 	insertBlock("w")
 	insertBlock("word")
 	insertBlock("s")
+
+func setMissionWord(word):
+	missionWord = word
+
+func getMissionWord():
+	return missionWord
 
 func loadData(data):
 	words = data["words"]

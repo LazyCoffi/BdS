@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://asserts/art/backgroundPics/5.png" type="Texture" id=1]
 [ext_resource path="res://asserts/art/backgroundPics/1.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://asserts/art/hoverMarketArrow.png" type="Texture" id=14]
 [ext_resource path="res://asserts/art/marketArrow.png" type="Texture" id=15]
 [ext_resource path="res://asserts/art/UI.webp" type="Texture" id=16]
+[ext_resource path="res://UI.gd" type="Script" id=17]
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
@@ -32,7 +33,7 @@ script = ExtResource( 3 )
 scale = Vector2( 1.37429, 1.16024 )
 frames = SubResource( 9 )
 animation = "Background"
-frame = 4
+frame = 1
 playing = true
 centered = false
 
@@ -164,9 +165,43 @@ valign = 1
 margin_left = 1664.0
 margin_right = 1916.0
 margin_bottom = 420.0
+theme = ExtResource( 10 )
 texture = ExtResource( 16 )
 expand = true
+script = ExtResource( 17 )
 
 [node name="Date" type="Label" parent="UI"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 216.0
+margin_bottom = 72.0
+custom_colors/font_color = Color( 0.843137, 0.658824, 0.415686, 1 )
+align = 1
+valign = 1
+
+[node name="MissionWord" type="Label" parent="UI"]
+margin_left = 32.0
+margin_top = 104.0
+margin_right = 216.0
+margin_bottom = 145.0
+custom_colors/font_color = Color( 0.290196, 0.141176, 0.0627451, 1 )
+align = 1
+valign = 1
+
+[node name="MissionDate" type="Label" parent="UI"]
+margin_left = 32.0
+margin_top = 160.0
+margin_right = 216.0
+margin_bottom = 208.0
+custom_colors/font_color = Color( 0.94902, 0.247059, 0.109804, 1 )
+align = 1
+valign = 1
+
+[node name="Money" type="Label" parent="UI"]
+margin_left = 88.0
+margin_top = 280.0
+margin_right = 224.0
+margin_bottom = 321.0
+custom_colors/font_color = Color( 0.772549, 0.74902, 0.0980392, 1 )
+align = 1
+valign = 1

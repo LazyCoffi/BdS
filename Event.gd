@@ -107,7 +107,15 @@ func addBlockEvent(eventName, params):
 	words.call("insertMultiBlocks", block, blockNum)
 	var message = "获得" + str(blockNum) + "个" + block
 	emit_signal("messageSignal", eventName, message)
-	
+
+func setMissionEvent(eventName, params):
+	var missionWord = params.pop_front()
+	var missionDate = params.pop_front()
+	words.call("setMissionWord", missionWord)
+	date.call("setMissionDate", missionDate)
+	var message = "领主要求在 " + date.call("getMissionDateStr") + "前拿到一个 " + missionWord + " !"
+	emit_signal("messageSignal", "新的要求", message)
+
 func removeBlockEvent(eventName, params):
 	var block = params.pop_front()
 	var blockNum = params.pop_front()

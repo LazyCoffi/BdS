@@ -25,6 +25,7 @@ func _ready():
 
 func showScene():
 	show()
+	$UI.call("refresh")
 	emit_signal("transitionSignal")
 	MusicPlayer.play("MainScene")
 
