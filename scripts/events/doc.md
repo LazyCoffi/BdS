@@ -23,7 +23,11 @@
     - addBlockEvent:给定参数[block,blockNum],给玩家添加blockNum个block
     - addBlockListEvent:给定参数[{"key1":num1, "key2":num2},...],按提供的字典添加num1个key1,num2个key2...
     - deleteBlockListEvent:给定参数[{"key1":num1, "key2":num2},...],按提供的字典去除num1个key1,num2个key2...
+    - addMoneyEvent:给定参数[value],获得value硬币
+    - subMoneyEvent:给定参数[value],减少value硬币
+    - addVictoryEvent:给定参数[victoryName],添加名为victoryName的胜利条件
     - setMissionEvent:给定参数[word, {"year": year, "month": month, "day": day}],分别为一个字符串和字典,设置期限在year-month-day的任务word
     - removeBlockEvent:给定参数[block,blockNum],移除玩家blockNum个block
     - addDictWordEvent:给定参数[word],解锁玩家word单词
+    - checkVictory:无需参数[],检查所有现有胜利目标是否存在满足,若存在则直接结束游戏
     - gameoverEvent:游戏结束
