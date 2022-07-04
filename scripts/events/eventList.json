@@ -1,6 +1,8 @@
 [
 	{
 		"eventName" : "第一个事件",
+		"successMessage" : "成功!",
+		"failMessage" : "失败",
 		"type" : "static",
 		"prob" : 0,
 		"occurDay" : 1,
@@ -18,6 +20,8 @@
 	},
 	{
 		"eventName" : "第二个事件",
+		"successMessage" : "成功!",
+		"failMessage" : "失败",
 		"type" : "static",
 		"prob" : 0,
 		"occurDay" : 1,

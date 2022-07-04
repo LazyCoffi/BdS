@@ -13,10 +13,10 @@ signal transitionSignal
 
 func _ready():
 	hide()
-	initScript()
 	$ChattingBox/InvisiableButton.connect("pressed", self, "nextLine")
 
 func startCG():
+	initScript()
 	show()
 	MusicPlayer.play("CgScene")
 	emit_signal("transitionSignal")

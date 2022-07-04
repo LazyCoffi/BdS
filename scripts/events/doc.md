@@ -7,6 +7,7 @@
 字典中每个参数意义如下
 
 - eventName:事件名称,会成为弹出事件窗的标题
+- success/failMessage:成功/失败事件文字,用于实现功能类事件的文字介绍
 - type:分为static与random,分别为固定事件和随机事件,前者在固定日期每天开始时发生,后者按概率随机在某天开始时发生
 - prob:static设为0,random则设置发生概率,范围为0~100
 - occurDay,Month,Year:发生的年月日,设定从1789年开始,每月固定30天
