@@ -96,7 +96,7 @@
 	{
 		"eventName": "昨日记忆1",
 		"preEvent":"",
-		"successMessage": "这天，一直不知道有什么用的水晶",
+		"successMessage": "这天，一直不知道有什么用的水晶突然发出奇怪的声音，你手忙脚乱地摆弄了下，一个熟悉陌生的声音传来，通过交流很快你就知道这是之前救过的奇装异服怪人，你也知道了他是时空什么局的测试员，他教授于你一些奇怪的知识并给了你一个芯片。",
 		"failMessage": "",
 		"type": "static",
 		"prob": 70,
@@ -106,8 +106,8 @@
 		"funcList": {
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["第一次见这般稀奇的玩意，你拿在手上搬弄半天，除了时不时盒子会亮一下外你并未发现什么。"],
+			"successFuncName": "addBlockEvent",
+			"successFuncParams": ["chip",1],
 			"failFuncName": "",
 			"failFuncParams": [""]
 		}
