@@ -89,13 +89,13 @@
 		}
 	},
 	{
-		"eventName": "红黑树？？",
-		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
+		"eventName": "海的那一边",
+		"successMessage": "",
 		"failMessage": "虚空缓缓出现一个大黑洞！",
 		"type": "static",
-		"prob": 63,
-		"occurDay": 29,
-		"occurMonth": 1,
+		"prob": 70,
+		"occurDay": 15,
+		"occurMonth": 3,
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "randomTest",
