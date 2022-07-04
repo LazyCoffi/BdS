@@ -6,7 +6,7 @@
 	"stone": ["ore", "sand", "furnace", "hammer"],
 	"furnace": ["iron", "gold", "silver"],
 	"iron": ["sword", "ironarmor", "artillery"],
-	"ore": ["gunpowder", ],
+	"ore": ["gunpowder"],
 	"water": ["ice", "rice"],
 	"chip": ["cpu", "graphicscard", "harddisk", "heatsink"]
 }
