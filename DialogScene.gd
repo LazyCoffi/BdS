@@ -1,5 +1,6 @@
 extends Node2D
 
+var isShow
 signal nextEventSignal
 
 func _ready():
@@ -11,11 +12,14 @@ func _ready():
 func showDialog(title, message):
 	$TextureRect/DialogTitle.text = title
 	$TextureRect/DialogText.text = message
-	show()
 	$AnimationPlayer.play("show")
+	show()
+	isShow = true
 
 func nextDialog():
 	emit_signal("nextEventSignal")
 
 func closeDialog():
+	isShow = false
+	$AnimationPlayer.play("hide")
 	hide()

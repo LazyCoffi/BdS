@@ -51,7 +51,7 @@
 			"checkFuncParams": [85],
 			"successFuncName": "checkVictory",
 			"successFuncParams": [],
-			"failFuncName": "gameoverEvent",
+			"failFuncName": "gameEndEvent",
 			"failFuncParams": []
 		}
 	},
@@ -108,8 +108,8 @@
 			"checkFuncParams": [50],
 			"successFuncName": "subMoneyEvent",
 			"successFuncParams": [50],
-			"failFuncName": "gameoverEvent",
-			"failFuncParams": []
+			"failFuncName": "gameEndEvent",
+			"failFuncParams": [""]
 		}
 	},
 	{
@@ -202,7 +202,7 @@
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
 			"successFuncName": "subMoneyEvent",
-			"successFuncParams": [ 5],
+			"successFuncParams": [5],
 			"failFuncName": "",
 			"failFuncParams": [""]
 		}
@@ -240,7 +240,7 @@
 			"checkFuncName": "randomTest",
 			"checkFuncParams": [75],
 			"successFuncName": "addBlockListEvent",
-			"successFuncParams": [{"iron":1,"sword":1,"i":1}],
+			"successFuncParams": [{"sword":1,"i":1}],
 			"failFuncName": "messageEvent",
 			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
 		}

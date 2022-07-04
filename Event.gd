@@ -105,6 +105,9 @@ func popEvent():
 	var failMessage = event["failMessage"] + "\n"
 	var funcNode = event["funcList"]
 	eventHappened[eventName] = 0
+	if funcNode["checkFuncName"] == "randomTest":
+		print(eventName)
+		print(funcNode["checkFuncParams"])
 	if self.call(funcNode["checkFuncName"], funcNode["checkFuncParams"]):
 		self.call(funcNode["successFuncName"], eventName, funcNode["successFuncParams"], successMessage)
 	else:
@@ -116,30 +119,30 @@ func trueTest(params):
 	return true
 	
 func blockTest(params):
-	var block = params.pop_front()
-	var requireNum = params.pop_front()
+	var block = params[0]
+	var requireNum = params[1]
 	if words.words[block] >= requireNum:
 		return true
 	else:
 		return false
 
 func randomTest(params):
-	var prob = params.pop_front()
+	var prob = params[0]
 	if randn(0, 100) <= prob:
 		return true
 	else:
 		return false
 
 func moneyTest(params):
-	var value = params.pop_front()
+	var value = params[0]
 	return money.call("getMoney") >= value
 
 func eventHappenedTest(params):
-	var curEventName = params.pop_front()
+	var curEventName = params[0]
 	return eventHappened.has(curEventName)
 
 func eventHappenedListTest(params):
-	var curEventList = params.pop_front()
+	var curEventList = params[0]
 	for curEventName in curEventList:
 		if not eventHappened.has(curEventName):
 			return false
@@ -177,18 +180,18 @@ func checkVictorys(params):
 
 
 func messageEvent(eventName, params, preMessage):
-	var message = params.pop_front()
+	var message = params[0]
 	emit_signal("messageSignal", eventName, preMessage + message)
 
 func addBlockEvent(eventName, params, preMessage):
-	var block = params.pop_front()
-	var blockNum = params.pop_front()
+	var block = params[0]
+	var blockNum = params[1]
 	words.call("insertMultiBlocks", block, blockNum)
 	var message = "获得" + str(blockNum) + "个" + block
 	emit_signal("messageSignal", eventName, preMessage + message)
 
 func addBlockListEvent(eventName, params, preMessage):
-	var blockDict = params.pop_front()
+	var blockDict = params[0]
 	var message = "获得: ["
 	for key in blockDict.keys():
 		words.call("insertMultiBlocks", key, blockDict[key])
@@ -199,7 +202,7 @@ func addBlockListEvent(eventName, params, preMessage):
 	emit_signal("messageSignal", eventName, preMessage + message)
 
 func deleteBlockListEvent(eventName, params, preMessage):
-	var blockDict = params.pop_front()
+	var blockDict = params[0]
 	var message = "失去: ["
 	for key in blockDict.keys():
 		words.call("deleteMultiBlocks", key, blockDict[key])
@@ -210,35 +213,35 @@ func deleteBlockListEvent(eventName, params, preMessage):
 	emit_signal("messageSignal", eventName, preMessage + message)
 	
 func addMoneyEvent(eventName, params, preMessage):
-	var value = params.pop_front()
+	var value = params[0]
 	money.call("addMoney", value)
 	var message = "获得" + str(value) + "个硬币"
 	emit_signal("messageSignal", eventName, preMessage + message)
 
 func subMoneyEvent(eventName, params, preMessage):
-	var value = params.pop_front()
+	var value = params[0]
 	money.call("subMoney", value)
 	var message = "失去" + str(value) + "个硬币"
 	emit_signal("messageSignal", eventName, preMessage + message)
 
 func setMissionEvent(eventName, params, preMessage):
-	var missionWord = params.pop_front()
-	var missionDate = params.pop_front()
+	var missionWord = params[0]
+	var missionDate = params[1]
 	words.call("setMissionWord", missionWord)
 	date.call("setMissionDate", missionDate)
 	var message = "领主要求在 " + date.call("getMissionDateStr") + "前拿到一个 " + missionWord + " !"
 	emit_signal("messageSignal", eventName, preMessage + message)
 
 func removeBlockEvent(eventName, params, preMessage):
-	var block = params.pop_front()
-	var blockNum = params.pop_front()
+	var block = params[0]
+	var blockNum = params[1]
 	blockNum = min(blockNum, words.call("getBlockNum", block))
 	words.call("deleteMultiBlocks", block, blockNum)
 	var message = "失去" + str(blockNum) + "个" + block
 	emit_signal("messageSignal", eventName, preMessage + message)
 
 func addDictWordEvent(eventName, params, preMessage):
-	var word = params.pop_front()
+	var word = params[0]
 	var message = ""
 	if words.call("hasWord", word):
 		message = "获得单词" + word + "! 但好像你已经拥有了"
@@ -250,14 +253,11 @@ func addDictWordEvent(eventName, params, preMessage):
 	emit_signal("messageSignal", eventName, message)
 	
 func addVictoryEvent(eventName, params, preMessage):
-	var word = params.pop_front()
+	var word = params[0]
 	curVictoryEvents[word] = victoryEventDict[word]
 	var message = "胜利条件 " + word + " 已添加!"
 	emit_signal("messageSignal", eventName, preMessage + message)
 
-func gameoverEvent(eventName, params, preMessage):
-	emit_signal("gameEndSignal", "loseGame")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func gameEndEvent(eventName, params, preMessage):
+	var endName = params[0]
+	emit_signal("gameEndSignal", endName)

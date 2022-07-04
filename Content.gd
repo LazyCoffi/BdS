@@ -8,7 +8,6 @@ var words
 var event
 var dialog
 var saveName
-var timerLock
 
 signal returnMenuSignal
 signal gameExitSignal
@@ -59,20 +58,15 @@ func eventConnect():
 	$Scene/Dialog.connect("nextEventSignal", Event, "popEvent")
 	Event.connect("messageSignal", dialog, "showDialog")
 	Event.connect("eventEndSignal", dialog, "closeDialog")
-	Event.connect("eventEndSignal", self, "unlockTimer")
 	
 	$EventTimer.connect("timeout", self, "tryPop")
 
 func tryPop():
-	if timerLock == 1:
+	if $Scene/Dialog.isShow:
 		return
 	
 	if not Event.isEventQueueEmpty():
-		timerLock = 1
 		Event.popEvent()
-
-func unlockTimer():
-	timerLock = 0
 
 func playCG():
 	$OpeningCG.call("startCG")
@@ -121,7 +115,7 @@ func startGame():
 	date.call("setDate", 1789, 1, 1)
 	Event.initEvents()
 	Event.prepareEvents()
-	$EventTimer.start(0.5)
+	$EventTimer.start(0.1)
 	saveName = $"/root/Data".call("newSave")
 	$"/root/Data".call("saveData", saveName)
 	$Scene/MainScene.call("showScene")
@@ -129,12 +123,13 @@ func startGame():
 func loadGame(saveName_):
 	Event.initEvents()
 	Event.prepareEvents()
-	$EventTimer.start(0.5)
+	$EventTimer.start(0.1)
 	saveName = saveName_
 	$"/root/Data".call("loadData", saveName)
 	$Scene/MainScene.call("showScene")
 
 func nextDay():
+	print("nextday")
 	$"/root/Data".call("saveData", saveName)
 	$"/root/Data/Date".call("nextDay")
 	MusicPlayer.soundPlay("Bell")
