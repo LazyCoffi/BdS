@@ -17,6 +17,24 @@
 		}
 	},
 	{
+		"eventName": "海的那一边",
+		"successMessage": "镇西边的王二狗说花钱可以请市场的商人带人去往另一片大陆，他已经拿到船票了，马上就能脱离苦海了，我好羡慕呀！",
+		"failMessage": "听说花钱可以请市场的商人带人去往另一片大陆",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addVictoryEvent",
+			"successFuncParams": ["远走海外"],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，消息是假的！"]
+		}
+	},
+	{
 		"eventName": "红黑树？？",
 		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
 		"failMessage": "虚空缓缓出现一个大黑洞！",
@@ -86,24 +104,6 @@
 			"successFuncParams": ["silk"],
 			"failFuncName": "messageEvent",
 			"failFuncParams": ["总感觉好像失去了些什么。"]
-		}
-	},
-	{
-		"eventName": "海的那一边",
-		"successMessage": "",
-		"failMessage": "虚空缓缓出现一个大黑洞！",
-		"type": "static",
-		"prob": 70,
-		"occurDay": 15,
-		"occurMonth": 3,
-		"occurYear": 1789,
-		"funcList": {
-			"checkFuncName": "randomTest",
-			"checkFuncParams": [75],
-			"successFuncName": "addBlockEvent",
-			"successFuncParams": ["s", 1],
-			"failFuncName": "messageEvent",
-			"failFuncParams": ["遗憾，等了一会什么都没发生！"]
 		}
 	},
 	{
