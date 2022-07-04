@@ -58,6 +58,8 @@ func prepareEvents():
 func pushMessageEvent(title, message):
 	var event = {}
 	event["eventName"] = title
+	event["successMessage"] = ""
+	event["failMessage"] = ""
 	var funcList = {}
 	funcList["checkFuncName"] = "trueTest"
 	funcList["checkFuncParams"] = []
