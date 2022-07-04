@@ -10,6 +10,7 @@ func _ready():
 	$SplitBookmark.connect("pressed", self, "showSplitScene")
 	$DictBookmark.connect("pressed", self, "showDictScene")
 	$TreeBookmark.connect("pressed", self, "showTreeScene")
+	$VictoryBookmark.connect("pressed", self, "showVictoryScene")
 	
 	$CreateBookmark.connect("mouse_entered", $CreateBookHoverBox, "show")
 	$CreateBookmark.connect("mouse_exited", $CreateBookHoverBox, "hide")
@@ -22,6 +23,9 @@ func _ready():
 	
 	$TreeBookmark.connect("mouse_entered", $TreeBookHoverBox, "show")
 	$TreeBookmark.connect("mouse_exited", $TreeBookHoverBox, "hide")
+	
+	$VictoryBookmark.connect("mouse_entered", $VictoryBookHoverBox, "show")
+	$VictoryBookmark.connect("mouse_exited", $VictoryBookHoverBox, "hide")
 	
 	$ExitArrow.connect("mouse_entered", $ExitHoverBox, "show")
 	$ExitArrow.connect("mouse_exited", $ExitHoverBox, "hide")
@@ -42,30 +46,33 @@ func showScene():
 func setTrigger():
 	trigger = 1
 
-func showCreateScene():
-	$Book/CreateScene.call("showScene")
+func hideAllScene():
+	$Book/CreateScene.call("hideScene")
 	$Book/SplitScene.call("hideScene")
 	$Book/DictScene.call("hideScene")
 	$Book/TreeScene.call("hideScene")
+	$Book/VictoryScene.call("hideScene")
+
+func showCreateScene():
+	hideAllScene()
+	$Book/CreateScene.call("showScene")
 	
 func showSplitScene():
-	$Book/CreateScene.call("hideScene")
+	hideAllScene()
 	$Book/SplitScene.call("showScene")
-	$Book/DictScene.call("hideScene")
-	$Book/TreeScene.call("hideScene")
 
 func showDictScene():
-	$Book/CreateScene.call("hideScene")
-	$Book/SplitScene.call("hideScene")
+	hideAllScene()
 	$Book/DictScene.call("showScene")
-	$Book/TreeScene.call("hideScene")
 
 func showTreeScene():
-	$Book/CreateScene.call("hideScene")
-	$Book/SplitScene.call("hideScene")
-	$Book/DictScene.call("hideScene")
+	hideAllScene()
 	$Book/TreeScene.call("showScene")
 
+func showVictoryScene():
+	hideAllScene()
+	$Book/VictoryScene.call("showScene")
+	
 func hideScene():
 	MusicPlayer.soundPlay("DoorClose")
 	if trigger == 1:

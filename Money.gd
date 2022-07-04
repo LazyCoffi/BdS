@@ -27,7 +27,7 @@ func addMoney(value):
 	money += value
 
 func subMoney(value):
-	money = max(0, money - value)
+	money = money - value
 	
 func addRandomMoney(a, b):
 	addMoney(randn(a, b))
