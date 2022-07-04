@@ -1,5 +1,12 @@
 {
-	"Root" : ["wood", "stone"],
-	"wood" : ["stick", "board", "sword"],
-	"stone" : ["ore", "sand"]
+	"Root": ["wood", "stone", "water", "chip"],
+	"wood": ["board", "tools"],
+	"tools": ["woodenarmor"],
+	"board": ["bed", "table", "window"],
+	"stone": ["ore", "sand", "furnace", "hammer"],
+	"furnace": ["iron", "gold", "silver"],
+	"iron": ["sword", "ironarmor", "artillery"],
+	"ore": ["gunpowder"],
+	"water": ["ice", "rice"],
+	"chip": ["cpu", "graphicscard", "harddisk", "heatsink"]
 }
