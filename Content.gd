@@ -55,6 +55,8 @@ func eventConnect():
 	$Scene/MarketScene/MarketList.connect("messageSignal", $System/Workflow/Event, "pushMessageEvent")
 	$"/root/Data/Words".connect("messageSignal", $System/Workflow/Event, "pushMessageEvent")
 	
+	$System/Workflow/Event.connect("gameEndSignal", self, "gameEnd")
+	
 	$Scene/Dialog.connect("nextEventSignal", event, "popEvent")
 	event.connect("messageSignal", dialog, "showDialog")
 	event.connect("eventEndSignal", dialog, "closeDialog")
@@ -88,6 +90,9 @@ func returnMainMenu():
 
 func exitGame():
 	emit_signal("gameExitSignal")
+
+func gameEnd(eventName):
+	pass
 
 func showBookScene():
 	$Scene/MainScene.call("hideScene")
