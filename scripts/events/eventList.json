@@ -21,57 +21,76 @@
 		"eventName": "海的那一边",
 		"preEvent":"",
 		"successMessage": "镇西边的王二狗说花钱可以请市场的商人带人去往另一片大陆，他已经拿到船票了，马上就能脱离苦海了，你心生羡慕呀！",
-		"failMessage": "听说花钱可以请市场的商人带人去往另一片大陆",
+		"failMessage": "",
 		"type": "static",
 		"prob": 100,
 		"occurDay": 2,
-		"occurMonth": 1,
+		"occurMonth": 3,
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "randomTest",
 			"checkFuncParams": [75],
 			"successFuncName": "addVictoryEvent",
 			"successFuncParams": ["远走海外"],
-			"failFuncName": "messageEvent",
-			"failFuncParams": ["遗憾，消息是假的！"]
+			"failFuncName": "",
+			"failFuncParams": [""]
 		}
 	},
 	{
 		"eventName": "海的那一边————结束篇",
 		"preEvent":"海的那一边",
-		"successMessage": "镇西边的王二狗说花钱可以请市场的商人带人去往另一片大陆，他已经拿到船票了，马上就能脱离苦海了，你心生羡慕呀！",
-		"failMessage": "听说花钱可以请市场的商人带人去往另一片大陆",
+		"successMessage": "你已经拿到船票了，马上就能脱离苦海了，你心中幻想着另一片大陆的生活......",
+		"failMessage": "无良商人拿走你的钱但是不给你船票。被骗走钱的你心灰意冷，不再为领主的索取奔波，一天因为交不上物品，你被领主杀死。",
 		"type": "static",
 		"prob": 100,
-		"occurDay": 2,
-		"occurMonth": 1,
+		"occurDay": 28,
+		"occurMonth": 4,
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "randomTest",
 			"checkFuncParams": [75],
-			"successFuncName": "addVictoryEvent",
-			"successFuncParams": ["远走海外"],
-			"failFuncName": "messageEvent",
-			"failFuncParams": ["遗憾，消息是假的！"]
+			"successFuncName": "checkVictory",
+			"successFuncParams": [],
+			"failFuncName": "gameoverEvent",
+			"failFuncParams": []
 		}
 	},
 	{
 		"eventName": "商人的小道消息",
-		"preEvent":"海的那一边",
-		"successMessage": "听说花钱可以请市场的商人带人去往另一片大陆",
+		"preEvent":"",
+		"successMessage": "",
 		"failMessage": "听说花钱可以请市场的商人带人去往另一片大陆",
 		"type": "static",
 		"prob": 70,
-		"occurDay": 2,
+		"occurDay": 20,
+		"occurMonth": 5,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "eventHappenedTest",
+			"checkFuncParams": ["海的那一边"],
+			"successFuncName": "",
+			"successFuncParams": [],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["你找机会确定消息是否可靠！"]
+		}
+	},
+	{
+		"eventName": "消息的详细情报",
+		"preEvent":"商人的小道消息",
+		"successMessage": "消息是真的，花费3000硬币商人可以把人装进货仓带走",
+		"failMessage": "消息是假的。",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 5,
 		"occurMonth": 7,
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "randomTest",
 			"checkFuncParams": [75],
 			"successFuncName": "addVictoryEvent",
-			"successFuncParams": ["远走海外"],
+			"successFuncParams": ["商人的帮助"],
 			"failFuncName": "messageEvent",
-			"failFuncParams": ["遗憾，消息是假的！"]
+			"failFuncParams": ["你看见有人被骗，心灰意冷，最后被领主杀死。"]
 		}
 	},
 	{
