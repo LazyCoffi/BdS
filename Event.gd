@@ -6,6 +6,7 @@ extends Node
 
 var date
 var words
+var money
 
 var curEventQueue = []
 var eventList = []
@@ -22,6 +23,7 @@ signal eventEndSignal
 func _ready():
 	date = $"/root/Data/Date"
 	words = $"/root/Data/Words"
+	money = $"/root/Data/Money"
 
 func randn(l, r):				# 返回[l, r]随机数
 	randomize()
@@ -44,8 +46,12 @@ func initEvents():
 	file.open("res://scripts/events/victoryEvents.json", File.READ)
 	
 	victoryEventDict = parse_json(file.get_as_text())
-	
 	file.close()
+	
+	curVictoryEvents["武装胜利"] = victoryEventDict["武装胜利"]
+	curVictoryEvents["武装胜利2"] = victoryEventDict["武装胜利2"]
+	
+	
 
 func compDate(event):
 	var day = date.call("getDay")
@@ -117,6 +123,23 @@ func randomTest(params):
 	else:
 		return false
 
+func moneyTest(params):
+	var value = params.pop_front()
+	return money.call("getMoney") >= value
+
+func getVictoryStr():
+	var finalStr = ""
+	for vKey in curVictoryEvents:
+		var victoryEvent = curVictoryEvents[vKey]
+		finalStr += vKey + ": ["
+		for key in victoryEvent.keys():
+			finalStr += key + ": " + str(victoryEvent[key])
+			if key != victoryEvent.keys().back():
+				finalStr += ", "
+		finalStr += "]\n"
+	
+	return finalStr
+
 func checkVictorys(params):
 	for vKey in curVictoryEvents.keys():
 		var victoryEvent = curVictoryEvents[vKey]
@@ -141,13 +164,47 @@ func addBlockEvent(eventName, params, preMessage):
 	var message = "获得" + str(blockNum) + "个" + block
 	emit_signal("messageSignal", eventName, preMessage + message)
 
+func addBlockListEvent(eventName, params, preMessage):
+	var blockDict = params.pop_front()
+	var message = "获得: ["
+	for key in blockDict.keys():
+		words.call("insertMultiBlocks", key, blockDict[key])
+		message += key + ": " + str(blockDict[key])
+		if key != blockDict.keys().back():
+			message += ", "
+	message += "]"
+	emit_signal("messageSignal", eventName, preMessage + message)
+
+func deleteBlockListEvent(eventName, params, preMessage):
+	var blockDict = params.pop_front()
+	var message = "失去: ["
+	for key in blockDict.keys():
+		words.call("deleteMultiBlocks", key, blockDict[key])
+		message += key + ": " + str(blockDict[key])
+		if key != blockDict.keys().back():
+			message += ", "
+	message += "]"
+	emit_signal("messageSignal", eventName, preMessage + message)
+	
+func addMoneyEvent(eventName, params, preMessage):
+	var value = params.pop_front()
+	money.call("addMoney", value)
+	var message = "获得" + str(value) + "个硬币"
+	emit_signal("messageSignal", eventName, preMessage + message)
+
+func subMoneyEvent(eventName, params, preMessage):
+	var value = params.pop_front()
+	money.call("subMoney", value)
+	var message = "失去" + str(value) + "个硬币"
+	emit_signal("messageSignal", eventName, preMessage + message)
+
 func setMissionEvent(eventName, params, preMessage):
 	var missionWord = params.pop_front()
 	var missionDate = params.pop_front()
 	words.call("setMissionWord", missionWord)
 	date.call("setMissionDate", missionDate)
 	var message = "领主要求在 " + date.call("getMissionDateStr") + "前拿到一个 " + missionWord + " !"
-	emit_signal("messageSignal", "新的要求", preMessage + message)
+	emit_signal("messageSignal", eventName, preMessage + message)
 
 func removeBlockEvent(eventName, params, preMessage):
 	var block = params.pop_front()

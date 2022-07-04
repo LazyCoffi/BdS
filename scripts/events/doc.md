@@ -16,10 +16,13 @@
     - trueTest:恒为真函数,一定返回true
     - blockTest:给定参数[block, requireNum],若玩家拥有requireNum个block,则返回true,否则返回false
     - randomTest:给定参数[prob],prob范围为[0,100],即prob%概率返回真
+    - moneyTest:给定参数[value],若玩家现有金钱大于等于value则返回真
   -  checkFuncParams:传给checkFunc的参数,以列表形式传入
   - successFuncName:成功执行函数名,判断成功则被执行
     - messageEvent:给定参数[message],弹窗弹出标题为eventName,内容为message的弹窗
     - addBlockEvent:给定参数[block,blockNum],给玩家添加blockNum个block
+    - addBlockListEvent:给定参数[{"key1":num1, "key2":num2},...],按提供的字典添加num1个key1,num2个key2...
+    - deleteBlockListEvent:给定参数[{"key1":num1, "key2":num2},...],按提供的字典去除num1个key1,num2个key2...
     - setMissionEvent:给定参数[word, {"year": year, "month": month, "day": day}],分别为一个字符串和字典,设置期限在year-month-day的任务word
     - removeBlockEvent:给定参数[block,blockNum],移除玩家blockNum个block
     - addDictWordEvent:给定参数[word],解锁玩家word单词
