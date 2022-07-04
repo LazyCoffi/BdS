@@ -12,6 +12,7 @@ var curEventQueue = []
 var eventList = []
 var curVictoryEvents = {}
 var victoryEventDict = {}
+var eventHappened = {}
 
 signal addBlockSignal			# 添加词块信号 (词块, 数量)
 signal removeBlockSignal		# 删除词块信号 (词块, 数量)
@@ -62,6 +63,10 @@ func compDate(event):
 
 func prepareEvents():
 	for event in eventList:
+		var eventName = event["eventName"]
+		var preEvent = event["preEvent"]
+		if preEvent != "" and not eventHappened.has(preEvent):
+			continue
 		if event["type"] == "static":
 			if compDate(event):
 				var p = event["prob"]
@@ -77,6 +82,7 @@ func pushMessageEvent(title, message):
 	event["eventName"] = title
 	event["successMessage"] = ""
 	event["failMessage"] = ""
+	event["preEvent"] = ""
 	var funcList = {}
 	funcList["checkFuncName"] = "trueTest"
 	funcList["checkFuncParams"] = []
@@ -98,6 +104,7 @@ func popEvent():
 	var successMessage = event["successMessage"] + "\n"
 	var failMessage = event["failMessage"] + "\n"
 	var funcNode = event["funcList"]
+	eventHappened[eventName] = 0
 	if self.call(funcNode["checkFuncName"], funcNode["checkFuncParams"]):
 		self.call(funcNode["successFuncName"], eventName, funcNode["successFuncParams"], successMessage)
 	else:
