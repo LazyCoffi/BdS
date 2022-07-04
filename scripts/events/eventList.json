@@ -1,5 +1,6 @@
 [{
 		"eventName": "异世界须知",
+		"preEvent":"",
 		"successMessage": "",
 		"failMessage": "失败",
 		"type": "static",
@@ -18,7 +19,8 @@
 	},
 	{
 		"eventName": "海的那一边",
-		"successMessage": "镇西边的王二狗说花钱可以请市场的商人带人去往另一片大陆，他已经拿到船票了，马上就能脱离苦海了，我好羡慕呀！",
+		"preEvent":"",
+		"successMessage": "镇西边的王二狗说花钱可以请市场的商人带人去往另一片大陆，他已经拿到船票了，马上就能脱离苦海了，你心生羡慕呀！",
 		"failMessage": "听说花钱可以请市场的商人带人去往另一片大陆",
 		"type": "static",
 		"prob": 100,
@@ -35,7 +37,85 @@
 		}
 	},
 	{
+		"eventName": "海的那一边————结束篇",
+		"preEvent":"海的那一边",
+		"successMessage": "镇西边的王二狗说花钱可以请市场的商人带人去往另一片大陆，他已经拿到船票了，马上就能脱离苦海了，你心生羡慕呀！",
+		"failMessage": "听说花钱可以请市场的商人带人去往另一片大陆",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 2,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addVictoryEvent",
+			"successFuncParams": ["远走海外"],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，消息是假的！"]
+		}
+	},
+	{
+		"eventName": "商人的小道消息",
+		"preEvent":"海的那一边",
+		"successMessage": "听说花钱可以请市场的商人带人去往另一片大陆",
+		"failMessage": "听说花钱可以请市场的商人带人去往另一片大陆",
+		"type": "static",
+		"prob": 70,
+		"occurDay": 2,
+		"occurMonth": 7,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "randomTest",
+			"checkFuncParams": [75],
+			"successFuncName": "addVictoryEvent",
+			"successFuncParams": ["远走海外"],
+			"failFuncName": "messageEvent",
+			"failFuncParams": ["遗憾，消息是假的！"]
+		}
+	},
+	{
+		"eventName": "昨日记忆",
+		"preEvent":"",
+		"successMessage": "昨天回家的路上遇到一个身着奇装异服路人，见他饥肠辘辘快要饿死就送了他点吃食，作为回报他给了你一个覆盖着高级水晶的金属盒子。",
+		"failMessage": "",
+		"type": "static",
+		"prob": 70,
+		"occurDay": 2,
+		"occurMonth": 3,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["第一次见这般稀奇的玩意，你拿在手上搬弄半天，除了时不时盒子会亮一下外你并未发现什么。"],
+			"failFuncName": "",
+			"failFuncParams": [""]
+		}
+	},
+	{
+		"eventName": "昨日记忆1",
+		"preEvent":"",
+		"successMessage": "这天，一直不知道有什么用的水晶",
+		"failMessage": "",
+		"type": "static",
+		"prob": 70,
+		"occurDay": 19,
+		"occurMonth": 4,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["第一次见这般稀奇的玩意，你拿在手上搬弄半天，除了时不时盒子会亮一下外你并未发现什么。"],
+			"failFuncName": "",
+			"failFuncParams": [""]
+		}
+	},
+	
+	{
 		"eventName": "红黑树？？",
+		"preEvent":"",
 		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
 		"failMessage": "虚空缓缓出现一个大黑洞！",
 		"type": "static",
@@ -54,6 +134,7 @@
 	},
 	{
 		"eventName": "大侠梦",
+		"preEvent":"",
 		"successMessage": "昨天晚间，做梦当了劫富济贫的大侠，梦游取走富人的金币*5",
 		"failMessage": "昨天晚间，做梦当了劫富济贫的大侠，梦游取走富人的金币*5",
 		"type": "static",
@@ -72,6 +153,7 @@
 	},
 	{
 		"eventName": "该死的盗贼",
+		"preEvent":"",
 		"successMessage": "昨天晚上家里来了一个盗贼，偷走你的金币*5",
 		"failMessage": "",
 		"type": "static",
@@ -90,6 +172,7 @@
 	},
 	{
 		"eventName": "香甜的梦",
+		"preEvent":"",
 		"successMessage": "\t昨天夜里晚风微凉，你刚躺下就入梦了——梦里一位来自东方的神秘教师上了一堂生动形象的丝绸之路课。清晨醒来之后发现创造之书解锁了silk",
 		"failMessage": "一向不擅长学习的你，睡得更香了！",
 		"type": "static",
@@ -108,6 +191,7 @@
 	},
 	{
 		"eventName": "红黑树？？",
+		"preEvent":"",
 		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
 		"failMessage": "虚空缓缓出现一个大黑洞！",
 		"type": "static",
@@ -126,6 +210,7 @@
 	},
 	{
 		"eventName": "红黑树？？",
+		"preEvent":"",
 		"successMessage": "收到异世界之人(会红黑树但没有女朋友)发来的一个包裹",
 		"failMessage": "虚空缓缓出现一个大黑洞！",
 		"type": "static",
