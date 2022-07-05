@@ -91,6 +91,7 @@ func exitGame():
 	emit_signal("gameExitSignal")
 
 func gameEnd(eventName):
+	$EventTimer.stop()
 	if eventName == "死亡结局":
 		$DeadEndCG.call("startCG")
 	if Event.checkVictorys(eventName):

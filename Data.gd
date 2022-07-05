@@ -42,6 +42,7 @@ func saveData(saveName):
 	json["DateData"] = $Date.call("saveData")
 	json["WordsData"] = $Words.call("saveData")
 	json["MoneyData"] = $Money.call("saveData")
+	json["EventData"] = Event.saveData()
 	
 	writeScript(savePath, json)
 
@@ -51,6 +52,7 @@ func loadData(saveName):
 	$Date.call("loadData", json["DateData"])
 	$Words.call("loadData", json["WordsData"])
 	$Money.call("loadData", json["MoneyData"])
+	Event.loadData(json["EventData"])
 	
 func writeScript(scriptPath, json):
 	var file = File.new()

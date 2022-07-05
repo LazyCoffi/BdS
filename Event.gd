@@ -31,6 +31,16 @@ func randn(l, r):				# 返回[l, r]随机数
 	randomize()
 	return l + randi() % (r - l + 1)
 
+func loadData(data):
+	curVictoryEvents = data["curVictoryEvent"]
+	eventHappened = data["eventHappened"]
+
+func saveData():
+	var data = {}
+	data["curVictoryEvent"] = curVictoryEvents
+	data["eventHappened"] = eventHappened
+	return data
+
 func initEvents():
 	var file = File.new()
 	if not file.file_exists("res://scripts/events/eventList.json"):
@@ -119,10 +129,10 @@ func trueTest(params):
 func blockTest(params):
 	var block = params[0]
 	var requireNum = params[1]
-	if words.words[block] >= requireNum:
-		return true
-	else:
+	if not words.words.has(block) or words.words[block] < requireNum:
 		return false
+	else:
+		return true
 
 func randomTest(params):
 	var prob = params[0]
@@ -253,5 +263,6 @@ func addVictoryEvent(eventName, params, preMessage):
 	var message = "胜利条件 " + word + " 已添加!"
 	emit_signal("messageSignal", eventName, preMessage + message)
 
-func gameEnd(endName):
+func gameEndEvent(eventName, params, preMessage):
+	var endName = params[0]
 	emit_signal("gameEndSignal", endName)

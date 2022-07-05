@@ -30,6 +30,8 @@ func loadData(data):
 	importantDict = data["importantDict"]
 	resourceDict = data["resourceDict"]
 	dictTree = data["dictTree"]
+	isUnlocked = data["isUnlocked"]
+	missionWord = data["missionWord"]
 
 func saveData():
 	var data = {}
@@ -38,6 +40,8 @@ func saveData():
 	data["importantDict"] = importantDict
 	data["resourceDict"] = resourceDict
 	data["dictTree"] = dictTree
+	data["isUnlocked"] = isUnlocked
+	data["missionWord"] = missionWord
 	
 	return data
 

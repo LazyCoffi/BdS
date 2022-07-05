@@ -363,7 +363,7 @@
 	{
 		"eventName": "上交物品",
 		"preEvent":"",
-		"successMessage": "",
+		"successMessage": "成功上交物品!\n(木匠没想到你竟然给他一套新的工具)",
 		"failMessage": "你没能完成领主的要求",
 		"type": "static",
 		"prob": 100,
@@ -372,9 +372,9 @@
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "blockTest",
-			"checkFuncParams": ["tools"],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["木匠没想到你竟然给他一套新的工具"],
+			"checkFuncParams": ["tools", 1],
+			"successFuncName": "removeBlockEvent",
+			"successFuncParams": ["tools", 1],
 			"failFuncName": "gameEndEvent",
 			"failFuncParams": ["死亡结局"]
 		}
@@ -401,7 +401,7 @@
 	{
 		"eventName": "上交物品",
 		"preEvent":"",
-		"successMessage": "",
+		"successMessage": "成功上交物品!\n(听说这匹马临死前踢了领主一脚)",
 		"failMessage": "你没能完成领主的要求",
 		"type": "static",
 		"prob": 100,
@@ -410,9 +410,9 @@
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "blockTest",
-			"checkFuncParams": ["horse"],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["领主说这匹马味道应该不错"],
+			"checkFuncParams": ["horse", 1],
+			"successFuncName": "removeBlockEvent",
+			"successFuncParams": ["horse", 1],
 			"failFuncName": "gameEndEvent",
 			"failFuncParams": ["死亡结局"]
 		}
@@ -439,7 +439,7 @@
 	{
 		"eventName": "上交物品",
 		"preEvent":"",
-		"successMessage": "",
+		"successMessage": "成功上交物品!\n(第二天窗户就又被打破了)",
 		"failMessage": "你没能完成领主的要求",
 		"type": "static",
 		"prob": 100,
@@ -448,9 +448,9 @@
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "blockTest",
-			"checkFuncParams": ["glass"],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["领主家现在不透风了"],
+			"checkFuncParams": ["glass", 1],
+			"successFuncName": "removeBlockEvent",
+			"successFuncParams": ["glass", 1],
 			"failFuncName": "gameEndEvent",
 			"failFuncParams": ["死亡结局"]
 		}
@@ -478,7 +478,7 @@
 	{
 		"eventName": "上交物品",
 		"preEvent":"",
-		"successMessage": "",
+		"successMessage": "成功上交物品!\n(领主很高兴，你甚至参加了领主侄女的婚宴大吃了一顿)",
 		"failMessage": "你没能完成领主的要求",
 		"type": "static",
 		"prob": 100,
@@ -487,9 +487,9 @@
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "blockTest",
-			"checkFuncParams": ["silkdress"],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["领主很高兴，你甚至参加了领主侄女的婚宴大吃了一顿"],
+			"checkFuncParams": ["silkdress", 1],
+			"successFuncName": "removeBlockEvent",
+			"successFuncParams": ["silkdress", 1],
 			"failFuncName": "gameEndEvent",
 			"failFuncParams": ["死亡结局"]
 		}
@@ -516,7 +516,7 @@
 	{
 		"eventName": "上交物品",
 		"preEvent":"",
-		"successMessage": "",
+		"successMessage": "成功上交物品!\n(听说领主家的厨师因为不会做龙虾被砍头了)",
 		"failMessage": "你没能完成领主的要求",
 		"type": "static",
 		"prob": 100,
@@ -525,9 +525,9 @@
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "blockTest",
-			"checkFuncParams": ["crayfish"],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["听说领主家的厨师因为不会做龙虾被砍头了"],
+			"checkFuncParams": ["crayfish", 1],
+			"successFuncName": "removeBlockEvent",
+			"successFuncParams": ["crayfish", 1],
 			"failFuncName": "gameEndEvent",
 			"failFuncParams": ["死亡结局"]
 		}
@@ -554,7 +554,7 @@
 	{
 		"eventName": "上交物品",
 		"preEvent":"",
-		"successMessage": "",
+		"successMessage": "成功上交物品!\n(领主女儿很喜欢这条项链，宴会后把它送给了自家狗狗)",
 		"failMessage": "你没能完成领主的要求",
 		"type": "static",
 		"prob": 100,
@@ -563,9 +563,9 @@
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "blockTest",
-			"checkFuncParams": ["emeraldlace"],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["领主女儿很喜欢这条项链，宴会后把它送给了自家狗狗"],
+			"checkFuncParams": ["emeraldlace", 1],
+			"successFuncName": "removeEvent",
+			"successFuncParams": ["emeraldlace", 1],
 			"failFuncName": "gameEndEvent",
 			"failFuncParams": ["死亡结局"]
 		}
@@ -592,7 +592,7 @@
 	{
 		"eventName": "上交物品",
 		"preEvent":"",
-		"successMessage": "",
+		"successMessage": "成功上交物品!\n(经过领主家门口时，你发现领主家的猫长了一根老虎尾巴)",
 		"failMessage": "你没能完成领主的要求",
 		"type": "static",
 		"prob": 100,
@@ -601,9 +601,9 @@
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "blockTest",
-			"checkFuncParams": ["tigerwhip"],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["经过领主家门口时，你发现领主家的猫长了一根老虎尾巴"],
+			"checkFuncParams": ["tigerwhip", 1],
+			"successFuncName": "removeBlockEvent",
+			"successFuncParams": ["tigerwhip", 1],
 			"failFuncName": "gameEndEvent",
 			"failFuncParams": ["死亡结局"]
 		}
@@ -630,7 +630,7 @@
 	{
 		"eventName": "上交物品",
 		"preEvent":"",
-		"successMessage": "",
+		"successMessage": "成功上交物品!\n(隔壁张三向你抱怨领主竟然要他上交一只蜥蜴用来孵蛋)",
 		"failMessage": "你没能完成领主的要求",
 		"type": "static",
 		"prob": 100,
@@ -639,9 +639,9 @@
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "blockTest",
-			"checkFuncParams": ["dinosauregg"],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["隔壁张三向你抱怨领主竟然要他上交一只蜥蜴用来孵蛋"],
+			"checkFuncParams": ["dinosauregg", 1],
+			"successFuncName": "removeBlockEvent",
+			"successFuncParams": ["dinosauregg", 1],
 			"failFuncName": "gameEndEvent",
 			"failFuncParams": ["死亡结局"]
 		}
@@ -668,7 +668,7 @@
 	{
 		"eventName": "上交物品",
 		"preEvent":"",
-		"successMessage": "",
+		"successMessage": "成功上交物品!\n(听说领主每天在家祈祷自家狐狸赶快变)",
 		"failMessage": "你没能完成领主的要求",
 		"type": "static",
 		"prob": 100,
@@ -677,9 +677,9 @@
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "blockTest",
-			"checkFuncParams": ["fox"],
+			"checkFuncParams": ["fox", 1],
 			"successFuncName": "messageEvent",
-			"successFuncParams": ["听说领主每天在家祈祷自家狐狸赶快变"],
+			"successFuncParams": ["fox", 1],
 			"failFuncName": "gameEndEvent",
 			"failFuncParams": ["死亡结局"]
 		}
@@ -706,7 +706,7 @@
 	{
 		"eventName": "上交物品",
 		"preEvent":"",
-		"successMessage": "",
+		"successMessage": "成功上交物品!\n(领主以为海蛰和海参是同一个东西想要吃，厨师只能自己掏钱买了只海参煮来给他吃)",
 		"failMessage": "你没能完成领主的要求",
 		"type": "static",
 		"prob": 100,
@@ -715,9 +715,9 @@
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "blockTest",
-			"checkFuncParams": ["jellyfish"],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["领主以为海蛰和海参是同一个东西想要吃，厨师只能自己掏钱买了只海参煮来给他吃"],
+			"checkFuncParams": ["jellyfish", 1],
+			"successFuncName": "removeBlockEvent",
+			"successFuncParams": ["jellyfish", 1],
 			"failFuncName": "gameEndEvent",
 			"failFuncParams": ["死亡结局"]
 		}
@@ -744,7 +744,7 @@
 	{
 		"eventName": "上交物品",
 		"preEvent":"",
-		"successMessage": "",
+		"successMessage": "成功上交物品!\n(领主遗憾的宣布自己的头发还是没长出来)",
 		"failMessage": "你没能完成领主的要求",
 		"type": "static",
 		"prob": 100,
@@ -753,9 +753,9 @@
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "blockTest",
-			"checkFuncParams": ["ginkgolidaex"],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["领主遗憾的宣布自己的头发还是没长出来"],
+			"checkFuncParams": ["ginkgolidaex", 1],
+			"successFuncName": "removeBlockEvent",
+			"successFuncParams": ["ginkgolidaex", 1],
 			"failFuncName": "gameEndEvent",
 			"failFuncParams": ["死亡结局"]
 		}
@@ -782,7 +782,7 @@
 	{
 		"eventName": "上交物品",
 		"preEvent":"",
-		"successMessage": "",
+		"successMessage": "成功上交物品!\n(没人敢告诉领主他炼出来的只是黄铜)",
 		"failMessage": "你没能完成领主的要求",
 		"type": "static",
 		"prob": 100,
@@ -791,9 +791,9 @@
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "blockTest",
-			"checkFuncParams": ["ferricammoniumcitrate"],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["没人敢告诉领主他炼出来的只是黄铜"],
+			"checkFuncParams": ["ferricammoniumcitrate", 1],
+			"successFuncName": "removeBlockEvent",
+			"successFuncParams": ["ferricammoniumcitrate", 1],
 			"failFuncName": "gameEndEvent",
 			"failFuncParams": ["死亡结局"]
 		}
@@ -830,7 +830,7 @@
 		"funcList": {
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
-			"successFuncName": "gameEnd",
+			"successFuncName": "gameEndEvent",
 			"successFuncParams": ["死亡结局"],
 			"failFuncName": "",
 			"failFuncParams": []
