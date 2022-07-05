@@ -115,7 +115,7 @@ func getAllDict():
 		
 func getCurDict():
 	var curDict = []
-	for key in words.keys():
+	for key in dict.keys():
 		if dict.has(key) and dict[key] == 1:
 			curDict.append(key)
 	
@@ -161,6 +161,9 @@ func initDict():
 	var json = parseScript("dicts/dict.json")
 	for word in json:
 		dict[word] = 0
+	addWord("water")
+	addWord("stone")
+	addWord("wood")
 
 func initImportantDict():
 	var json = parseScript("dicts/importantDict.json")
@@ -172,8 +175,7 @@ func initResourceDict():
 	
 func initDictTree():
 	dictTree = parseScript("dicts/dictTree.json")
-	isUnlocked["Root"] = 0
-	unlockDictTree("Root")
+	isUnlocked["Root"] = 1
 
 
 func randn(a, b):			# 返回[l, r]随机数

@@ -225,6 +225,7 @@ func setMissionEvent(eventName, params, preMessage):
 	var message = "领主要求在 " + date.call("getMissionDateStr") + "前拿到一个 " + missionWord + " !"
 	emit_signal("messageSignal", eventName, preMessage + message)
 	emit_signal("missionSetSignal")
+	words.call("addWord", missionWord)
 
 func removeBlockEvent(eventName, params, preMessage):
 	var block = params[0]

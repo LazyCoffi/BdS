@@ -641,7 +641,7 @@
 			"checkFuncName": "blockTest",
 			"checkFuncParams": ["dinosauregg"],
 			"successFuncName": "messageEvent",
-			"successFuncParams": ["隔壁张三向你抱怨领主竟然要他上交一直蜥蜴用来孵蛋"],
+			"successFuncParams": ["隔壁张三向你抱怨领主竟然要他上交一只蜥蜴用来孵蛋"],
 			"failFuncName": "gameEndEvent",
 			"failFuncParams": ["死亡结局"]
 		}

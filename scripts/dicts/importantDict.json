@@ -1,7 +1,11 @@
 [
 	"sword",
+	"armor",
+	"gunpowder",
+	"artillery",
 	"cpu",
 	"graphicscard",
 	"harddisk",
-	"heatsink"
+	"heatsink",
+	"ferryticket"
 ]
