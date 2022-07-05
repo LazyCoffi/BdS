@@ -53,6 +53,8 @@ func buyBlock(block):
 	refresh()
 
 func fillBuyList():
+	listState = 0
+	
 	$ItemList.clear()
 	
 	$ItemList.add_item("商品名称")
@@ -66,6 +68,8 @@ func fillBuyList():
 		$ItemList.add_item("购买")
 
 func fillSellList():
+	listState = 1
+	
 	$ItemList.clear()
 	
 	$ItemList.add_item("物品名称")
@@ -75,7 +79,7 @@ func fillSellList():
 	
 	var list = words.call("getBlocks")
 	
-	for listNode in curList:
+	for listNode in list:
 		var block = listNode[0]
 		if not priceDict.has(block):
 			continue

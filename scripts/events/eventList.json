@@ -268,7 +268,7 @@
 	{
 		"eventName": "香甜的梦",
 		"preEvent":"",
-		"successMessage": "\t昨天夜里晚风微凉，你刚躺下就入梦了——梦里一位来自东方的神秘教师上了一堂生动形象的丝绸之路课。清晨醒来之后发现创造之书解锁了silk",
+		"successMessage": "昨天夜里晚风微凉，你刚躺下就入梦了——梦里一位来自东方的神秘教师上了一堂生动形象的丝绸之路课。清晨醒来之后发现创造之书解锁了silk",
 		"failMessage": "一向不擅长学习的你，睡得更香了！",
 		"type": "static",
 		"prob": 70,
@@ -405,7 +405,7 @@
 		"failMessage": "你没能完成领主的要求",
 		"type": "static",
 		"prob": 100,
-		"occurDay": 1,
+		"occurDay": 30,
 		"occurMonth": 2,
 		"occurYear": 1789,
 		"funcList": {
