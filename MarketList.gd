@@ -12,12 +12,21 @@ signal setTriggerSignal
 func _ready():
 	money = $"/root/Data/Money"
 	words = $"/root/Data/Words"
+	$"/root/Data/Date".connect("nextDaySignal", self, "fillBuyList")
 	initMarketList()
+	setBuyList()
 
 func initList():
 	fillBuyList()
 	listState = 0
+
+func setBuyList():
+	var list = priceDict.keys()
 	
+	if $"/root/Data/Date".call("getTotalDays") % 7 == 1:
+		list.shuffle()
+		curList = list.slice(0, 7)
+
 func sellBlock(block):
 	var value = priceDict[block]
 	var message = "已出售 " + block + " ,获得 " + str(value) + " 硬币"
@@ -51,7 +60,7 @@ func fillBuyList():
 	$ItemList.add_item("--")
 	$ItemList.set_item_selectable(2, false)
 	
-	for key in priceDict.keys():
+	for key in curList:
 		$ItemList.add_item(key)
 		$ItemList.add_item(str(priceDict[key]))
 		$ItemList.add_item("购买")
@@ -65,10 +74,6 @@ func fillSellList():
 	$ItemList.set_item_selectable(2, false)
 	
 	var list = words.call("getBlocks")
-	
-	if $"/root/Data/Date".call("getTotalDays") % 7 == 0:
-		list.shuffle()
-		curList = list.slice(0, 10)
 	
 	for listNode in curList:
 		var block = listNode[0]

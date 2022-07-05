@@ -17,12 +17,6 @@ func _ready():
 	initDictTree()
 	
 	missionWord = ""
-	
-	# Test
-	insertBlock("ood")
-	insertBlock("w")
-	insertBlock("word")
-	insertBlock("s")
 
 func setMissionWord(word):
 	missionWord = word

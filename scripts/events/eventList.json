@@ -2,7 +2,7 @@
 		"eventName": "异世界须知",
 		"preEvent":"",
 		"successMessage": "",
-		"failMessage": "失败",
+		"failMessage": "",
 		"type": "static",
 		"prob": 100,
 		"occurDay": 1,
@@ -12,9 +12,47 @@
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
 			"successFuncName": "messageEvent",
-			"successFuncParams": ["欢迎来到异世界——创造之书的诞生地，朗特伊尔大陆\n\t作为布瑞特·艾冷斯镇的居民，你无疑是悲惨的。镇上的贪婪领主每月都会征收稀奇的物品。普通居民的生活是受限制的，你只可以选择收集资源或者是去交易市场逛一逛(*^▽^*)"],
+			"successFuncParams": ["欢迎来到异世界——创造之书的诞生地，朗特伊尔大陆\n\t作为布瑞特·艾冷斯镇的居民，你无疑是悲惨的。镇上的贪婪领主每月都会征收稀奇的物品。普通居民的生活是受限制的，你只可以选择收集资源或者是去交易市场逛一逛, 或者打开你神奇的创造之书，创造属于你的故事(*^▽^*)"],
 			"failFuncName": "",
 			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "武装起义!",
+		"preEvent":"",
+		"successMessage": "你和周围的乡民已经受够了压迫，只要有了武器，你们就能随时揭竿而起，打倒疯领主。收集剑与铠甲来完成这一目标吧！",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 1,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "addVictoryEvent",
+			"successFuncParams": ["武装胜利1"],
+			"failFuncName": "",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "武装起义!",
+		"preEvent":"",
+		"successMessage": "打倒疯领主的途径不只有剑与血，还有枪与大炮",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 1,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "addVictoryEvent",
+			"successFuncParams": ["武装胜利2"],
+			"failFuncName": "",
+			"failFuncParams": [""]
 		}
 	},
 	{
@@ -23,13 +61,13 @@
 		"successMessage": "镇西边的王二狗说花钱可以请市场的商人带人去往另一片大陆，他已经拿到船票了，马上就能脱离苦海了，你心生羡慕呀！",
 		"failMessage": "",
 		"type": "static",
-		"prob": 100,
+		"prob": 75,
 		"occurDay": 2,
 		"occurMonth": 3,
 		"occurYear": 1789,
 		"funcList": {
-			"checkFuncName": "randomTest",
-			"checkFuncParams": [75],
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
 			"successFuncName": "addVictoryEvent",
 			"successFuncParams": ["远走海外"],
 			"failFuncName": "",
@@ -37,48 +75,29 @@
 		}
 	},
 	{
-		"eventName": "海的那一边————结束篇",
-		"preEvent":"海的那一边",
-		"successMessage": "你已经拿到船票了，马上就能脱离苦海了，你心中幻想着另一片大陆的生活......",
-		"failMessage": "无良商人拿走你的钱但是不给你船票。被骗走钱的你心灰意冷，不再为领主的索取奔波，一天因为交不上物品，你被领主杀死。",
-		"type": "static",
-		"prob": 100,
-		"occurDay": 28,
-		"occurMonth": 4,
-		"occurYear": 1789,
-		"funcList": {
-			"checkFuncName": "randomTest",
-			"checkFuncParams": [99],
-			"successFuncName": "checkVictory",
-			"successFuncParams": [],
-			"failFuncName": "gameoverEvent",
-			"failFuncParams": []
-		}
-	},
-	{
 		"eventName": "商人的小道消息",
-		"preEvent":"",
+		"preEvent":"海的那一边",
 		"successMessage": "",
-		"failMessage": "听说花钱可以请市场的商人带人去往另一片大陆",
+		"failMessage": "",
 		"type": "static",
 		"prob": 70,
 		"occurDay": 20,
 		"occurMonth": 5,
 		"occurYear": 1789,
 		"funcList": {
-			"checkFuncName": "eventHappenedTest",
-			"checkFuncParams": ["海的那一边"],
-			"successFuncName": "",
-			"successFuncParams": [],
-			"failFuncName": "messageEvent",
-			"failFuncParams": ["你打算找机会确定消息是否可靠！"]
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["听说花钱可以请市场的商人带人去往另一片大陆,你打算找机会确定消息是否可靠!"],
+			"failFuncName": "",
+			"failFuncParams": []
 		}
 	},
 	{
 		"eventName": "消息的详细情报",
 		"preEvent":"商人的小道消息",
 		"successMessage": "消息是真的，花费3000硬币商人可以把人装进货仓带走。",
-		"failMessage": "消息是假的，你看见有人被骗，心灰意冷，最后被领主杀死。你把这消息告知给镇上的人，有位富人感激你给了你100硬币",
+		"failMessage": "消息是假的，你看见有人被骗，心灰意冷，最后被领主杀死。你把这消息告知给镇上的人，有位富人感激你给了你10硬币",
 		"type": "static",
 		"prob": 100,
 		"occurDay": 18,
@@ -90,7 +109,7 @@
 			"successFuncName": "addVictoryEvent",
 			"successFuncParams": ["商人的帮助"],
 			"failFuncName": "addMoneyEvent",
-			"failFuncParams": ["你看见有人被骗，心灰意冷，最后被领主杀死。"]
+			"failFuncParams": [10]
 		}
 	},
 	{
@@ -116,7 +135,7 @@
 		"eventName": "月底将近",
 		"preEvent":"来自隔壁镇恩人的求救信",
 		"successMessage": "事到临头，一个自私念头产生：",
-		"failMessage": "事到临头，一个自私念头产生，不不不还是得去救恩人，嗯~，对，得救。\n\t心念通达战胜邪念的你决定去赌场碰碰运气。\n运气绝佳，获利25硬币。",
+		"failMessage": "事到临头，一个自私念头产生... 不不不还是得去救恩人，嗯~，对，得救。\n\t心念通达战胜邪念的你决定去赌场碰碰运气。\n运气绝佳，获利25硬币。",
 		"type": "static",
 		"prob": 30,
 		"occurDay": 28,
@@ -126,7 +145,7 @@
 			"checkFuncName": "randomTest",
 			"checkFuncParams": [85],
 			"successFuncName": "messageEvent",
-			"successFuncParams": ["要不还是算了，多一事不如少一事，忘了他吧！"],
+			"successFuncParams": ["要不还是算了，多一事不如少一事，忘了他吧！虽是这么说，但心中仍难忘恩人恩情..."],
 			"failFuncName": "addMoneyEvent",
 			"failFuncParams": [25]
 		}
@@ -134,8 +153,8 @@
 	{
 		"eventName": "解救日",
 		"preEvent":"来自隔壁镇恩人的求救信",
-		"successMessage": "你花费50硬币成功解救了恩人",
-		"failMessage": "因为你并没有50硬币，绑匪气急败坏将你杀了",
+		"successMessage": "你花费50硬币成功解救了恩人,恩人感激涕零,说来日必将重谢,然后挥挥手回家了.",
+		"failMessage": "你并没有50硬币,但念在恩情仍只身前往解救...\n但双拳难敌四手，你最终还是被打倒，和恩人一起沉入深深的海底...",
 		"type": "static",
 		"prob": 100,
 		"occurDay": 30,
@@ -146,8 +165,8 @@
 			"checkFuncParams": [50],
 			"successFuncName": "subMoneyEvent",
 			"successFuncParams": [50],
-			"failFuncName": "gameoverEvent",
-			"failFuncParams": []
+			"failFuncName": "gameEndEvent",
+			"failFuncParams": ["死亡结局"]
 		}
 	},
 
@@ -155,19 +174,19 @@
 		"eventName": "恩人的感谢信",
 		"preEvent":"来自隔壁镇恩人的求救信",
 		"successMessage": "恩人十分感激你的解救，不光将赎金还你还给了你100硬币以作答谢",
-		"failMessage": "恩人十分感激你的解救，将赎金的钱给了你",
+		"failMessage": "",
 		"type": "static",
 		"prob": 95,
 		"occurDay": 20,
 		"occurMonth": 7,
 		"occurYear": 1789,
 		"funcList": {
-			"checkFuncName": "eventHappenedTest",
-			"checkFuncParams": ["海的那一边"],
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
 			"successFuncName": "addMoneyEvent",
 			"successFuncParams": [150],
-			"failFuncName": "addMoneyEvent",
-			"failFuncParams": [50]
+			"failFuncName": "",
+			"failFuncParams": []
 		}
 	},
 	{
@@ -193,7 +212,7 @@
 		"eventName": "水晶盒子响了",
 		"preEvent":"昨日记忆",
 		"successMessage": "这天，一直不知道有什么用的水晶突然发出奇怪的声音，你手忙脚乱地摆弄了下，一个熟悉陌生的声音传来，通过交流很快你就知道这是之前救过的奇装异服怪人，你也知道了他是时空什么局的测试员，他请你帮助完成测试并且教授于你一些奇怪的知识",
-		"failMessage": "这天，一直不知道有什么用的水晶突然发出奇怪的声音，你手忙脚乱地摆弄了下，一个熟悉陌生的声音传来，通过交流很快你就知道这是之前救过的奇装异服怪人,他感激你的帮助送了你一些小礼物。",
+		"failMessage": "这天，一直不知道有什么用的水晶突然发出奇怪的声音，你手忙脚乱地摆弄了下，一个熟悉陌生的声音传来，通过交流很快你就知道这是之前救过的奇装异服怪人,他说他特地从未来过来帮帮你,并在你的创造之书上随意勾画了几笔。",
 		"type": "static",
 		"prob": 70,
 		"occurDay": 19,
@@ -220,7 +239,7 @@
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "randomTest",
-			"checkFuncParams": [90],
+			"checkFuncParams": [45],
 			"successFuncName": "addMoneyEvent",
 			"successFuncParams": [15],
 			"failFuncName": "messageEvent",
@@ -325,7 +344,7 @@
 	{
 		"eventName": "领主的压迫",
 		"preEvent":"",
-		"successMessage": "月底你需要上交：",
+		"successMessage": "领主家木匠的工具坏了，领主说让他来你家拿套新的",
 		"failMessage": "",
 		"type": "static",
 		"prob": 100,
@@ -335,16 +354,35 @@
 		"funcList": {
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["wood * 10"],
+			"successFuncName": "setMissionEvent",
+			"successFuncParams": ["tools", 1789, 1, 30],
 			"failFuncName": "",
 			"failFuncParams": []
 		}
 	},
 	{
+		"eventName": "上交物品",
+		"preEvent":"",
+		"successMessage": "",
+		"failMessage": "你没能完成领主的要求",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 30,
+		"occurMonth": 1,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "blockTest",
+			"checkFuncParams": ["tools"],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["木匠没想到你竟然给他一套新的工具"],
+			"failFuncName": "gameEndEvent",
+			"failFuncParams": ["死亡结局"]
+		}
+	},
+	{
 		"eventName": "领主的压迫",
 		"preEvent":"",
-		"successMessage": "月底你需要上交：",
+		"successMessage": "领主是马肉爱好者,但除了士兵的战马好像没有其他可用的马了...于是他找到了你",
 		"failMessage": "",
 		"type": "static",
 		"prob": 100,
@@ -354,35 +392,74 @@
 		"funcList": {
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["honey * 3"],
+			"successFuncName": "setMissionEvent",
+			"successFuncParams": ["horse", 1789, 2, 30],
 			"failFuncName": "",
 			"failFuncParams": []
 		}
 	},
 	{
-		"eventName": "领主的压迫",
+		"eventName": "上交物品",
 		"preEvent":"",
-		"successMessage": "月底你需要上交：",
-		"failMessage": "",
+		"successMessage": "",
+		"failMessage": "你没能完成领主的要求",
 		"type": "static",
 		"prob": 100,
 		"occurDay": 1,
-		"occurMonth": 3,
+		"occurMonth": 2,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "blockTest",
+			"checkFuncParams": ["horse"],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["领主说这匹马味道应该不错"],
+			"failFuncName": "gameEndEvent",
+			"failFuncParams": ["死亡结局"]
+		}
+	},
+	{
+		"eventName": "领主的压迫",
+		"preEvent":"",
+		"successMessage": "领主家的窗户被熊孩子打破了,要你给他一块玻璃去修窗户",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 30,
+		"occurMonth": 2,
 		"occurYear": 1789,
 		"funcList": {
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["glass * 3"],
+			"successFuncName": "setMissionEvent",
+			"successFuncParams": ["glass", 1789, 3, 30],
 			"failFuncName": "",
 			"failFuncParams": []
 		}
 	},
 	{
+		"eventName": "上交物品",
+		"preEvent":"",
+		"successMessage": "",
+		"failMessage": "你没能完成领主的要求",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 30,
+		"occurMonth": 3,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "blockTest",
+			"checkFuncParams": ["glass"],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["领主家现在不透风了"],
+			"failFuncName": "gameEndEvent",
+			"failFuncParams": ["死亡结局"]
+		}
+	},
+
+	{
 		"eventName": "领主的压迫",
 		"preEvent":"",
-		"successMessage": "月底你需要上交：",
+		"successMessage": "领主的手下说领主的侄女要结婚了,要求你给领主一套丝绸婚纱",
 		"failMessage": "",
 		"type": "static",
 		"prob": 100,
@@ -392,16 +469,35 @@
 		"funcList": {
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["silk * 3"],
+			"successFuncName": "setMissionEvent",
+			"successFuncParams": ["silkdress", 1789, 4, 30],
 			"failFuncName": "",
 			"failFuncParams": []
 		}
 	},
 	{
+		"eventName": "上交物品",
+		"preEvent":"",
+		"successMessage": "",
+		"failMessage": "你没能完成领主的要求",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 30,
+		"occurMonth": 4,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "blockTest",
+			"checkFuncParams": ["silkdress"],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["领主很高兴，你甚至参加了领主侄女的婚宴大吃了一顿"],
+			"failFuncName": "gameEndEvent",
+			"failFuncParams": ["死亡结局"]
+		}
+	},
+	{
 		"eventName": "领主的压迫",
 		"preEvent":"",
-		"successMessage": "月底你需要上交：",
+		"successMessage": "深居浅出的领主突然想尝尝大海里的龙虾,要求你给他弄一只",
 		"failMessage": "",
 		"type": "static",
 		"prob": 100,
@@ -411,16 +507,35 @@
 		"funcList": {
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["crayfish * 5"],
+			"successFuncName": "setMissionEvent",
+			"successFuncParams": ["crayfish", 1789, 5, 30],
 			"failFuncName": "",
 			"failFuncParams": []
 		}
 	},
 	{
+		"eventName": "上交物品",
+		"preEvent":"",
+		"successMessage": "",
+		"failMessage": "你没能完成领主的要求",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 30,
+		"occurMonth": 5,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "blockTest",
+			"checkFuncParams": ["crayfish"],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["听说领主家的厨师因为不会做龙虾被砍头了"],
+			"failFuncName": "gameEndEvent",
+			"failFuncParams": ["死亡结局"]
+		}
+	},
+	{
 		"eventName": "领主的压迫",
 		"preEvent":"",
-		"successMessage": "月底你需要上交：",
+		"successMessage": "领主的女儿想穿得漂漂亮亮去参加宴会,领主要求你给他一条祖母绿项链",
 		"failMessage": "",
 		"type": "static",
 		"prob": 100,
@@ -430,16 +545,35 @@
 		"funcList": {
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["Ambilight * 2"],
+			"successFuncName": "setMissionEvent",
+			"successFuncParams": ["emeraldlace", 1789, 6, 30],
 			"failFuncName": "",
 			"failFuncParams": []
 		}
 	},
 	{
+		"eventName": "上交物品",
+		"preEvent":"",
+		"successMessage": "",
+		"failMessage": "你没能完成领主的要求",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 30,
+		"occurMonth": 6,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "blockTest",
+			"checkFuncParams": ["emeraldlace"],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["领主女儿很喜欢这条项链，宴会后把它送给了自家狗狗"],
+			"failFuncName": "gameEndEvent",
+			"failFuncParams": ["死亡结局"]
+		}
+	},
+	{
 		"eventName": "领主的压迫",
 		"preEvent":"",
-		"successMessage": "月底你需要上交：",
+		"successMessage": "领主非常向往东方的猛兽--老虎,想让你给他一条老虎尾巴把玩把玩",
 		"failMessage": "",
 		"type": "static",
 		"prob": 100,
@@ -449,16 +583,35 @@
 		"funcList": {
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["tigerwhip * 3"],
+			"successFuncName": "setMissionEvent",
+			"successFuncParams": ["tigerwhip", 1789, 7, 30],
 			"failFuncName": "",
 			"failFuncParams": []
 		}
 	},
 	{
+		"eventName": "上交物品",
+		"preEvent":"",
+		"successMessage": "",
+		"failMessage": "你没能完成领主的要求",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 30,
+		"occurMonth": 7,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "blockTest",
+			"checkFuncParams": ["tigerwhip"],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["经过领主家门口时，你发现领主家的猫长了一根老虎尾巴"],
+			"failFuncName": "gameEndEvent",
+			"failFuncParams": ["死亡结局"]
+		}
+	},
+	{
 		"eventName": "领主的压迫",
 		"preEvent":"",
-		"successMessage": "月底你需要上交：",
+		"successMessage": "领主读了一本关于恐龙的书,现在大嚷着要你给他一颗恐龙蛋",
 		"failMessage": "",
 		"type": "static",
 		"prob": 100,
@@ -468,16 +621,35 @@
 		"funcList": {
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["jacket * 10"],
+			"successFuncName": "setMissionEvent",
+			"successFuncParams": ["dinosauregg", 1789, 8, 30],
 			"failFuncName": "",
 			"failFuncParams": []
 		}
 	},
 	{
+		"eventName": "上交物品",
+		"preEvent":"",
+		"successMessage": "",
+		"failMessage": "你没能完成领主的要求",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 30,
+		"occurMonth": 8,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "blockTest",
+			"checkFuncParams": ["dinosauregg"],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["隔壁张三向你抱怨领主竟然要他上交一直蜥蜴用来孵蛋"],
+			"failFuncName": "gameEndEvent",
+			"failFuncParams": ["死亡结局"]
+		}
+	},
+	{
 		"eventName": "领主的压迫",
 		"preEvent":"",
-		"successMessage": "月底你需要上交：",
+		"successMessage": "领主本要你给他一只狐狸精,百般妥协后才要你给他一只狐狸",
 		"failMessage": "",
 		"type": "static",
 		"prob": 100,
@@ -488,15 +660,34 @@
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
 			"successFuncName": "messageEvent",
-			"successFuncParams": ["ox * 3"],
+			"successFuncParams": ["fox", 1789, 9, 30],
 			"failFuncName": "",
 			"failFuncParams": []
 		}
 	},
 	{
+		"eventName": "上交物品",
+		"preEvent":"",
+		"successMessage": "",
+		"failMessage": "你没能完成领主的要求",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 30,
+		"occurMonth": 9,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "blockTest",
+			"checkFuncParams": ["fox"],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["听说领主每天在家祈祷自家狐狸赶快变"],
+			"failFuncName": "gameEndEvent",
+			"failFuncParams": ["死亡结局"]
+		}
+	},
+	{
 		"eventName": "领主的压迫",
 		"preEvent":"",
-		"successMessage": "月底你需要上交：",
+		"successMessage": "领主爱上了奇怪的海底生物,想见见海蛰长什么样",
 		"failMessage": "",
 		"type": "static",
 		"prob": 100,
@@ -506,16 +697,35 @@
 		"funcList": {
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["waterweed * 15"],
+			"successFuncName": "setMessageEvent",
+			"successFuncParams": ["jellyfish", 1789, 10, 30],
 			"failFuncName": "",
 			"failFuncParams": []
 		}
 	},
 	{
+		"eventName": "上交物品",
+		"preEvent":"",
+		"successMessage": "",
+		"failMessage": "你没能完成领主的要求",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 30,
+		"occurMonth": 10,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "blockTest",
+			"checkFuncParams": ["jellyfish"],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["领主以为海蛰和海参是同一个东西想要吃，厨师只能自己掏钱买了只海参煮来给他吃"],
+			"failFuncName": "gameEndEvent",
+			"failFuncParams": ["死亡结局"]
+		}
+	},
+	{
 		"eventName": "领主的压迫",
 		"preEvent":"",
-		"successMessage": "月底你需要上交：",
+		"successMessage": "领主已经开始变得疯狂了,竟然要你找一味存在于传说中的魔药",
 		"failMessage": "",
 		"type": "static",
 		"prob": 100,
@@ -525,16 +735,35 @@
 		"funcList": {
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
-			"successFuncName": "messageEvent",
-			"successFuncParams": ["Ginkgolide * 10"],
+			"successFuncName": "setMissionEvent",
+			"successFuncParams": ["ginkgolidaex", 1789, 11, 30],
 			"failFuncName": "",
 			"failFuncParams": []
 		}
 	},
 	{
+		"eventName": "上交物品",
+		"preEvent":"",
+		"successMessage": "",
+		"failMessage": "你没能完成领主的要求",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 30,
+		"occurMonth": 11,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "blockTest",
+			"checkFuncParams": ["ginkgolidaex"],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["领主遗憾的宣布自己的头发还是没长出来"],
+			"failFuncName": "gameEndEvent",
+			"failFuncParams": ["死亡结局"]
+		}
+	},
+	{
 		"eventName": "领主的压迫",
 		"preEvent":"",
-		"successMessage": "月底你需要上交：",
+		"successMessage": "疯狂的领主迷上了炼金学,正缺少一种闻所未闻的溶液",
 		"failMessage": "",
 		"type": "static",
 		"prob": 100,
@@ -544,8 +773,65 @@
 		"funcList": {
 			"checkFuncName": "trueTest",
 			"checkFuncParams": [],
+			"successFuncName": "setMissionEvent",
+			"successFuncParams": ["ferricammoniumcitrate", 1789, 12, 30],
+			"failFuncName": "",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "上交物品",
+		"preEvent":"",
+		"successMessage": "",
+		"failMessage": "你没能完成领主的要求",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 30,
+		"occurMonth": 12,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "blockTest",
+			"checkFuncParams": ["ferricammoniumcitrate"],
 			"successFuncName": "messageEvent",
-			"successFuncParams": ["FerricAmmoniumCitrate * 2"],
+			"successFuncParams": ["没人敢告诉领主他炼出来的只是黄铜"],
+			"failFuncName": "gameEndEvent",
+			"failFuncParams": ["死亡结局"]
+		}
+	},
+	{
+		"eventName": "临近的献祭典礼",
+		"preEvent":"",
+		"successMessage": "",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 30,
+		"occurMonth": 12,
+		"occurYear": 1789,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "messageEvent",
+			"successFuncParams": ["四年一次的献祭典礼一个月后就要开始了，而你是祭品的第一人选。你知道，如果不做些什么，一个月后就得变成桌子上的祭品了"],
+			"failFuncName": "",
+			"failFuncParams": []
+		}
+	},
+	{
+		"eventName": "献祭典礼",
+		"preEvent":"",
+		"successMessage": "",
+		"failMessage": "",
+		"type": "static",
+		"prob": 100,
+		"occurDay": 30,
+		"occurMonth": 1,
+		"occurYear": 1790,
+		"funcList": {
+			"checkFuncName": "trueTest",
+			"checkFuncParams": [],
+			"successFuncName": "gameEnd",
+			"successFuncParams": ["死亡结局"],
 			"failFuncName": "",
 			"failFuncParams": []
 		}

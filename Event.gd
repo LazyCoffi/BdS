@@ -20,6 +20,7 @@ signal addDictSignal			# 添加条目信号 (词块)
 signal gameEndSignal			# 游戏结束信号
 signal messageSignal			# 发送消息事件
 signal eventEndSignal
+signal missionSetSignal
 
 func _ready():
 	date = $"/root/Data/Date"
@@ -48,9 +49,6 @@ func initEvents():
 	
 	victoryEventDict = parse_json(file.get_as_text())
 	file.close()
-	
-	curVictoryEvents["武装胜利"] = victoryEventDict["武装胜利"]
-	curVictoryEvents["武装胜利2"] = victoryEventDict["武装胜利2"]
 
 func compDate(event):
 	var day = date.call("getDay")
@@ -148,36 +146,29 @@ func eventHappenedListTest(params):
 			return false
 	return true
 
-func getVictoryStr():
+func getCurVictoryNameList():
+	return curVictoryEvents.keys()
+
+func getVictoryStr(victoryName):
 	var finalStr = ""
-	for vKey in curVictoryEvents:
-		var victoryEvent = curVictoryEvents[vKey]
-		finalStr += vKey + ": ["
-		for key in victoryEvent.keys():
-			finalStr += key + ": " + str(victoryEvent[key])
-			if key != victoryEvent.keys().back():
-				finalStr += ", "
-		finalStr += "]\n"
+	var victoryEvent = victoryEventDict[victoryName]
+	finalStr += "["
+	for key in victoryEvent.keys():
+		finalStr += key + ": " + str(victoryEvent[key])
+		if key != victoryEvent.keys().back():
+			finalStr += ", "
+	finalStr += "]"
 	
 	return finalStr
 
-
-func checkVictorys(params):
-	for vKey in curVictoryEvents.keys():
-		var victoryEvent = curVictoryEvents[vKey]
-		var flag = 1
-		for key in victoryEvent.keys():
-			if key == "coin":
-				if money.call("getMoney") < victoryEvent[key]:
-					flag = 0
-					break
-			elif words.call("getBlockNum", key) < victoryEvent[key]:
-				flag = 0
-				break
-		if flag == 1:
-			emit_signal("gameWinSignal", vKey)
-			break
-
+func checkVictorys(victoryName):
+	var victoryEvent = victoryEventDict[victoryName]
+	for key in victoryEvent.keys():
+		if key == "coin":
+			if money.call("getMoney") < victoryEvent[key]:
+				return false
+		elif words.call("getBlockNum", key) < victoryEvent[key]:
+			return false
 
 func messageEvent(eventName, params, preMessage):
 	var message = params[0]
@@ -226,11 +217,14 @@ func subMoneyEvent(eventName, params, preMessage):
 
 func setMissionEvent(eventName, params, preMessage):
 	var missionWord = params[0]
-	var missionDate = params[1]
+	var year = params[1]
+	var month = params[2]
+	var day = params[3]
 	words.call("setMissionWord", missionWord)
-	date.call("setMissionDate", missionDate)
+	date.call("setMissionDate", year, month, day)
 	var message = "领主要求在 " + date.call("getMissionDateStr") + "前拿到一个 " + missionWord + " !"
 	emit_signal("messageSignal", eventName, preMessage + message)
+	emit_signal("missionSetSignal")
 
 func removeBlockEvent(eventName, params, preMessage):
 	var block = params[0]
@@ -258,6 +252,5 @@ func addVictoryEvent(eventName, params, preMessage):
 	var message = "胜利条件 " + word + " 已添加!"
 	emit_signal("messageSignal", eventName, preMessage + message)
 
-func gameEndEvent(eventName, params, preMessage):
-	var endName = params[0]
+func gameEnd(endName):
 	emit_signal("gameEndSignal", endName)

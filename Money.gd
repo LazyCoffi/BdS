@@ -3,6 +3,8 @@ extends Node
 var money
 var priceDict = {}
 
+signal moneyChangedSignal
+
 func _ready():
 	money = 0
 
@@ -25,15 +27,19 @@ func getMoney():
 	
 func addMoney(value):
 	money += value
+	emit_signal("moneyChangedSignal")
 
 func subMoney(value):
 	money = money - value
+	emit_signal("moneyChangedSignal")
 	
 func addRandomMoney(a, b):
 	addMoney(randn(a, b))
+	emit_signal("moneyChangedSignal")
 
 func subRandomMoney(a, b):
 	subMoney(randn(a, b))
+	emit_signal("moneyChangedSignal")
 	
 func randn(a, b):
 	randomize()

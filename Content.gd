@@ -45,6 +45,12 @@ func initConnects():
 	$Scene/BookScene.connect("nextDaySignal", self, "nextDay")
 	$Scene/CollectScene.connect("nextDaySignal", self, "nextDay")
 	$Scene/MarketScene.connect("nextDaySignal", self, "nextDay")
+	
+	$DeadEndCG.connect("cgEndSignal", self, "returnMainMenu")
+	$ForceWin1CG.connect("cgEndSignal", self, "returnMainMenu")
+	$BoatWinCG.connect("cgEndSignal", self, "returnMainMenu")
+	$ShopWinCG.connect("cgEndSignal", self, "returnMainMenu")
+	$TechWinCG.connect("cgEndSignal", self, "returnMainMenu")
 
 func eventConnect():
 	$Scene/BookScene/Book/CreateScene/CreateBench.connect("messageSignal", Event, "pushMessageEvent")
@@ -85,7 +91,19 @@ func exitGame():
 	emit_signal("gameExitSignal")
 
 func gameEnd(eventName):
-	pass
+	if eventName == "死亡结局":
+		$DeadEndCG.call("startCG")
+	if Event.checkVictorys(eventName):
+		if eventName == "武装胜利1":
+			$ForceWin1CG.call("startCG")
+		if eventName == "武装胜利2":
+			$ForceWin2CG.call("startCG")
+		if eventName == "远走海外":
+			$BootWinCG.call("startCG")
+		if eventName == "商人的帮助":
+			$ShopWinCG.call("startCG")
+		if eventName == "科技的魅力":
+			$TechWinCG.call("startCG")
 
 func showBookScene():
 	$Scene/MainScene.call("hideScene")

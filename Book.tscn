@@ -24,13 +24,6 @@
 [node name="BookScene" type="Node2D"]
 script = ExtResource( 6 )
 
-[node name="OilLamp" type="TextureRect" parent="."]
-margin_left = 1032.0
-margin_right = 1968.0
-margin_bottom = 1080.0
-texture = ExtResource( 1 )
-expand = true
-
 [node name="Book" type="TextureRect" parent="."]
 margin_left = 8.0
 margin_right = 1024.0
@@ -48,6 +41,13 @@ expand = true
 [node name="TreeScene" parent="Book" instance=ExtResource( 16 )]
 
 [node name="VictoryScene" parent="Book" instance=ExtResource( 19 )]
+
+[node name="OilLamp" type="TextureRect" parent="."]
+margin_left = 1032.0
+margin_right = 1968.0
+margin_bottom = 1080.0
+texture = ExtResource( 1 )
+expand = true
 
 [node name="CreateBookmark" type="TextureButton" parent="."]
 margin_left = 960.0

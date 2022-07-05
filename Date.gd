@@ -6,6 +6,8 @@ var month 			# 游戏当前月份
 var day				# 游戏当前日期
 var missionDate = {}
 
+signal nextDaySignal
+
 func _ready():
 	totalDays = 1;
 	month = 1;
@@ -41,6 +43,7 @@ func nextDay(): 			# 下一天
 		day = 1
 	else:
 		day += 1
+	emit_signal("nextDaySignal")
 
 func timePastByDay(n):		# 时间流逝n天
 	if n <= 0:

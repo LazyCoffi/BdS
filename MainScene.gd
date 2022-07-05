@@ -22,6 +22,7 @@ func _ready():
 	$InvisiableButton.connect("mouse_exited", $CatHoverBox, "hide")
 	
 	$InvisiableButton.connect("pressed", self, "sound")
+	Event.connect("missionSetSignal", $UI, "refresh")
 
 func showScene():
 	show()

@@ -2,6 +2,7 @@ extends TextureRect
 
 func _ready():
 	refresh()
+	$"/root/Data/Money".connect("moneyChangedSignal", self, "refresh")
 
 func refresh():
 	$Date.text = $"/root/Data/Date".call("getDateStr")
