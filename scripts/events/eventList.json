@@ -405,7 +405,7 @@
 		"failMessage": "你没能完成领主的要求",
 		"type": "static",
 		"prob": 100,
-		"occurDay": 1,
+		"occurDay": 30,
 		"occurMonth": 2,
 		"occurYear": 1789,
 		"funcList": {
