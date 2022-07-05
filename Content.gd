@@ -78,6 +78,7 @@ func playCG():
 	$OpeningCG.call("startCG")
 
 func returnMainMenu():
+	$EventTimer.stop()
 	$Scene/MainScene.call("hideScene")
 	$Scene/CollectScene.call("hideScene")
 	$Scene/MarketScene.call("hideScene")
